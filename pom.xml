@@ -22,11 +22,12 @@
     <groupId>org.wso2.carbon.connector</groupId>
     <artifactId>org.wso2.carbon.connector.jira</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>${connector.version}</version>
     <name>WSO2 Carbon - Mediation Library Connector For Jira</name>
     <url>http://wso2.org</url>
     <properties>
         <connector.name>jira</connector.name>
+        <connector.version>1.0.1-SNAPSHOT</connector.version>
         <test.framework.version>4.2.0</test.framework.version>
         <esb.version>4.9.0</esb.version>
         <carbon.kernel.version>4.4.1</carbon.kernel.version>
@@ -40,16 +41,6 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.wso2.carbon.mediation</groupId>
-            <artifactId>org.wso2.carbon.mediation.initializer</artifactId>
-            <version>${carbon.mediation.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.synapse</groupId>
-            <artifactId>synapse-core</artifactId>
-            <version>${synapse.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.synapse</groupId>
             <artifactId>synapse-commons</artifactId>
             <version>${synapse.version}</version>
@@ -60,27 +51,14 @@
             <version>${json.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.synapse</groupId>
+            <artifactId>synapse-core</artifactId>
+            <version>${synapse.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.wso2.carbon.mediation</groupId>
             <artifactId>org.wso2.carbon.connector.core</artifactId>
             <version>${carbon.mediation.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.mediation</groupId>
-            <artifactId>org.wso2.carbon.mediation.library.stub</artifactId>
-            <version>${carbon.mediation.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.integration.framework</artifactId>
-            <version>${carbon.integration.framework}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon.automation</groupId>
@@ -98,31 +76,6 @@
             <groupId>org.wso2.carbon.automation</groupId>
             <artifactId>org.wso2.carbon.automation.utils</artifactId>
             <version>${test.framework.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>emma</groupId>
-            <artifactId>emma</artifactId>
-            <version>${emma.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${org.testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>SecVerifier</artifactId>
-            <version>${carbon.kernel.version}</version>
-            <type>aar</type>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.esb</groupId>
-            <artifactId>org.wso2.carbon.esb.common</artifactId>
-            <version>4.8.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -172,6 +125,18 @@
                             </artifactItems>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>copy-emma-dependencies</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/emma</outputDirectory>
+                            <includeTypes>jar</includeTypes>
+                            <includeArtifactIds>emma,org.wso2.carbon.automation.core</includeArtifactIds>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
             <plugin>
@@ -185,10 +150,10 @@
                             <goal>attached</goal>
                         </goals>
                         <configuration>
-                            <finalName>${connector.name}-connector-${version}</finalName>
+                            <finalName>${connector.name}-connector-${connector.version}</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <filters>
-                                <filter>src/main/assembly/filter.properties</filter>
+                                <filter>${basedir}/src/main/assembly/filter.properties</filter>
                             </filters>
                             <descriptors>
                                 <descriptor>src/main/assembly/assemble-connector.xml</descriptor>
@@ -202,8 +167,6 @@
                 <version>2.12.4</version>
                 <inherited>false</inherited>
                 <configuration>
-                    <!-- <argLine>-Xms512m -Xmx1024m -XX:MaxPermSize=128m -Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=512m -Xdebug
-                       -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5006 </argLine> -->
                     <argLine>-Xms512m -Xmx1024m -XX:MaxPermSize=128m</argLine>
                     <testFailureIgnore>true</testFailureIgnore>
                     <disableXmlReport>false</disableXmlReport>
@@ -246,24 +209,6 @@
                     </systemProperties>
                     <workingDirectory>${basedir}/target</workingDirectory>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-emma-dependencies</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/emma</outputDirectory>
-                            <includeTypes>jar</includeTypes>
-                            <includeArtifactIds>emma,org.wso2.carbon.automation.core
-                            </includeArtifactIds>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
