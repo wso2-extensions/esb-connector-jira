@@ -1,0 +1,62 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "items": [
+    {
+      "id": "http:\/\/wso2jsonschema.org\/root\/0",
+      "properties": {
+        "released": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/released",
+          "type": "boolean"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/id",
+          "type": "string"
+        },
+        "startDate": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/startDate",
+          "type": "string"
+        },
+        "userStartDate": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/userStartDate",
+          "type": "string"
+        },
+        "releaseDate": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/releaseDate",
+          "type": "string"
+        },
+        "archived": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/archived",
+          "type": "boolean"
+        },
+        "overdue": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/overdue",
+          "type": "boolean"
+        },
+        "description": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/description",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/name",
+          "type": "string"
+        },
+        "userReleaseDate": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/userReleaseDate",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/self",
+          "type": "string"
+        },
+        "projectId": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/projectId",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "type": "array"
+}

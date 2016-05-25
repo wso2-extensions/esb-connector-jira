@@ -1,0 +1,38 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "items": [
+    {
+      "id": "http:\/\/wso2jsonschema.org\/root\/0",
+      "properties": {
+        "subtask": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/subtask",
+          "type": "boolean"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/id",
+          "type": "string"
+        },
+        "description": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/description",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/name",
+          "type": "string"
+        },
+        "iconUrl": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/iconUrl",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/self",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "type": "array"
+}

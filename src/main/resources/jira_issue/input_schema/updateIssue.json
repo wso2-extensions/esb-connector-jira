@@ -1,0 +1,70 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "issueFields": {
+      "id": "http:\/\/wso2jsonschema.org\/issueFields",
+      "type": "object",
+      "properties": {
+        "update": {
+          "id": "http:\/\/wso2jsonschema.org\/issueFields\/update",
+          "type": "object",
+          "properties": {
+            "summary": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/summary",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/summary\/0",
+                  "type": "object"
+                }
+              ]
+            },
+            "components": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/components",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/components\/0",
+                  "type": "object",
+                  "properties": {
+                    "set": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/components\/0\/set",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            },
+            "labels": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/labels",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/labels\/0",
+                  "type": "object"
+                }
+              ]
+            },
+            "timetracking": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/timetracking",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/update\/timetracking\/0",
+                  "type": "object"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "issueIdOrKey": {
+      "id": "http:\/\/wso2jsonschema.org\/issueIdOrKey",
+      "type": "string"
+    }
+  }
+}

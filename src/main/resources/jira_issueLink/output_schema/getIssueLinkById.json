@@ -1,0 +1,314 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "outwardIssue": {
+      "id": "http:\/\/wso2jsonschema.org\/outwardIssue",
+      "type": "object",
+      "properties": {
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/self",
+          "type": "string"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/id",
+          "type": "string"
+        },
+        "fields": {
+          "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields",
+          "type": "object",
+          "properties": {
+            "summary": {
+              "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/summary",
+              "type": "string"
+            },
+            "issuetype": {
+              "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype",
+              "type": "object",
+              "properties": {
+                "avatarId": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype\/avatarId",
+                  "type": "number"
+                },
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype\/name",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype\/self",
+                  "type": "string"
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype\/description",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype\/id",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype\/iconUrl",
+                  "type": "string"
+                },
+                "subtask": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/issuetype\/subtask",
+                  "type": "boolean"
+                }
+              }
+            },
+            "priority": {
+              "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/priority",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/priority\/name",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/priority\/self",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/priority\/iconUrl",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/priority\/id",
+                  "type": "string"
+                }
+              }
+            },
+            "status": {
+              "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/name",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/self",
+                  "type": "string"
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/description",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/iconUrl",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/id",
+                  "type": "string"
+                },
+                "statusCategory": {
+                  "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/statusCategory",
+                  "type": "object",
+                  "properties": {
+                    "colorName": {
+                      "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/statusCategory\/colorName",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/statusCategory\/name",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/statusCategory\/self",
+                      "type": "string"
+                    },
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/statusCategory\/id",
+                      "type": "number"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/fields\/status\/statusCategory\/key",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/outwardIssue\/key",
+          "type": "string"
+        }
+      }
+    },
+    "self": {
+      "id": "http:\/\/wso2jsonschema.org\/self",
+      "type": "string"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string"
+    },
+    "inwardIssue": {
+      "id": "http:\/\/wso2jsonschema.org\/inwardIssue",
+      "type": "object",
+      "properties": {
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/self",
+          "type": "string"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/id",
+          "type": "string"
+        },
+        "fields": {
+          "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields",
+          "type": "object",
+          "properties": {
+            "summary": {
+              "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/summary",
+              "type": "string"
+            },
+            "issuetype": {
+              "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype",
+              "type": "object",
+              "properties": {
+                "avatarId": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype\/avatarId",
+                  "type": "number"
+                },
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype\/name",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype\/self",
+                  "type": "string"
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype\/description",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype\/id",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype\/iconUrl",
+                  "type": "string"
+                },
+                "subtask": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/issuetype\/subtask",
+                  "type": "boolean"
+                }
+              }
+            },
+            "priority": {
+              "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/priority",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/priority\/name",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/priority\/self",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/priority\/iconUrl",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/priority\/id",
+                  "type": "string"
+                }
+              }
+            },
+            "status": {
+              "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/name",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/self",
+                  "type": "string"
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/description",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/iconUrl",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/id",
+                  "type": "string"
+                },
+                "statusCategory": {
+                  "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/statusCategory",
+                  "type": "object",
+                  "properties": {
+                    "colorName": {
+                      "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/statusCategory\/colorName",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/statusCategory\/name",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/statusCategory\/self",
+                      "type": "string"
+                    },
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/statusCategory\/id",
+                      "type": "number"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/fields\/status\/statusCategory\/key",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/inwardIssue\/key",
+          "type": "string"
+        }
+      }
+    },
+    "type": {
+      "id": "http:\/\/wso2jsonschema.org\/type",
+      "type": "object",
+      "properties": {
+        "inward": {
+          "id": "http:\/\/wso2jsonschema.org\/type\/inward",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/type\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/type\/self",
+          "type": "string"
+        },
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/type\/id",
+          "type": "string"
+        },
+        "outward": {
+          "id": "http:\/\/wso2jsonschema.org\/type\/outward",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "maxResults": {
+      "id": "http:\/\/wso2jsonschema.org\/maxResults",
+      "type": "string"
+    },
+    "query": {
+      "id": "http:\/\/wso2jsonschema.org\/query",
+      "type": "string"
+    },
+    "exclude": {
+      "id": "http:\/\/wso2jsonschema.org\/exclude",
+      "type": "string"
+    }
+  }
+}

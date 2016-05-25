@@ -1,0 +1,32 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "projectIdOrKey": {
+      "id": "http:\/\/wso2jsonschema.org\/projectIdOrKey",
+      "type": "string"
+    },
+    "roleId": {
+      "id": "http:\/\/wso2jsonschema.org\/roleId",
+      "type": "string"
+    },
+    "roles": {
+      "id": "http:\/\/wso2jsonschema.org\/roles",
+      "type": "object",
+      "properties": {
+        "user": {
+          "id": "http:\/\/wso2jsonschema.org\/roles\/user",
+          "type": "array",
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/roles\/user\/0",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

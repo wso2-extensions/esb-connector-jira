@@ -1,0 +1,12 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "projectIdOrKey": {
+      "id": "http:\/\/wso2jsonschema.org\/projectIdOrKey",
+      "type": "string"
+    }
+  }
+}

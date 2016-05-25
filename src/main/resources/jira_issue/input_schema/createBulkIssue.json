@@ -1,0 +1,116 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "issueUpdates": {
+      "id": "http:\/\/wso2jsonschema.org\/issueUpdates",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0",
+          "type": "object",
+          "properties": {
+            "update": {
+              "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/update",
+              "type": "null"
+            },
+            "fields": {
+              "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields",
+              "type": "object",
+              "properties": {
+                "summary": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/summary",
+                  "type": "string"
+                },
+                "issuetype": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/issuetype",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/issuetype\/id",
+                      "type": "string"
+                    }
+                  }
+                },
+                "duedate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/duedate",
+                  "type": "string"
+                },
+                "project": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/project",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/project\/id",
+                      "type": "string"
+                    }
+                  }
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/description",
+                  "type": "string"
+                },
+                "reporter": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/reporter",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/reporter\/name",
+                      "type": "string"
+                    }
+                  }
+                },
+                "assignee": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/assignee",
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/assignee\/name",
+                      "type": "string"
+                    }
+                  }
+                },
+                "priority": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/priority",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/priority\/id",
+                      "type": "string"
+                    }
+                  }
+                },
+                "labels": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/labels",
+                  "type": "array",
+                  "items": [
+                    {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/labels\/0",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "timetracking": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/timetracking",
+                  "type": "object",
+                  "properties": {
+                    "remainingEstimate": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/timetracking\/remainingEstimate",
+                      "type": "string"
+                    },
+                    "originalEstimate": {
+                      "id": "http:\/\/wso2jsonschema.org\/issueUpdates\/0\/fields\/timetracking\/originalEstimate",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

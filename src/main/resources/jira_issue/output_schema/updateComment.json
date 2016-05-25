@@ -1,0 +1,154 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "visibility": {
+      "id": "http:\/\/wso2jsonschema.org\/visibility",
+      "type": "object",
+      "properties": {
+        "type": {
+          "id": "http:\/\/wso2jsonschema.org\/visibility\/type",
+          "type": "string"
+        },
+        "value": {
+          "id": "http:\/\/wso2jsonschema.org\/visibility\/value",
+          "type": "string"
+        }
+      }
+    },
+    "author": {
+      "id": "http:\/\/wso2jsonschema.org\/author",
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/emailAddress",
+          "type": "string"
+        },
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/48x48",
+              "type": "string"
+            },
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/24x24",
+              "type": "string"
+            },
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/16x16",
+              "type": "string"
+            },
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/32x32",
+              "type": "string"
+            }
+          }
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/displayName",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/self",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/active",
+          "type": "boolean"
+        },
+        "timeZone": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/timeZone",
+          "type": "string"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/key",
+          "type": "string"
+        }
+      }
+    },
+    "created": {
+      "id": "http:\/\/wso2jsonschema.org\/created",
+      "type": "string"
+    },
+    "updateAuthor": {
+      "id": "http:\/\/wso2jsonschema.org\/updateAuthor",
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/emailAddress",
+          "type": "string"
+        },
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/avatarUrls",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/avatarUrls\/48x48",
+              "type": "string"
+            },
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/avatarUrls\/24x24",
+              "type": "string"
+            },
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/avatarUrls\/16x16",
+              "type": "string"
+            },
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/avatarUrls\/32x32",
+              "type": "string"
+            }
+          }
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/displayName",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/self",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/active",
+          "type": "boolean"
+        },
+        "timeZone": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/timeZone",
+          "type": "string"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/updateAuthor\/key",
+          "type": "string"
+        }
+      }
+    },
+    "self": {
+      "id": "http:\/\/wso2jsonschema.org\/self",
+      "type": "string"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string"
+    },
+    "body": {
+      "id": "http:\/\/wso2jsonschema.org\/body",
+      "type": "string"
+    },
+    "updated": {
+      "id": "http:\/\/wso2jsonschema.org\/updated",
+      "type": "string"
+    }
+  }
+}
