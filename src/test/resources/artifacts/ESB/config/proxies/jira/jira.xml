@@ -56,6 +56,7 @@
             <property name="commentBody" expression="json-eval($.commentBody)"/>
             <property name="commentVisibility" expression="json-eval($.commentVisibility)"/>
             <property name="linkId" expression="json-eval($.linkId)"/>
+            <property name="projectIdOrKey" expression="json-eval($.projectIdOrKey)"/>
             <jira.init>
                 <uri>{$ctx:uri}</uri>
                 <username>{$ctx:username}</username>
@@ -172,6 +173,55 @@
                     <jira.addVotesForIssue>
                         <issueId>{$ctx:issueId}</issueId>
                     </jira.addVotesForIssue>
+                </case>
+                <case regex="urn:getProject">
+                    <jira.getProject>
+                        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+                        <expand>{$ctx:expand}</expand>
+                    </jira.getProject>
+                </case>
+                <case regex="urn:getComponentsOfProject">
+                    <jira.getComponentsOfProject>
+                        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+                    </jira.getComponentsOfProject>
+                </case>
+                <case regex="urn:getAvatarsForProject">
+                    <jira.getAvatarsForProject>
+                        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+                    </jira.getAvatarsForProject>
+                </case>
+                <case regex="urn:getRolesOfProject">
+                    <jira.getRolesOfProject>
+                        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+                    </jira.getRolesOfProject>
+                </case>
+                <case regex="urn:getStatusesOfProject">
+                    <jira.getStatusesOfProject>
+                        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+                    </jira.getStatusesOfProject>
+                </case>
+                <case regex="urn:getVersionsOfProject">
+                    <jira.getVersionsOfProject>
+                        <projectIdOrKey>{$ctx:projectIdOrKey}</projectIdOrKey>
+                    </jira.getVersionsOfProject>
+                </case>
+                <case regex="urn:getUserPermissions">
+                    <jira.getUserPermissions>
+                        <projectKey>{$ctx:projectIdOrKey}</projectKey>
+                    </jira.getUserPermissions>
+                </case>
+                <case regex="urn:getDashboards">
+                <jira.getDashboards>
+                    <maxResults>{$ctx:maxResults}</maxResults>
+                    <filter>{$ctx:filter}</filter>
+                    <startAt>{$ctx:startAt}</startAt>
+                </jira.getDashboards>
+                </case>
+                <case regex="urn:getIssuePriorities">
+                    <jira.getIssuePriorities/>
+                </case>
+                <case regex="urn:getIssueTypes">
+                    <jira.getIssueTypes/>
                 </case>
             </switch>
             <respond/>

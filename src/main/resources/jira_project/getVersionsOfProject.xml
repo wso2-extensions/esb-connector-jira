@@ -18,12 +18,27 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getVersionsOfProject">
     <parameter name="projectIdOrKey" description="a String containing of the unique key for a project"/>
+    <parameter name="expand" description="The parameters to expand."/>
     <sequence>
         <property name="uri.var.jira.projectIdOrKey" expression="$func:projectIdOrKey"/>
+        <property name="uri.var.jira.expand" expression="$func:expand"/>
+        <script language="js">
+            <![CDATA[
+                var expand = mc.getProperty('uri.var.jira.expand');
+                var urlQuery = '';
+                if (expand != null && expand != ""){
+                    urlQuery += 'expand=' + expand + '&';
+                }
+                if (urlQuery != null && urlQuery != ""){
+                    urlQuery = '?' + urlQuery.substring(0, urlQuery.length - 1);
+                }
+                mc.setProperty('uri.var.jira.urlQuery',urlQuery);
+            ]]>
+        </script>
         <call>
             <endpoint>
                 <http method="get"
-                      uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/versions"/>
+                      uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/versions{+uri.var.jira.urlQuery}"/>
             </endpoint>
         </call>
     </sequence>
