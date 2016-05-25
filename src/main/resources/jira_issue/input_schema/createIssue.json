@@ -1,0 +1,102 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "issueFields": {
+      "id": "http:\/\/wso2jsonschema.org\/issueFields",
+      "type": "object",
+      "properties": {
+        "fields": {
+          "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields",
+          "type": "object",
+          "properties": {
+            "summary": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/summary",
+              "type": "string"
+            },
+            "issuetype": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/issuetype",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/issuetype\/id",
+                  "type": "string"
+                }
+              }
+            },
+            "project": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/project",
+              "type": "object",
+              "properties": {
+                "key": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/project\/key",
+                  "type": "string"
+                }
+              }
+            },
+            "description": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/description",
+              "type": "string"
+            },
+            "reporter": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/reporter",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/reporter\/name",
+                  "type": "string"
+                }
+              }
+            },
+            "assignee": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/assignee",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/assignee\/name",
+                  "type": "string"
+                }
+              }
+            },
+            "priority": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/priority",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/priority\/id",
+                  "type": "string"
+                }
+              }
+            },
+            "labels": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/labels",
+              "type": "array",
+              "items": [
+                {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/labels\/0",
+                  "type": "string"
+                }
+              ]
+            },
+            "timetracking": {
+              "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/timetracking",
+              "type": "object",
+              "properties": {
+                "remainingEstimate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/timetracking\/remainingEstimate",
+                  "type": "string"
+                },
+                "originalEstimate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issueFields\/fields\/timetracking\/originalEstimate",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

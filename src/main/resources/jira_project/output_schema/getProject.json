@@ -1,0 +1,175 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "components": {
+      "id": "http:\/\/wso2jsonschema.org\/components",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/components\/0",
+          "type": "object"
+        }
+      ]
+    },
+    "avatarUrls": {
+      "id": "http:\/\/wso2jsonschema.org\/avatarUrls",
+      "type": "object",
+      "properties": {
+        "48x48": {
+          "id": "http:\/\/wso2jsonschema.org\/avatarUrls\/48x48",
+          "type": "string"
+        },
+        "24x24": {
+          "id": "http:\/\/wso2jsonschema.org\/avatarUrls\/24x24",
+          "type": "string"
+        },
+        "16x16": {
+          "id": "http:\/\/wso2jsonschema.org\/avatarUrls\/16x16",
+          "type": "string"
+        },
+        "32x32": {
+          "id": "http:\/\/wso2jsonschema.org\/avatarUrls\/32x32",
+          "type": "string"
+        }
+      }
+    },
+    "roles": {
+      "id": "http:\/\/wso2jsonschema.org\/roles",
+      "type": "object",
+      "properties": {
+        "Administrators": {
+          "id": "http:\/\/wso2jsonschema.org\/roles\/Administrators",
+          "type": "string"
+        },
+        "Tempo Project Managers": {
+          "id": "http:\/\/wso2jsonschema.org\/roles\/Tempo Project Managers",
+          "type": "string"
+        }
+      }
+    },
+    "description": {
+      "id": "http:\/\/wso2jsonschema.org\/description",
+      "type": "string"
+    },
+    "lead": {
+      "id": "http:\/\/wso2jsonschema.org\/lead",
+      "type": "object",
+      "properties": {
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/48x48",
+              "type": "string"
+            },
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/24x24",
+              "type": "string"
+            },
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/16x16",
+              "type": "string"
+            },
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/32x32",
+              "type": "string"
+            }
+          }
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/displayName",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/self",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/active",
+          "type": "boolean"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/key",
+          "type": "string"
+        }
+      }
+    },
+    "issueTypes": {
+      "id": "http:\/\/wso2jsonschema.org\/issueTypes",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/issueTypes\/0",
+          "type": "object",
+          "properties": {
+            "name": {
+              "id": "http:\/\/wso2jsonschema.org\/issueTypes\/0\/name",
+              "type": "string"
+            },
+            "self": {
+              "id": "http:\/\/wso2jsonschema.org\/issueTypes\/0\/self",
+              "type": "string"
+            },
+            "description": {
+              "id": "http:\/\/wso2jsonschema.org\/issueTypes\/0\/description",
+              "type": "string"
+            },
+            "id": {
+              "id": "http:\/\/wso2jsonschema.org\/issueTypes\/0\/id",
+              "type": "string"
+            },
+            "iconUrl": {
+              "id": "http:\/\/wso2jsonschema.org\/issueTypes\/0\/iconUrl",
+              "type": "string"
+            },
+            "subtask": {
+              "id": "http:\/\/wso2jsonschema.org\/issueTypes\/0\/subtask",
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "expand": {
+      "id": "http:\/\/wso2jsonschema.org\/expand",
+      "type": "string"
+    },
+    "versions": {
+      "id": "http:\/\/wso2jsonschema.org\/versions",
+      "type": "array",
+      "items": []
+    },
+    "name": {
+      "id": "http:\/\/wso2jsonschema.org\/name",
+      "type": "string"
+    },
+    "self": {
+      "id": "http:\/\/wso2jsonschema.org\/self",
+      "type": "string"
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string"
+    },
+    "assigneeType": {
+      "id": "http:\/\/wso2jsonschema.org\/assigneeType",
+      "type": "string"
+    },
+    "projectTypeKey": {
+      "id": "http:\/\/wso2jsonschema.org\/projectTypeKey",
+      "type": "string"
+    },
+    "key": {
+      "id": "http:\/\/wso2jsonschema.org\/key",
+      "type": "string"
+    }
+  }
+}

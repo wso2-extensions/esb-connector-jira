@@ -1,0 +1,516 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "total": {
+      "id": "http:\/\/wso2jsonschema.org\/total",
+      "type": "number"
+    },
+    "issues": {
+      "id": "http:\/\/wso2jsonschema.org\/issues",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/issues\/0",
+          "properties": {
+            "id": {
+              "id": "http:\/\/wso2jsonschema.org\/issues\/0\/id",
+              "type": "string"
+            },
+            "expand": {
+              "id": "http:\/\/wso2jsonschema.org\/issues\/0\/expand",
+              "type": "string"
+            },
+            "self": {
+              "id": "http:\/\/wso2jsonschema.org\/issues\/0\/self",
+              "type": "string"
+            },
+            "key": {
+              "id": "http:\/\/wso2jsonschema.org\/issues\/0\/key",
+              "type": "string"
+            },
+            "fields": {
+              "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields",
+              "properties": {
+                "progress": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/progress",
+                  "properties": {
+                    "total": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/progress\/total",
+                      "type": "number"
+                    },
+                    "progress": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/progress\/progress",
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                },
+                "summary": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/summary",
+                  "type": "string"
+                },
+                "issuetype": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype",
+                  "properties": {
+                    "subtask": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype\/subtask",
+                      "type": "string"
+                    },
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype\/id",
+                      "type": "string"
+                    },
+                    "avatarId": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype\/avatarId",
+                      "type": "string"
+                    },
+                    "description": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype\/description",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype\/name",
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype\/iconUrl",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/issuetype\/self",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "votes": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/votes",
+                  "properties": {
+                    "hasVoted": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/votes\/hasVoted",
+                      "type": "boolean"
+                    },
+                    "votes": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/votes\/votes",
+                      "type": "number"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/votes\/self",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "resolution": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/resolution",
+                  "type": "string"
+                },
+                "resolutiondate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/resolutiondate",
+                  "type": "string"
+                },
+                "timespent": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/timespent",
+                  "type": "string"
+                },
+                "creator": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator",
+                  "properties": {
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/name",
+                      "type": "string"
+                    },
+                    "active": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/active",
+                      "type": "boolean"
+                    },
+                    "emailAddress": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/emailAddress",
+                      "type": "string"
+                    },
+                    "timeZone": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/timeZone",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/self",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/displayName",
+                      "type": "string"
+                    },
+                    "avatarUrls": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/avatarUrls",
+                      "properties": {
+                        "16x16": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/avatarUrls\/16x16",
+                          "type": "string"
+                        },
+                        "24x24": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/avatarUrls\/24x24",
+                          "type": "string"
+                        },
+                        "32x32": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/avatarUrls\/32x32",
+                          "type": "string"
+                        },
+                        "48x48": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/avatarUrls\/48x48",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/creator\/key",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "reporter": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter",
+                  "properties": {
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/name",
+                      "type": "string"
+                    },
+                    "active": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/active",
+                      "type": "boolean"
+                    },
+                    "emailAddress": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/emailAddress",
+                      "type": "string"
+                    },
+                    "timeZone": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/timeZone",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/self",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/displayName",
+                      "type": "string"
+                    },
+                    "avatarUrls": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/avatarUrls",
+                      "properties": {
+                        "16x16": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/avatarUrls\/16x16",
+                          "type": "string"
+                        },
+                        "24x24": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/avatarUrls\/24x24",
+                          "type": "string"
+                        },
+                        "32x32": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/avatarUrls\/32x32",
+                          "type": "string"
+                        },
+                        "48x48": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/avatarUrls\/48x48",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/reporter\/key",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "aggregatetimeoriginalestimate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/aggregatetimeoriginalestimate",
+                  "type": "string"
+                },
+                "created": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/created",
+                  "type": "string"
+                },
+                "updated": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/updated",
+                  "type": "string"
+                },
+                "priority": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/priority",
+                  "properties": {
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/priority\/id",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/priority\/name",
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/priority\/iconUrl",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/priority\/self",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/description",
+                  "type": "string"
+                },
+                "duedate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/duedate",
+                  "type": "string"
+                },
+                "watches": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/watches",
+                  "properties": {
+                    "watchCount": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/watches\/watchCount",
+                      "type": "number"
+                    },
+                    "isWatching": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/watches\/isWatching",
+                      "type": "boolean"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/watches\/self",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "status": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status",
+                  "properties": {
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/id",
+                      "type": "string"
+                    },
+                    "description": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/description",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/name",
+                      "type": "string"
+                    },
+                    "iconUrl": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/iconUrl",
+                      "type": "string"
+                    },
+                    "statusCategory": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/statusCategory",
+                      "properties": {
+                        "id": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/statusCategory\/id",
+                          "type": "number"
+                        },
+                        "colorName": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/statusCategory\/colorName",
+                          "type": "string"
+                        },
+                        "name": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/statusCategory\/name",
+                          "type": "string"
+                        },
+                        "self": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/statusCategory\/self",
+                          "type": "string"
+                        },
+                        "key": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/statusCategory\/key",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/status\/self",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "labels": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/labels",
+                  "items": [
+                    {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/labels\/0",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "array"
+                },
+                "workratio": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/workratio",
+                  "type": "number"
+                },
+                "assignee": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee",
+                  "properties": {
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/name",
+                      "type": "string"
+                    },
+                    "active": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/active",
+                      "type": "boolean"
+                    },
+                    "emailAddress": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/emailAddress",
+                      "type": "string"
+                    },
+                    "timeZone": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/timeZone",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/self",
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/displayName",
+                      "type": "string"
+                    },
+                    "avatarUrls": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/avatarUrls",
+                      "properties": {
+                        "16x16": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/avatarUrls\/16x16",
+                          "type": "string"
+                        },
+                        "24x24": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/avatarUrls\/24x24",
+                          "type": "string"
+                        },
+                        "32x32": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/avatarUrls\/32x32",
+                          "type": "string"
+                        },
+                        "48x48": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/avatarUrls\/48x48",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/assignee\/key",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "aggregatetimeestimate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/aggregatetimeestimate",
+                  "type": "string"
+                },
+                "project": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project",
+                  "properties": {
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/id",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/name",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/self",
+                      "type": "string"
+                    },
+                    "avatarUrls": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/avatarUrls",
+                      "properties": {
+                        "16x16": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/avatarUrls\/16x16",
+                          "type": "string"
+                        },
+                        "24x24": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/avatarUrls\/24x24",
+                          "type": "string"
+                        },
+                        "32x32": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/avatarUrls\/32x32",
+                          "type": "string"
+                        },
+                        "48x48": {
+                          "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/avatarUrls\/48x48",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/project\/key",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "environment": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/environment",
+                  "type": "string"
+                },
+                "timeestimate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/timeestimate",
+                  "type": "string"
+                },
+                "lastViewed": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/lastViewed",
+                  "type": "string"
+                },
+                "aggregateprogress": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/aggregateprogress",
+                  "properties": {
+                    "total": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/aggregateprogress\/total",
+                      "type": "number"
+                    },
+                    "progress": {
+                      "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/aggregateprogress\/progress",
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                },
+                "timeoriginalestimate": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/timeoriginalestimate",
+                  "type": "string"
+                },
+                "aggregatetimespent": {
+                  "id": "http:\/\/wso2jsonschema.org\/issues\/0\/fields\/aggregatetimespent",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    },
+    "expand": {
+      "id": "http:\/\/wso2jsonschema.org\/expand",
+      "type": "string"
+    },
+    "startAt": {
+      "id": "http:\/\/wso2jsonschema.org\/startAt",
+      "type": "number"
+    },
+    "maxResults": {
+      "id": "http:\/\/wso2jsonschema.org\/maxResults",
+      "type": "number"
+    }
+  },
+  "type": "object"
+}

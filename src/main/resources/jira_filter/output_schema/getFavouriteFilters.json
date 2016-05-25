@@ -1,0 +1,220 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "items": [
+    {
+      "id": "http:\/\/wso2jsonschema.org\/root\/0",
+      "properties": {
+        "id": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/id",
+          "type": "string"
+        },
+        "subscriptions": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/subscriptions",
+          "properties": {
+            "max-results": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/subscriptions\/max-results",
+              "type": "number"
+            },
+            "items": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/subscriptions\/items",
+              "items": [],
+              "type": "array"
+            },
+            "end-index": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/subscriptions\/end-index",
+              "type": "number"
+            },
+            "start-index": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/subscriptions\/start-index",
+              "type": "number"
+            },
+            "size": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/subscriptions\/size",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "jql": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/jql",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/name",
+          "type": "string"
+        },
+        "owner": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner",
+          "properties": {
+            "name": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/name",
+              "type": "string"
+            },
+            "active": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/active",
+              "type": "boolean"
+            },
+            "self": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/self",
+              "type": "string"
+            },
+            "displayName": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/displayName",
+              "type": "string"
+            },
+            "avatarUrls": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/avatarUrls",
+              "properties": {
+                "24x24": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/avatarUrls\/24x24",
+                  "type": "string"
+                },
+                "16x16": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/avatarUrls\/16x16",
+                  "type": "string"
+                },
+                "32x32": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/avatarUrls\/32x32",
+                  "type": "string"
+                },
+                "48x48": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/avatarUrls\/48x48",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "key": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/owner\/key",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "sharePermissions": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions",
+          "items": [
+            {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0",
+              "properties": {
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/id",
+                  "type": "number"
+                },
+                "project": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project",
+                  "properties": {
+                    "projectTypeKey": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/projectTypeKey",
+                      "type": "string"
+                    },
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/id",
+                      "type": "string"
+                    },
+                    "assigneeType": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/assigneeType",
+                      "type": "string"
+                    },
+                    "roles": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/roles",
+                      "type": "null"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/name",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/self",
+                      "type": "string"
+                    },
+                    "avatarUrls": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/avatarUrls",
+                      "properties": {
+                        "16x16": {
+                          "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/avatarUrls\/16x16",
+                          "type": "string"
+                        },
+                        "24x24": {
+                          "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/avatarUrls\/24x24",
+                          "type": "string"
+                        },
+                        "32x32": {
+                          "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/avatarUrls\/32x32",
+                          "type": "string"
+                        },
+                        "48x48": {
+                          "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/avatarUrls\/48x48",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/project\/key",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharePermissions\/0\/type",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          ],
+          "type": "array"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/self",
+          "type": "string"
+        },
+        "searchUrl": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/searchUrl",
+          "type": "string"
+        },
+        "favourite": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/favourite",
+          "type": "boolean"
+        },
+        "sharedUsers": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharedUsers",
+          "properties": {
+            "max-results": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharedUsers\/max-results",
+              "type": "number"
+            },
+            "items": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharedUsers\/items",
+              "items": [],
+              "type": "array"
+            },
+            "end-index": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharedUsers\/end-index",
+              "type": "number"
+            },
+            "start-index": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharedUsers\/start-index",
+              "type": "number"
+            },
+            "size": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/sharedUsers\/size",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "viewUrl": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/viewUrl",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  ],
+  "type": "array"
+}

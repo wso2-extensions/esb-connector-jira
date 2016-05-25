@@ -17,7 +17,9 @@
  ~  under the License.
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.carbon.connector</groupId>
     <artifactId>org.wso2.carbon.connector.jira</artifactId>
@@ -87,7 +89,8 @@
     <scm>
         <connection>scm:git:https://github.com/wso2-extensions/esb-connector-jira.git</connection>
         <url>https://github.com/wso2-extensions/esb-connector-jira.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-jira</developerConnection>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-jira
+        </developerConnection>
         <tag>HEAD</tag>
     </scm>
     <build>
@@ -133,7 +136,8 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/emma</outputDirectory>
                             <includeTypes>jar</includeTypes>
-                            <includeArtifactIds>emma,org.wso2.carbon.automation.core</includeArtifactIds>
+                            <includeArtifactIds>emma,org.wso2.carbon.automation.core
+                            </includeArtifactIds>
                         </configuration>
                     </execution>
                 </executions>

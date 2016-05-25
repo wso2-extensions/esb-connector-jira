@@ -1,0 +1,188 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "isAssigneeTypeValid": {
+      "id": "http:\/\/wso2jsonschema.org\/isAssigneeTypeValid",
+      "type": "boolean"
+    },
+    "realAssigneeType": {
+      "id": "http:\/\/wso2jsonschema.org\/realAssigneeType",
+      "type": "string"
+    },
+    "name": {
+      "id": "http:\/\/wso2jsonschema.org\/name",
+      "type": "string"
+    },
+    "self": {
+      "id": "http:\/\/wso2jsonschema.org\/self",
+      "type": "string"
+    },
+    "description": {
+      "id": "http:\/\/wso2jsonschema.org\/description",
+      "type": "string"
+    },
+    "project": {
+      "id": "http:\/\/wso2jsonschema.org\/project",
+      "type": "string"
+    },
+    "realAssignee": {
+      "id": "http:\/\/wso2jsonschema.org\/realAssignee",
+      "type": "object",
+      "properties": {
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/realAssignee\/avatarUrls",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/realAssignee\/avatarUrls\/48x48",
+              "type": "string"
+            },
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/realAssignee\/avatarUrls\/24x24",
+              "type": "string"
+            },
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/realAssignee\/avatarUrls\/16x16",
+              "type": "string"
+            },
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/realAssignee\/avatarUrls\/32x32",
+              "type": "string"
+            }
+          }
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/realAssignee\/displayName",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/realAssignee\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/realAssignee\/self",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/realAssignee\/active",
+          "type": "boolean"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/realAssignee\/key",
+          "type": "string"
+        }
+      }
+    },
+    "id": {
+      "id": "http:\/\/wso2jsonschema.org\/id",
+      "type": "string"
+    },
+    "assigneeType": {
+      "id": "http:\/\/wso2jsonschema.org\/assigneeType",
+      "type": "string"
+    },
+    "assignee": {
+      "id": "http:\/\/wso2jsonschema.org\/assignee",
+      "type": "object",
+      "properties": {
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/assignee\/avatarUrls",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/assignee\/avatarUrls\/48x48",
+              "type": "string"
+            },
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/assignee\/avatarUrls\/24x24",
+              "type": "string"
+            },
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/assignee\/avatarUrls\/16x16",
+              "type": "string"
+            },
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/assignee\/avatarUrls\/32x32",
+              "type": "string"
+            }
+          }
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/assignee\/displayName",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/assignee\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/assignee\/self",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/assignee\/active",
+          "type": "boolean"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/assignee\/key",
+          "type": "string"
+        }
+      }
+    },
+    "projectId": {
+      "id": "http:\/\/wso2jsonschema.org\/projectId",
+      "type": "number"
+    },
+    "lead": {
+      "id": "http:\/\/wso2jsonschema.org\/lead",
+      "type": "object",
+      "properties": {
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/48x48",
+              "type": "string"
+            },
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/24x24",
+              "type": "string"
+            },
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/16x16",
+              "type": "string"
+            },
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/lead\/avatarUrls\/32x32",
+              "type": "string"
+            }
+          }
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/displayName",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/self",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/active",
+          "type": "boolean"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/lead\/key",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

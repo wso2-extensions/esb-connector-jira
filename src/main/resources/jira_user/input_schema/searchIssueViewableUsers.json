@@ -1,0 +1,28 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "projectKey": {
+      "id": "http:\/\/wso2jsonschema.org\/projectKey",
+      "type": "string"
+    },
+    "issueKey": {
+      "id": "http:\/\/wso2jsonschema.org\/issueKey",
+      "type": "string"
+    },
+    "maxResults": {
+      "id": "http:\/\/wso2jsonschema.org\/maxResults",
+      "type": "string"
+    },
+    "usernameForSearch": {
+      "id": "http:\/\/wso2jsonschema.org\/usernameForSearch",
+      "type": "string"
+    },
+    "startAt": {
+      "id": "http:\/\/wso2jsonschema.org\/startAt",
+      "type": "string"
+    }
+  }
+}

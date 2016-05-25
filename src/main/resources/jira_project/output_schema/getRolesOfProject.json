@@ -1,0 +1,24 @@
+{
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "properties": {
+    "Users": {
+      "id": "http:\/\/wso2jsonschema.org\/Users",
+      "type": "string"
+    },
+    "Administrators": {
+      "id": "http:\/\/wso2jsonschema.org\/Administrators",
+      "type": "string"
+    },
+    "Developers": {
+      "id": "http:\/\/wso2jsonschema.org\/Developers",
+      "type": "string"
+    },
+    "Tempo Project Managers": {
+      "id": "http:\/\/wso2jsonschema.org\/Tempo Project Managers",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

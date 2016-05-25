@@ -1,0 +1,56 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "next": {
+      "id": "http:\/\/wso2jsonschema.org\/next",
+      "type": "string"
+    },
+    "total": {
+      "id": "http:\/\/wso2jsonschema.org\/total",
+      "type": "number"
+    },
+    "maxResults": {
+      "id": "http:\/\/wso2jsonschema.org\/maxResults",
+      "type": "number"
+    },
+    "prev": {
+      "id": "http:\/\/wso2jsonschema.org\/prev",
+      "type": "string"
+    },
+    "dashboards": {
+      "id": "http:\/\/wso2jsonschema.org\/dashboards",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/dashboards\/0",
+          "type": "object",
+          "properties": {
+            "view": {
+              "id": "http:\/\/wso2jsonschema.org\/dashboards\/0\/view",
+              "type": "string"
+            },
+            "name": {
+              "id": "http:\/\/wso2jsonschema.org\/dashboards\/0\/name",
+              "type": "string"
+            },
+            "self": {
+              "id": "http:\/\/wso2jsonschema.org\/dashboards\/0\/self",
+              "type": "string"
+            },
+            "id": {
+              "id": "http:\/\/wso2jsonschema.org\/dashboards\/0\/id",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "startAt": {
+      "id": "http:\/\/wso2jsonschema.org\/startAt",
+      "type": "number"
+    }
+  }
+}

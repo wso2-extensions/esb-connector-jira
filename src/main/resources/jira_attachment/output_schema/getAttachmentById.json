@@ -1,0 +1,84 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "filename": {
+      "id": "http:\/\/wso2jsonschema.org\/filename",
+      "type": "string"
+    },
+    "size": {
+      "id": "http:\/\/wso2jsonschema.org\/size",
+      "type": "number"
+    },
+    "author": {
+      "id": "http:\/\/wso2jsonschema.org\/author",
+      "type": "object",
+      "properties": {
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/48x48",
+              "type": "string"
+            },
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/24x24",
+              "type": "string"
+            },
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/16x16",
+              "type": "string"
+            },
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/author\/avatarUrls\/32x32",
+              "type": "string"
+            }
+          }
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/displayName",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/name",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/self",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/active",
+          "type": "boolean"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/author\/key",
+          "type": "string"
+        }
+      }
+    },
+    "created": {
+      "id": "http:\/\/wso2jsonschema.org\/created",
+      "type": "string"
+    },
+    "self": {
+      "id": "http:\/\/wso2jsonschema.org\/self",
+      "type": "string"
+    },
+    "mimeType": {
+      "id": "http:\/\/wso2jsonschema.org\/mimeType",
+      "type": "string"
+    },
+    "properties": {
+      "id": "http:\/\/wso2jsonschema.org\/properties",
+      "type": "null"
+    },
+    "content": {
+      "id": "http:\/\/wso2jsonschema.org\/content",
+      "type": "string"
+    }
+  }
+}

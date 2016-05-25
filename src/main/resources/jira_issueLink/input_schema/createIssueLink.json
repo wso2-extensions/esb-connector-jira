@@ -1,0 +1,38 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "typeName": {
+      "id": "http:\/\/wso2jsonschema.org\/typeName",
+      "type": "string"
+    },
+    "inwardIssueKey": {
+      "id": "http:\/\/wso2jsonschema.org\/inwardIssueKey",
+      "type": "string"
+    },
+    "commentBody": {
+      "id": "http:\/\/wso2jsonschema.org\/commentBody",
+      "type": "string"
+    },
+    "outwardIssueKey": {
+      "id": "http:\/\/wso2jsonschema.org\/outwardIssueKey",
+      "type": "string"
+    },
+    "commentVisibility": {
+      "id": "http:\/\/wso2jsonschema.org\/commentVisibility",
+      "type": "object",
+      "properties": {
+        "type": {
+          "id": "http:\/\/wso2jsonschema.org\/commentVisibility\/type",
+          "type": "string"
+        },
+        "value": {
+          "id": "http:\/\/wso2jsonschema.org\/commentVisibility\/value",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "id": "http:\/\/wso2jsonschema.org",
+  "title": "root",
+  "type": "object",
+  "properties": {
+    "expand": {
+      "id": "http:\/\/wso2jsonschema.org\/expand",
+      "type": "string"
+    },
+    "transitions": {
+      "id": "http:\/\/wso2jsonschema.org\/transitions",
+      "type": "array",
+      "items": [
+        {
+          "id": "http:\/\/wso2jsonschema.org\/transitions\/0",
+          "type": "object",
+          "properties": {
+            "hasScreen": {
+              "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/hasScreen",
+              "type": "boolean"
+            },
+            "name": {
+              "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/name",
+              "type": "string"
+            },
+            "id": {
+              "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/id",
+              "type": "string"
+            },
+            "to": {
+              "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/name",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/self",
+                  "type": "string"
+                },
+                "description": {
+                  "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/description",
+                  "type": "string"
+                },
+                "iconUrl": {
+                  "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/iconUrl",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/id",
+                  "type": "string"
+                },
+                "statusCategory": {
+                  "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/statusCategory",
+                  "type": "object",
+                  "properties": {
+                    "colorName": {
+                      "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/statusCategory\/colorName",
+                      "type": "string"
+                    },
+                    "name": {
+                      "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/statusCategory\/name",
+                      "type": "string"
+                    },
+                    "self": {
+                      "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/statusCategory\/self",
+                      "type": "string"
+                    },
+                    "id": {
+                      "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/statusCategory\/id",
+                      "type": "number"
+                    },
+                    "key": {
+                      "id": "http:\/\/wso2jsonschema.org\/transitions\/0\/to\/statusCategory\/key",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
