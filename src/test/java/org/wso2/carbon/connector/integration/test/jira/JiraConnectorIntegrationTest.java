@@ -45,7 +45,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("jira-connector-1.0.2");
+        init("jira-connector-1.0.3-SNAPSHOT");
 
         esbRequestHeadersMap.put("Content-Type", "application/json");
 
