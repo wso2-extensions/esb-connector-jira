@@ -10,21 +10,19 @@ Pre-requisites:
 Tested Platform: 
 
  - Microsoft WINDOWS V-7
- - UBUNTU 13.04
- - WSO2 ESB 4.9.0
+ - UBUNTU 13.04, 14.04
+ - WSO2 ESB 4.9.0, 5.0.0-BETA
  - Java 1.7
 
 Steps to follow in setting integration test.
 
- 1. Download ESB 4.9.0 by navigating to the following URL: http://wso2.com/products/enterprise-service-bus/#
- 
- 2. Deploy relevant patches, if applicable. Place the patch files into location <ESB_HOME>/repository/components/patches. 
+ 1. Download ESB 5.0.0-BETA by navigating to the following URL: http://wso2.com/products/enterprise-service-bus/# and and add "-XX:-UseSplitVerifier" under $JVM_MEM_OPTS into {ESB_HOME}/bin/wso2server.sh"
 
- 3. Create a Jira account using URL https://id.atlassian.com/signup?application=mac&tenant=&continue=https%3A%2F%2Fmy.atlassian.com by giving required values for relevant fields.
+ 2. Create a Jira account using URL https://id.atlassian.com/signup?application=mac&tenant=&continue=https%3A%2F%2Fmy.atlassian.com by giving required values for relevant fields.
     Navigate to "Atlassin Home" and select "JIRA Software" under the products. Start a new JIRA Software account for free by providing necessary details.
     Keep the username, password, domain of the account for further reference.
    
- 4.Prerequisites for Jira Connector Integration Testing.  
+ 3.Prerequisites for Jira Connector Integration Testing.
     Log in to the account created in step 3 and follow the below steps.
    i)   Create a project. Keep the project key for further reference.
    ii)  Navigate to the link https://{domain}.atlassian.net/admin/users?referrerUrl=https%3A%2F%2Fapp-tests.atlassian.net%2Fissues%2F%3Fjql%3D&referrerName=JIRA
@@ -35,11 +33,11 @@ Steps to follow in setting integration test.
    vi)  Create an optional user for the account and verify it, keep the username, password for further reference.
    vii) Navigate to https://{domain}.atlassian.net/secure/admin/ViewIssueTypes.jspa. Obtain any issue type id which is applicable for the project created in step(i).
 
- 5. Follow the below mentioned steps for adding valid certificate to access Jira API over https.
+ 4. Follow the below mentioned steps for adding valid certificate to access Jira API over https.
    i)  Extract the certificate from browser(Mozilla Firefox) by navigating to https://{domain}.atlassian.net
    ii) Add the certificate obtained in step 5 i)to the client-truststore.jks of the ESB located in "<ESB_HOME>/repository/resources/security" folder and wso2carbon.jks located in "{JIRA_HOME}/src/test/resources/keystores/products".
    
- 6. Navigate to location "<ESB_HOME>/repository/conf/axis2" and add/uncomment following lines in "axis2.xml".
+ 5. Navigate to location "<ESB_HOME>/repository/conf/axis2" and add/uncomment following lines in "axis2.xml".
  
 	   Message Formatters :
            <messageFormatter contentType="text/html" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
@@ -47,7 +45,7 @@ Steps to follow in setting integration test.
       Message Builders :   
             <messageBuilder contentType="text/html" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
        
- 6. Compress modified ESB as wso2esb-4.9.0.zip and copy that zip file in to location "{JIRA_HOME}/repository".
+ 6. Compress modified ESB as wso2esb-5.0.0-BETA.zip and copy that zip file in to location "{JIRA_HOME}/repository".
  
  7. Update the jira properties file at location "{JIRA_HOME}/src/test/resources/artifacts/ESB/connector/config" as below.
    
@@ -58,7 +56,7 @@ Steps to follow in setting integration test.
    v)      issueWatcher                - Use the username of the watcher obtained in step 4(ii).
    vi)     issueLinkType               - Use a valid string value for issue link type. e.g.: Duplicate
    vii)    inwardIssueKey              - Use a key of an issue created in step 4(iii).
-   viii)   outwardIssueKey             - Use a key of an issue which was not used in step 8(vii), created in step 4(ii).
+   viii)   outwardIssueKey             - Use a key of an issue which was not used in step 7(vii), created in step 4(ii).
    ix)     summary                     - Use a string value as the summary.
    x)      issueTypeId                 - Use the issue type id obtained in step 4(vii).
    xi)     issueIdOrKey                - Use the issue key which has a comment on it. Mentioned in step 4(iv).
@@ -70,7 +68,7 @@ Steps to follow in setting integration test.
    xvii)   reporterName                - Use the username of a user created in step 4(ii).
    xviii)  description                 - Use a string value as the description.
    xix)    label                       - Use a string value as the label.
-   xx)     summaryOptional             - Use a string value as the summary. Should be different than the value given in step 8 x).
+   xx)     summaryOptional             - Use a string value as the summary. Should be different than the value given in step 7 x).
    xxi)    componentNameMandatory      - Use a string value as the name of the component.
    xxii)   componentNameOptional       - Use a string value as the name of the component.
    xxiii)  updatedComponentName        - Use a string value as the name of the component.
@@ -79,7 +77,7 @@ Steps to follow in setting integration test.
    xxvi)   leadUserName                - Use the username of a user created in step 4(ii).
    xxvii)  assigneeType                - Use 'PROJECT_LEAD' as the value.
    xxviii) updatedComponentDescription - Use a string value as the description of the component.
-   xxix)   updatedLeadUserName         - Use the username of a user created in step 4(ii) which was not used in step 8(xxvi).
+   xxix)   updatedLeadUserName         - Use the username of a user created in step 4(ii) which was not used in step 7(xxvi).
    xxx)    updatedAssigneeType         - Use 'PROJECT_DEFAULT' as the value.
    xxxi)   attachmentId                - Use the attachment id obtained in step 4(v).
    xxxii)  issueId                     - Use the issue key obtained in step 4(v).
