@@ -23,5 +23,9 @@
             <description>Returns the meta-data for an attachment, including the URI of the actual attached file.
             </description>
         </component>
+        <component name="getAttachmentContent">
+            <file>getAttachmentContent.xml</file>
+            <description>Returns the content of an attachment.</description>
+        </component>
     </subComponents>
 </component>

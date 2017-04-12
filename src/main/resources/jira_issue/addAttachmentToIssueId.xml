@@ -21,6 +21,8 @@
     <sequence>
         <property name="uri.var.jira.issueIdOrKey" expression="$func:issueIdOrKey"/>
         <header name="X-Atlassian-Token" value="nocheck" scope="transport"/>
+        <property name="POST_TO_URI" scope="axis2" value="true"/>
+        <property name="DISABLE_CHUNKING" value="true" scope="axis2" />
         <call>
             <endpoint>
                 <http method="POST"
