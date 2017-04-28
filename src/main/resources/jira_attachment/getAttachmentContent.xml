@@ -19,7 +19,7 @@
 <!-- Method Documentation URL: https://developer.atlassian.com/static/rest/jira/6.1.html#d2e168 -->
 <template name="getAttachmentContent" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="attachmentUrl" description="The url of the attachment content."/>
-    <parameter name="fileType" description="The url of the attachment content."/>
+    <parameter name="fileType" description="Type of the attachment."/>
     <sequence>
         <property expression="$func:attachmentUrl" name="uri.var.attachmentUrl"/>
         <property expression="$func:fileType" name="fileType"/>
