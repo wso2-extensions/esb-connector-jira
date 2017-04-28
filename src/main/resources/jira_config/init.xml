@@ -20,6 +20,8 @@
     <parameter name="uri" description="URI of the JIRA instance."/>
     <parameter name="username" description="Username of the user used to log in to JIRA."/>
     <parameter name="password" description="Password of the user used to log in to JIRA."/>
+    <parameter name="blocking"
+               description="The blocking parameter is helping connector performs the blocking invocations to Jira."/>
     <sequence>
         <property name="jira.username" expression="$func:username"/>
         <property name="jira.password" expression="$func:password"/>
@@ -39,6 +41,7 @@
                 <property name="uri.var.jira.url" expression="get-property('registry', 'connectors/Jira/uri')"/>
             </then>
         </filter>
+        <property name="jiraBlocking" expression="$func:blocking"/>
         <property name="jira.for.auth" expression="fn:concat($ctx:jira.username,':',$ctx:jira.password)"/>
         <property name="Authorization" expression="fn:concat('Basic ', base64Encode($ctx:jira.for.auth))"
                   scope="transport"/>

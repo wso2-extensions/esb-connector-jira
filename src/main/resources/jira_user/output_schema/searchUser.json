@@ -2,67 +2,67 @@
   "id": "http:\/\/wso2jsonschema.org",
   "title": "root",
   "$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
-      "items": [
-        {
-          "id": "http:\/\/wso2jsonschema.org\/root\/0",
+  "items": [
+    {
+      "id": "http:\/\/wso2jsonschema.org\/root\/0",
+      "properties": {
+        "locale": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/locale",
+          "type": "string"
+        },
+        "name": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/name",
+          "type": "string"
+        },
+        "active": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/active",
+          "type": "boolean"
+        },
+        "emailAddress": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/emailAddress",
+          "type": "string"
+        },
+        "timeZone": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/timeZone",
+          "type": "string"
+        },
+        "self": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/self",
+          "type": "string"
+        },
+        "displayName": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/displayName",
+          "type": "string"
+        },
+        "avatarUrls": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls",
           "properties": {
-            "locale": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/locale",
+            "24x24": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/24x24",
               "type": "string"
             },
-            "name": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/name",
+            "16x16": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/16x16",
               "type": "string"
             },
-            "active": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/active",
-              "type": "boolean"
-            },
-            "emailAddress": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/emailAddress",
+            "32x32": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/32x32",
               "type": "string"
             },
-            "timeZone": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/timeZone",
-              "type": "string"
-            },
-            "self": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/self",
-              "type": "string"
-            },
-            "displayName": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/displayName",
-              "type": "string"
-            },
-            "avatarUrls": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls",
-              "properties": {
-                "24x24": {
-                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/24x24",
-                  "type": "string"
-                },
-                "16x16": {
-                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/16x16",
-                  "type": "string"
-                },
-                "32x32": {
-                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/32x32",
-                  "type": "string"
-                },
-                "48x48": {
-                  "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/48x48",
-                  "type": "string"
-                }
-              },
-              "type": "object"
-            },
-            "key": {
-              "id": "http:\/\/wso2jsonschema.org\/root\/0\/key",
+            "48x48": {
+              "id": "http:\/\/wso2jsonschema.org\/root\/0\/avatarUrls\/48x48",
               "type": "string"
             }
           },
           "type": "object"
+        },
+        "key": {
+          "id": "http:\/\/wso2jsonschema.org\/root\/0\/key",
+          "type": "string"
         }
-      ],
+      },
+      "type": "object"
+    }
+  ],
   "type": "array"
 }

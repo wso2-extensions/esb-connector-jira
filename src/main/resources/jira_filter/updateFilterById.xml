@@ -44,11 +44,23 @@
             </args>
         </payloadFactory>
         <property name="messageType" value="application/json" scope="axis2"/>
-        <call>
-            <endpoint>
-                <http method="PUT"
-                      uri-template="{uri.var.jira.url}/rest/api/2/filter/{uri.var.jira.filterId}?expand={uri.var.jira.expand}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="PUT"
+                              uri-template="{uri.var.jira.url}/rest/api/2/filter/{uri.var.jira.filterId}?expand={uri.var.jira.expand}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="PUT"
+                              uri-template="{uri.var.jira.url}/rest/api/2/filter/{uri.var.jira.filterId}?expand={uri.var.jira.expand}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

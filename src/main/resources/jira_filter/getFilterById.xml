@@ -23,11 +23,23 @@
         <property name="uri.var.jira.filterId" expression="$func:filterId"/>
         <property name="uri.var.jira.expand" expression="$func:expand"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
-        <call>
-            <endpoint>
-                <http method="GET"
-                      uri-template="{uri.var.jira.url}/rest/api/2/filter/{uri.var.jira.filterId}?expand={uri.var.jira.expand}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="GET"
+                              uri-template="{uri.var.jira.url}/rest/api/2/filter/{uri.var.jira.filterId}?expand={uri.var.jira.expand}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="GET"
+                              uri-template="{uri.var.jira.url}/rest/api/2/filter/{uri.var.jira.filterId}?expand={uri.var.jira.expand}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

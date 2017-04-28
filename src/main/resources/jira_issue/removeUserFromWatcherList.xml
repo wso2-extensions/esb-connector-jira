@@ -23,12 +23,24 @@
     <sequence>
         <property name="uri.var.issueId" expression="$func:issueId"/>
         <property name="uri.var.name" expression="$func:name"/>
-        <call>
-            <endpoint>
-                <http method="delete"
-                      uri-template="{+uri.var.jira.url}/rest/api/2/issue/{+uri.var.issueId}/watchers?username={+uri.var.name}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="delete"
+                              uri-template="{+uri.var.jira.url}/rest/api/2/issue/{+uri.var.issueId}/watchers?username={+uri.var.name}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="delete"
+                              uri-template="{+uri.var.jira.url}/rest/api/2/issue/{+uri.var.issueId}/watchers?username={+uri.var.name}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
         <!-- Remove custom headers from the API response -->
         <header name="X-ASESSIONID" action="remove" scope="transport"/>
         <header name="X-AUSERNAME" action="remove" scope="transport"/>

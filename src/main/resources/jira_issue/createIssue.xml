@@ -29,11 +29,21 @@
         </payloadFactory>
         <property name="messageType" value="application/json" scope="axis2"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
-        <call>
-            <endpoint>
-                <http method="POST"
-                      uri-template="{uri.var.jira.url}/rest/api/2/issue"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="POST" uri-template="{uri.var.jira.url}/rest/api/2/issue"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="POST" uri-template="{uri.var.jira.url}/rest/api/2/issue"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

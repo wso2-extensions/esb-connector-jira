@@ -21,11 +21,23 @@
     <sequence>
         <property name="uri.var.jira.issueTypeId" expression="$func:issueTypeId"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
-        <call>
-            <endpoint>
-                <http method="get"
-                      uri-template="{uri.var.jira.url}/rest/api/2/issuetype/{uri.var.jira.issueTypeId}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.jira.url}/rest/api/2/issuetype/{uri.var.jira.issueTypeId}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.jira.url}/rest/api/2/issuetype/{uri.var.jira.issueTypeId}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>
