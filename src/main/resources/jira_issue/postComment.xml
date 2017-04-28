@@ -22,7 +22,6 @@
     <parameter name="visibleRole" description="a String containing the visible role"/>
     <parameter name="expand" description="The parameters to expand."/>
     <sequence>
-
         <property name="uri.var.issueId" expression="$func:issueIdOrKey"/>
         <property name="messageType" value="application/json" scope="axis2"/>
         <property name="uri.var.jira.expand" expression="$func:expand"/>
@@ -54,11 +53,23 @@
                 <arg evaluator="xml" expression="$func:visibleRole"/>
             </args>
         </payloadFactory>
-        <call>
-            <endpoint>
-                <http method="POST"
-                      uri-template="{uri.var.jira.url}/rest/api/2/issue/{uri.var.issueId}/comment{+uri.var.jira.urlQuery}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="POST"
+                              uri-template="{uri.var.jira.url}/rest/api/2/issue/{uri.var.issueId}/comment{+uri.var.jira.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="POST"
+                              uri-template="{uri.var.jira.url}/rest/api/2/issue/{uri.var.issueId}/comment{+uri.var.jira.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

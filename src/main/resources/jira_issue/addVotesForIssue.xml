@@ -21,11 +21,22 @@
     <parameter name="issueId" description="Id of the issues that the vote is made for."/>
     <sequence>
         <property name="uri.var.issueId" expression="$func:issueId"/>
-        <call>
-            <endpoint>
-                <http method="post" uri-template="{uri.var.jira.url}/rest/api/2/issue/{uri.var.issueId}/votes"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="post" uri-template="{uri.var.jira.url}/rest/api/2/issue/{uri.var.issueId}/votes"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="post" uri-template="{uri.var.jira.url}/rest/api/2/issue/{uri.var.issueId}/votes"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
         <!-- Remove custom headers from the API response -->
         <header name="X-ASESSIONID" action="remove" scope="transport"/>
         <header name="X-AUSERNAME" action="remove" scope="transport"/>

@@ -35,11 +35,23 @@
                 mc.setProperty('uri.var.jira.urlQuery',urlQuery);
             ]]>
         </script>
-        <call>
-            <endpoint>
-                <http method="get"
-                      uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}{+uri.var.jira.urlQuery}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}{+uri.var.jira.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}{+uri.var.jira.urlQuery}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

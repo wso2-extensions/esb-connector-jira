@@ -39,5 +39,25 @@
                       uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/role/{uri.var.jira.roleId}"/>
             </endpoint>
         </call>
+
+
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="POST"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/role/{uri.var.jira.roleId}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="POST"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/role/{uri.var.jira.roleId}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

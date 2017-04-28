@@ -22,11 +22,23 @@
     <sequence>
         <property name="uri.var.jira.projectIdOrKey" expression="$func:projectIdOrKey"/>
         <property name="uri.var.jira.avatarId" expression="$func:avatarId"/>
-        <call>
-            <endpoint>
-                <http method="DELETE"
-                      uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/avatar/{uri.var.jira.avatarId}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="DELETE"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/avatar/{uri.var.jira.avatarId}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="DELETE"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/avatar/{uri.var.jira.avatarId}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

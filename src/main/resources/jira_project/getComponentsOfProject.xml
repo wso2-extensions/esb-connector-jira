@@ -20,11 +20,23 @@
     <parameter name="projectIdOrKey" description="a String containing of the unique key for a project"/>
     <sequence>
         <property name="uri.var.jira.projectIdOrKey" expression="$func:projectIdOrKey"/>
-        <call>
-            <endpoint>
-                <http method="get"
-                      uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/components"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/components"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{uri.var.jira.url}/rest/api/2/project/{uri.var.jira.projectIdOrKey}/components"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

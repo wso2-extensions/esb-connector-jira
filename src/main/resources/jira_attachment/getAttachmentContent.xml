@@ -21,20 +21,37 @@
     <parameter name="attachmentUrl" description="The url of the attachment content."/>
     <sequence>
         <property expression="$func:attachmentUrl" name="uri.var.attachmentUrl"/>
-
         <property name="POST_TO_URI" scope="axis2" value="true"/>
-        <call>
-            <endpoint>
-                <http method="GET" uri-template="{uri.var.attachmentUrl}"/>
-            </endpoint>
-        </call>
-        <property expression="get-property('transport', 'Location')"
-                  name="uri.var.location"/>
-        <call>
-            <endpoint>
-                <http method="GET" uri-template="{uri.var.location}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="GET" uri-template="{uri.var.attachmentUrl}"/>
+                    </endpoint>
+                </call>
+                <filter source="$axis2:HTTP_SC" regex="302">
+                    <property expression="get-property('transport', 'Location')" name="uri.var.location"/>
+                    <call blocking="true">
+                        <endpoint>
+                            <http method="GET" uri-template="{uri.var.location}"/>
+                        </endpoint>
+                    </call>
+                </filter>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="GET" uri-template="{uri.var.attachmentUrl}"/>
+                    </endpoint>
+                </call>
+                <property expression="get-property('transport', 'Location')" name="uri.var.location"/>
+                <call>
+                    <endpoint>
+                        <http method="GET" uri-template="{uri.var.location}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
         <!-- Remove custom headers from the API response -->
         <header name="X-ASESSIONID" action="remove" scope="transport"/>
         <header name="X-AUSERNAME" action="remove" scope="transport"/>

@@ -21,11 +21,24 @@
     <parameter name="componentId" description="The unique identifier for a particular component."/>
     <sequence>
         <property name="uri.var.componentId" expression="$func:componentId"/>
-        <call>
-            <endpoint>
-                <http method="get" uri-template="{+uri.var.jira.url}/rest/api/2/component/{+uri.var.componentId}"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:jiraBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{+uri.var.jira.url}/rest/api/2/component/{+uri.var.componentId}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="get"
+                              uri-template="{+uri.var.jira.url}/rest/api/2/component/{+uri.var.componentId}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
         <!-- Remove custom headers from the API response -->
         <header name="X-ASESSIONID" action="remove" scope="transport"/>
         <header name="X-AUSERNAME" action="remove" scope="transport"/>
