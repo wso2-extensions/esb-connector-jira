@@ -19,23 +19,31 @@
 <!-- Method Documentation URL: https://developer.atlassian.com/static/rest/jira/6.1.html#d2e168 -->
 <template name="getAttachmentContent" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="attachmentUrl" description="The url of the attachment content."/>
+    <parameter name="fileType" description="The url of the attachment content."/>
     <sequence>
         <property expression="$func:attachmentUrl" name="uri.var.attachmentUrl"/>
+        <property expression="$func:fileType" name="fileType"/>
         <property name="POST_TO_URI" scope="axis2" value="true"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
+                <property action="remove" name="NO_ENTITY_BODY" scope="axis2"/>
                 <call blocking="true">
                     <endpoint>
                         <http method="GET" uri-template="{uri.var.attachmentUrl}"/>
                     </endpoint>
                 </call>
+                <property expression="$ctx:fileType" name="messageType" scope="axis2"/>
                 <filter source="$axis2:HTTP_SC" regex="302">
-                    <property expression="get-property('transport', 'Location')" name="uri.var.location"/>
-                    <call blocking="true">
-                        <endpoint>
-                            <http method="GET" uri-template="{uri.var.location}"/>
-                        </endpoint>
-                    </call>
+                    <then>
+                        <property expression="get-property('transport', 'Location')" name="uri.var.location"/>
+                        <property action="remove" name="NO_ENTITY_BODY" scope="axis2"/>
+                        <call blocking="true">
+                            <endpoint>
+                                <http method="GET" uri-template="{uri.var.location}"/>
+                            </endpoint>
+                        </call>
+                        <property expression="$ctx:fileType" name="messageType" scope="axis2"/>
+                    </then>
                 </filter>
             </then>
             <else>
@@ -44,12 +52,16 @@
                         <http method="GET" uri-template="{uri.var.attachmentUrl}"/>
                     </endpoint>
                 </call>
-                <property expression="get-property('transport', 'Location')" name="uri.var.location"/>
-                <call>
-                    <endpoint>
-                        <http method="GET" uri-template="{uri.var.location}"/>
-                    </endpoint>
-                </call>
+                <filter source="$axis2:HTTP_SC" regex="302">
+                    <then>
+                        <property expression="get-property('transport', 'Location')" name="uri.var.location"/>
+                        <call>
+                            <endpoint>
+                                <http method="GET" uri-template="{uri.var.location}"/>
+                            </endpoint>
+                        </call>
+                    </then>
+                </filter>
             </else>
         </filter>
         <!-- Remove custom headers from the API response -->
