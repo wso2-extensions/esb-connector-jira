@@ -34,7 +34,7 @@ Steps to follow in setting integration test.
    i)  Extract the certificate from browser(Mozilla Firefox) by navigating to https://{domain}.atlassian.net
    ii) Add the certificate obtained in step 5 i)to the client-truststore.jks of the ESB located in "<ESB_HOME>/repository/resources/security" folder and wso2carbon.jks located in "{JIRA_HOME}/src/test/resources/keystores/products".
             keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "jira"
-            keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/wso2carbon.jks.jks -alias "jira"
+            keytool -importcert -file <certificate file> -keystore {JIRA_HOME}/src/test/resources/keystores/products/wso2carbon.jks -alias "jira"
  5. Navigate to location "<ESB_HOME>/repository/conf/axis2" and add/uncomment following lines in "axis2.xml".
  
 	   Message Formatters :
@@ -43,7 +43,7 @@ Steps to follow in setting integration test.
       Message Builders :   
             <messageBuilder contentType="text/html" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
        
- 6. Compress modified ESB as wso2esb-5.0.0-BETA.zip and copy that zip file in to location "{JIRA_HOME}/repository".
+ 6. Compress modified EI as wso2ei-6.1.1.zip and copy that zip file in to location "{JIRA_HOME}/repository".
  
  7. Update the jira properties file at location "{JIRA_HOME}/src/test/resources/artifacts/ESB/connector/config" as below.
    
