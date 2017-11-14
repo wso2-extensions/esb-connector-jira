@@ -3,20 +3,17 @@ Product: Integration tests for WSO2 ESB Jira connector
 Pre-requisites:
 
  - Maven 3.x
- - Java 1.6 or above
- - The org.wso2.esb.integration.integration-base project is required. The test suite has been configured to download this project automatically. If the automatic download fails, download the following project and compile it using the mvn clean install command to update your local repository:
-    https://github.com/wso2-extensions/esb-integration-base
+ - Java 1.8
 
 Tested Platform: 
 
- - Microsoft WINDOWS V-7
- - UBUNTU 13.04, 14.04
- - WSO2 ESB 4.9.0, 5.0.0-BETA
- - Java 1.7
+ - Mac OS 10.12.6
+ - WSO2 EI 6.1.1
+ - Java 1.8
 
 Steps to follow in setting integration test.
 
- 1. Download ESB 5.0.0-BETA by navigating to the following URL: http://wso2.com/products/enterprise-service-bus/# and and add "-XX:-UseSplitVerifier" under $JVM_MEM_OPTS into {ESB_HOME}/bin/wso2server.sh"
+ 1. Download EI 6.1.1 from the official website
 
  2. Create a Jira account using URL https://id.atlassian.com/signup?application=mac&tenant=&continue=https%3A%2F%2Fmy.atlassian.com by giving required values for relevant fields.
     Navigate to "Atlassin Home" and select "JIRA Software" under the products. Start a new JIRA Software account for free by providing necessary details.
@@ -36,7 +33,8 @@ Steps to follow in setting integration test.
  4. Follow the below mentioned steps for adding valid certificate to access Jira API over https.
    i)  Extract the certificate from browser(Mozilla Firefox) by navigating to https://{domain}.atlassian.net
    ii) Add the certificate obtained in step 5 i)to the client-truststore.jks of the ESB located in "<ESB_HOME>/repository/resources/security" folder and wso2carbon.jks located in "{JIRA_HOME}/src/test/resources/keystores/products".
-   
+            keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "jira"
+            keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/wso2carbon.jks.jks -alias "jira"
  5. Navigate to location "<ESB_HOME>/repository/conf/axis2" and add/uncomment following lines in "axis2.xml".
  
 	   Message Formatters :
