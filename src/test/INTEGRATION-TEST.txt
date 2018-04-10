@@ -8,12 +8,12 @@ Pre-requisites:
 Tested Platform: 
 
  - Mac OS 10.12.6
- - WSO2 EI 6.1.1
+ - WSO2 EI 6.2.0
  - Java 1.8
 
 Steps to follow in setting integration test.
 
- 1. Download EI 6.1.1 from the official website
+ 1. Download EI 6.2.0 from the official website
 
  2. Create a Jira account using URL https://id.atlassian.com/signup?application=mac&tenant=&continue=https%3A%2F%2Fmy.atlassian.com by giving required values for relevant fields.
     Navigate to "Atlassin Home" and select "JIRA Software" under the products. Start a new JIRA Software account for free by providing necessary details.
@@ -32,18 +32,18 @@ Steps to follow in setting integration test.
 
  4. Follow the below mentioned steps for adding valid certificate to access Jira API over https.
    i)  Extract the certificate from browser(Mozilla Firefox) by navigating to https://{domain}.atlassian.net
-   ii) Add the certificate obtained in step 5 i)to the client-truststore.jks of the ESB located in "<ESB_HOME>/repository/resources/security" folder and wso2carbon.jks located in "{JIRA_HOME}/src/test/resources/keystores/products".
+   ii) Add the certificate obtained in step 5 i)to the client-truststore.jks of the EI located in "<EI_HOME>/repository/resources/security" folder and wso2carbon.jks located in "{JIRA_HOME}/src/test/resources/keystores/products".
             keytool -importcert -file <certificate file> -keystore <EI>/repository/resources/security/client-truststore.jks -alias "jira"
             keytool -importcert -file <certificate file> -keystore {JIRA_HOME}/src/test/resources/keystores/products/wso2carbon.jks -alias "jira"
- 5. Navigate to location "<ESB_HOME>/repository/conf/axis2" and add/uncomment following lines in "axis2.xml".
+ 5. Navigate to location "<EI_HOME>/repository/conf/axis2" and add/uncomment following lines in "axis2.xml".
  
 	   Message Formatters :
            <messageFormatter contentType="text/html" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
        
-      Message Builders :   
-            <messageBuilder contentType="text/html" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
+       Message Builders :
+           <messageBuilder contentType="text/html" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
        
- 6. Compress modified EI as wso2ei-6.1.1.zip and copy that zip file in to location "{JIRA_HOME}/repository".
+ 6. Compress modified EI as wso2ei-6.2.0.zip and copy that zip file in to location "{JIRA_HOME}/repository".
  
  7. Update the jira properties file at location "{JIRA_HOME}/src/test/resources/artifacts/ESB/connector/config" as below.
    
