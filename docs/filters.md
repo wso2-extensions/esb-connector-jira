@@ -254,6 +254,7 @@ Given below is a sample response for the createFilter operation.
 
 #### Updating a filter
 To update an existing filter, use updateFilterById,  specify the filter ID.
+
 **updateFilterById**
 ```xml
 <jira.updateFilterById>
@@ -338,7 +339,7 @@ Given below is a sample response for the updateFilterById operation.
 
 [https://developer.atlassian.com/static/rest/jira/6.1.html#d2e4277](https://developer.atlassian.com/static/rest/jira/6.1.html#d2e4277)
 
-#### Deleting a filter
+#### Delete a filter
 To delete a filter, use deleteFilter and specify the filter ID.
 **deleteFilter**
 ```xml

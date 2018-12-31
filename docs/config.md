@@ -64,7 +64,7 @@ Following is a sample REST request that can be handled by the init operation.
 
 [https://developer.atlassian.com/server/jira/platform/basic-authentication/](https://developer.atlassian.com/server/jira/platform/basic-authentication/)
 
-Now that you have connected to JIRA, use the information in the following topics to perform various operations with the connector. Also, see [Configuring the JIRA Connector Fault Handler Sequence]((fault_handler_sequence.md)).
+Now that you have connected to JIRA, use the information in the following topics to perform various operations with the connector. Also, see [Configuring the JIRA Connector Fault Handler Sequence](fault_handler_sequence.md).
 
 [Working with Dashboards in JIRA](dashboards.md)
 

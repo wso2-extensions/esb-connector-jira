@@ -19,6 +19,7 @@ Following is more information about these operations.
 
 #### Getting group
 This operation returns a JSON representation of the list of groups, including their names, IDs, and more.
+
 **getGroup**
 ```xml
 <jira.getGroup>
@@ -69,6 +70,7 @@ Given below is a sample response for the getGroup operation.
 #### Retrieving groups with substrings matching a given query
 
 This operation retrieves groups with substrings matching a given query.
+
 **listGroupPicker**
 ```xml
 <jira.listGroupPicker>

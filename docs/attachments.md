@@ -9,13 +9,13 @@ For a sample proxy service that illustrates how to work with attachments, see [S
 
 | Operation        | Description |
 | ------------- |-------------|
-| [getAttachmentById](#retrieving-the-meta-data-for-an-attachmen)    | 	Retrieves the meta-data for an attachment, including the URL of the actual attached file. |
+| [getAttachmentById](#retrieving-the-meta-data-for-an-attachment)    | 	Retrieves the meta-data for an attachment, including the URL of the actual attached file. |
 | [getAttachmentContent](#retrieving-the-content-for-an-attachment)      | 	Returns the content of an attachment.|
 
 ### Operation details
 
 Following is more information about these operations.
-#### Retrieving the meta-data for an attachment
+#### Retrieving the meta data for an attachment
 
 This operation retrieves the meta-data for an attachment, including the URL of the actual attached file.
 

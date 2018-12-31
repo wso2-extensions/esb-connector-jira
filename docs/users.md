@@ -10,7 +10,7 @@ For a sample proxy service that illustrates how to work with users, see [Sample 
 | Operation        | Description |
 | ------------- |-------------|
 | [getUser](#getting-information-on-a-user)    | Gets information for the specified user. |
-| [getUserPermissions](#getting-the-current-user's-permissions)      | Gets the permissions for the current user. |
+| [getUserPermissions](#getting-the-current-user-permissions)      | Gets the permissions for the current user. |
 | [searchUser](#searching-for-users )      | Gets a list of users that match a search string. |
 | [searchIssueViewableUsers](#searching-for-users-who-can-view-an-issue-or-project )      | Gets a list of users that match a search string and have permission to view the specified issue or project. |
 | [searchAssignableUser](#searching-for-users-who-can-be-assigned-to-an-issue )      | Gets a list of users that match a search string and can be assigned the specified issue. |
@@ -74,9 +74,10 @@ Given below is a sample response for the getUser operation.
 
 [https://developer.atlassian.com/static/rest/jira/6.1.html#d2e3476](https://developer.atlassian.com/static/rest/jira/6.1.html#d2e3476)
 
-#### Getting the current user's permissions
+#### Getting the current user permissions
 
 To get information on the current user's permissions, use getUserPermissions. You can optionally provide a specific context for which you want to get permissions (projectKey OR projectId OR issueKey OR issueId).
+
 **getUserPermissions**
 ```xml
 <jira.getUserPermissions>
@@ -127,6 +128,7 @@ Given below is a sample response for the getUserPermissions operation.
 #### Searching for users
 
 To search for users whose username, name, or email address match a search string, use jira.searchUser and specify the search string.
+
 **searchUser**
 ```xml
 <jira.searchUser>
@@ -184,6 +186,7 @@ Given below is a sample response for the searchUser operation.
 #### Searching for users who can view an issue or project
 
 To search for users whose username, name, or email address match a search string and have permission to view the specified issue or project, use searchIssueViewableUsers and specify the search string and issue key or project key.
+
 **searchIssueViewableUsers**
 ```xml
 <jira.searchIssueViewableUsers>
@@ -242,6 +245,7 @@ Given below is a sample response for the searchIssueViewableUsers operation.
 #### Searching for users who can be assigned to an issue
 
 To search for users whose username, name, or email address match a search string and can be assigned to a specific issue, use searchAssignableUser. You specify the search string and either the project key (if getting users for a new issue you are creating) or the issue key (if getting users for an existing issue you are editing).
+
 **searchAssignableUser**
 ```xml
 <jira.searchAssignableUser>

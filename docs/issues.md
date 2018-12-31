@@ -25,13 +25,13 @@ For a sample proxy service that illustrates how to work with issues, see [Sample
 | [getIssueTypes](#getting-issue-types)      | Gets the available types of issues.|
 | [getIssueTypeById](#getting-information-on-an-issue-type)    | Gets information about a specific issue type. |
 | [getVotesForIssue](#getting-votes-for-an-issue)      | Gets the votes for an issue. |
-| [createBulkIssue](#rcreating-many-issues-in-one-bulk-operation)   | Creates many issues in one bulk operation.|
+| [createBulkIssue](#creating-many-issues-in-one-bulk-operation)   | Creates many issues in one bulk operation.|
 | [assignIssueToUser](#assigning-an-issue-to-a-user)      | Assigns an issue to a user. |
 | [getCommentById](#retrieving-all-comments-for-an-issue)   | Retrieves all comments for an issue.|
-| [sendNotification](#rsending-a-notification-to-the-list-or-recipients)   | Sends a notification (e-mail) to the list or recipients defined in the request.|
+| [sendNotification](#sending-a-notification-to-the-list-or-recipients)   | Sends a notification (e-mail) to the list or recipients defined in the request.|
 | [addVotesForIssue](#casting-your-vote-in-favour-of-an-issue)      | Casts your vote in favour of an issue.|
 | [getWatchersForIssue](#retrieving-the-list-of-watchers-for-the-issue-with-the-given-key)      | Retrieves the list of watchers for the issue with the given key.|
-| [removeUserFromWatcherList](#removing-a-user-from-an-issue's-watcher-list)    | Removes a user from an issue's watcher list. |
+| [removeUserFromWatcherList](#removing-a-user-from-an-issue-watcher-list)    | Removes a user from an issue's watcher list. |
 
 
 ### Operation details
@@ -1260,7 +1260,7 @@ Given below is a sample response for the getWatchersForIssue operation.
 
 [https://developer.atlassian.com/static/rest/jira/6.1.html#d2e1232](https://developer.atlassian.com/static/rest/jira/6.1.html#d2e1232)
 
-#### Removing a user from an issue's watcher list
+#### Removing a user from an issue watcher list
 
 This operation removes a user from an issue's watcher list.
 

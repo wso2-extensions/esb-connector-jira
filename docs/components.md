@@ -18,7 +18,7 @@ For a sample proxy service that illustrates how to work with components, see [Sa
 
 This section provides further details on the operations related to components.
 
-#### Getting information on a user
+#### creating a component
 The createComponent operation creates a component.
 
 **createComponent**

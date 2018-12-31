@@ -10,7 +10,7 @@ For a sample proxy service that illustrates how to work with issue links, see [S
 | Operation        | Description |
 | ------------- |-------------|
 | [createIssueLink](#creating-an-issue-link-between-two-issues)    | 	Creates an issue link between two issues. |
-| [getIssueLinkById](#retrieving-an-issue-link-with-the-specified-ID)      | Retrieves an issue link with the specified ID. |
+| [getIssueLinkById](#retrieving-an-issue-link-with-the-specified-id)      | Retrieves an issue link with the specified ID. |
 
 ### Operation details
 

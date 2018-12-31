@@ -1,4 +1,4 @@
-# Configuring the JIRA Fault Handler Sequence
+# Configuring the JIRA Connector Fault Handler Sequence
 
 Following is a sample proxy service and fault handler sequence you can use as a starting point for handling faults when integrating with JIRA. Customize this sample to match your requirements.
 **Sample Proxy**
