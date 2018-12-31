@@ -3,5 +3,5 @@
 	"username":"%s(username)",
 	"password":"%s(password)",
 	"issueIdOrKey":"%s(issueIdOrKey)",
-	"name":"%s(assigneeName)"
+	"name":"%s(optionalUsername)"
 }

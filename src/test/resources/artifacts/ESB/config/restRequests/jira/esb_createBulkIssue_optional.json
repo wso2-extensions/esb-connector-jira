@@ -15,10 +15,10 @@
                "id": "%s(issueTypeId)"
             },
             "assignee": {
-               "name": "%s(assigneeName)"
+               "name": "%s(optionalUsername)"
             },
             "reporter": {
-               "name": "%s(reporterName)"
+               "name": "%s(optionalUsername)"
             },
             "description": "%s(description)",
             "labels": [

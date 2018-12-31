@@ -5,6 +5,6 @@
 	"componentId": "%s(componentIdOptional)",
     "name": "%s(updatedComponentName)",
     "description": "%s(updatedComponentDescription)",
-    "leadUserName": "%s(updatedLeadUserName)",
+    "leadUserName": "%s(optionalUsername)",
     "assigneeType": "%s(updatedAssigneeType)"
 }
