@@ -1349,7 +1349,7 @@ curl http://localhost:8280/services/getComments -H "Content-Type: application/js
 5. Jira returns a json response similar to the one shown below:
  
 ```json
-{{
+{
      "startAt": 0,
      "maxResults": 1,
      "total": 1,

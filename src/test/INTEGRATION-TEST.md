@@ -74,7 +74,7 @@ location "JIRA_HOME}/src/test/resources/artifacts/ESB/connector/config" to run t
   ```
    1. To make the "testRemoveUserFromWatcherListWithMandatoryParameters" pass, you have to add the same user name (say user2)
       as a watcher again to the same issue (issue1) before you remove the watcher from the issue.
-   2. To make the "testAddVotesForIssueWithMandatoryParameters" pass, make sure the same user name (optionlal username) already added the vote to the issue or not. If the same user can't add vote again and again.
+   2. To make the "testAddVotesForIssueWithMandatoryParameters" pass, make sure the same user name (optionlal username) already added the vote to the issue or not. The same user can't add vote again and again.
    ```
 
  8. Navigate to "<JIRA_HOME>/" and run the following command. </br>

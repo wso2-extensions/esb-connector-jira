@@ -156,7 +156,7 @@ curl http://localhost:8280/services/jira_getAttachmentById -H "Content-Type: app
 5. Jira returns a json response similar to the one shown below:
  
 ```json
-{{
+{
      "self": "http://localhost:8080/rest/api/2/attachment/10000",
      "filename": "31714367_1982813478396639_3541297709187072000_n.jpg",
      "author": {
