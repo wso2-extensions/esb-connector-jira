@@ -7,7 +7,11 @@ the [JIRA REST API version 6.1](https://docs.atlassian.com/DAC/rest/jira/6.1.htm
 
 | Connector version | Supported JIRA REST API version | Supported WSO2 ESB/EI version |
 | ------------- | ------------- | ------------- |
-| [1.0.5](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.5) | v2.0 | EI 6.1.0, 6.1.1, 6.2.0, 6.3.0, 6.4.0 |
+| [1.0.4](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.4) | v2.0 | ESB 4.9.0, 5.0.0, EI 6.1.0, 6.1.1, 6.2.0, 6.3.0, 6.4.0 |
+| [1.0.3](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.3) | v2.0 | ESB 4.9.0, 5.0.0, EI 6.1.0, 6.1.1, 6.2.0, 6.3.0, 6.4.0 |
+| [1.0.2](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.2) | v2.0 | ESB 4.9.0, 5.0.0 |
+| [1.0.1](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.1) | v2.0 | ESB 4.9.0 |
+| [1.0.0](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.0) | v2.0 | ESB 4.9.0 |
 
 ## Getting started
 
