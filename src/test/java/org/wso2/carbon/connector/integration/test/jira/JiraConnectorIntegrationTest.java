@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.axiom.om.util.Base64;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Assert;
@@ -44,12 +45,13 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      */
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
+        addCertificatesToEIKeyStore("client-truststore.jks", "wso2carbon");
         String connectorName = System.getProperty("connector_name") + "-connector-" +
                 System.getProperty("connector_version") + ".zip";
         init(connectorName);
-
+        getApiConfigProperties();
         esbRequestHeadersMap.put("Content-Type", "application/json");
-
+        esbRequestHeadersMap.put("Accept", "application/json");
         // Create base64-encoded auth string using username and password
         final String authString =
                 connectorProperties.getProperty("username") + ":" + connectorProperties.getProperty("password");
@@ -62,6 +64,13 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         connectorProperties.setProperty("responseType", "json");
 
         apiUrl = connectorProperties.getProperty("apiUrl") + "/rest/api/2";
+
+        connectorProperties.put("componentNameMandatory", connectorProperties.getProperty("componentNameMandatory")+
+                System.currentTimeMillis());
+        connectorProperties.put("componentNameOptional", connectorProperties.getProperty("componentNameOptional")+
+                System.currentTimeMillis());
+        connectorProperties.put("updatedComponentName", connectorProperties.getProperty("updatedComponentName")+
+                System.currentTimeMillis());
 
     }
 
@@ -268,7 +277,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(connectorProperties.getProperty("updatedComponentDescription"),
                             apiRestResponse.getBody()
                 .getString("description"));
-        Assert.assertEquals(connectorProperties.getProperty("updatedLeadUserName"),
+        Assert.assertEquals(connectorProperties.getProperty("optionalUsername"),
                             apiRestResponse.getBody()
                 .getJSONObject("lead").getString("name"));
         Assert.assertEquals(connectorProperties.getProperty("updatedAssigneeType"),
@@ -373,13 +382,17 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
                 .getBody().getJSONArray("errorMessages").getString(0));
     }
 
+
+
+
+
     /**
      * Positive test case for createBulkIssue method with mandatory parameters.
      *
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"},
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testGetIssueTypesWithMandatoryParameters"},
             description = "jira {createBulkIssue} integration test with mandatory parameters.")
     public void testCreateBulkIssueWithMandatoryParameters() throws IOException, JSONException {
 
@@ -414,7 +427,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"},
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testGetIssueTypesWithMandatoryParameters"},
             description = "jira {createBulkIssue} integration test with optional parameters.")
     public void testCreateBulkIssueWithOptionalParameters() throws IOException, JSONException {
 
@@ -451,8 +464,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {createBulkIssue} integration test with" +
-                                               " negative case.")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testGetIssueTypesWithMandatoryParameters"},
+            description = "jira {createBulkIssue} integration test with negative case.")
     public void testCreateBulkIssueWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:createBulkIssue");
@@ -477,13 +490,43 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
     }
 
     /**
+     * Positive test case for postComment method with mandatory parameters.
+     *
+     * @throws JSONException
+     * @throws IOException
+     */
+    @Test(groups = {"wso2.esb"}, description = "jira {postComment} integration test with mandatory parameters.")
+    public void testPostCommentsWithMandatoryParameters() throws IOException, JSONException {
+
+        esbRequestHeadersMap.put("Action", "urn:postComment");
+
+        RestResponse<JSONObject> esbRestResponse =
+                sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
+                        "esb_postComment_mandatory.json");
+        final JSONObject esbRestResponseObject = esbRestResponse.getBody();
+        String commentId = esbRestResponseObject.getString("id");
+        connectorProperties.put("commentId", commentId);
+        final String apiEndPoint =
+                apiUrl + "/issue/" + connectorProperties.getProperty("issueIdOrKey") + "/comment/"
+                        + connectorProperties.getProperty("commentId");
+        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
+                apiRequestHeadersMap);
+        final JSONObject apiRestResponseObject = apiRestResponse.getBody();
+        Assert.assertEquals(esbRestResponseObject.getJSONObject("author").getString("name"),
+                apiRestResponseObject
+                        .getJSONObject("author").getString("name"));
+        Assert.assertEquals(esbRestResponseObject.getString("body"),
+                apiRestResponseObject.getString("body"));
+    }
+
+    /**
      * Positive test case for getCommentById method with mandatory parameters.
      *
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getCommentById} integration test with" +
-                                               " mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testPostCommentsWithMandatoryParameters"},
+            description = "jira {getCommentById} integration test with mandatory parameters.")
     public void testGetCommentByIdWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getCommentById");
@@ -515,8 +558,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getCommentById} integration test with " +
-                                               "optional parameters.")
+    @Test(groups = {"wso2.esb"},  dependsOnMethods = {"testPostCommentsWithMandatoryParameters"},
+            description = "jira {getCommentById} integration test with optional parameters.")
     public void testGetCommentByIdWithOptionalParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getCommentById");
@@ -544,7 +587,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getCommentById} integration test negative case.")
+    @Test(groups = {"wso2.esb"},  dependsOnMethods = {"testPostCommentsWithMandatoryParameters"},
+            description = "jira {getCommentById} integration test negative case.")
     public void testGetCommentByIdWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getCommentById");
@@ -572,8 +616,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {assignIssueToUser} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {assignIssueToUser} integration test with mandatory parameters.")
     public void testAssignIssueToUserWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:assignIssueToUser");
@@ -590,7 +633,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         final JSONObject apiRestResponseObject = apiRestResponse.getBody().getJSONObject("fields");
 
         Assert.assertEquals(apiRestResponseObject.getJSONObject("assignee").getString("name"),
-                connectorProperties.getProperty("assigneeName"));
+                connectorProperties.getProperty("optionalUsername"));
 
     }
 
@@ -606,8 +649,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {assignIssueToUser} integration test with" +
-                                               " negative case.")
+    @Test(groups = {"wso2.esb"}, description = "jira {assignIssueToUser} integration test with negative case.")
     public void testAssignIssueToUserWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:assignIssueToUser");
@@ -636,8 +678,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {sendNotification} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {sendNotification} integration test with mandatory parameters.")
     public void testSendNotificationWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:sendNotification");
@@ -691,8 +732,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getWatchersForIssue} integration test with" +
-                                               " mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getWatchersForIssue} integration test with mandatory parameters.")
     public void testGetWatchersForIssueWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getWatchersForIssue");
@@ -703,7 +743,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         final JSONObject esbResponseObject = esbRestResponse.getBody();
 
         final String apiEndPoint =
-                apiUrl + "/issue/" + connectorProperties.getProperty("issueIdWithWatchList") + "/watchers";
+                apiUrl + "/issue/" + connectorProperties.getProperty("issueIdOrKey") + "/watchers";
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
                                                                        apiRequestHeadersMap);
         final JSONObject apiResponseObject = apiRestResponse.getBody();
@@ -734,8 +774,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getWatchersForIssue} integration test " +
-                                               "negative case.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getWatchersForIssue} integration test negative case.")
     public void testGetWatchersForIssueWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getWatchersForIssue");
@@ -800,8 +839,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {createIssueLink} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {createIssueLink} integration test with mandatory parameters.")
     public void testcreateIssueLinkWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:createIssueLink");
@@ -824,9 +862,9 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(apiResponseObject.getJSONObject("type").getString("name"),
                 connectorProperties.getProperty("issueLinkType"));
         Assert.assertEquals(apiResponseObject.getJSONObject("inwardIssue").getString("key"),
-                connectorProperties.getProperty("inwardIssueKey"));
+                connectorProperties.getProperty("issueIdOrKey"));
         Assert.assertEquals(apiResponseObject.getJSONObject("outwardIssue").getString("key"),
-                connectorProperties.getProperty("outwardIssueKey"));
+                connectorProperties.getProperty("issueIdWithWatchList"));
 
     }
 
@@ -842,8 +880,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {createIssueLink} integration test negative " +
-                                               "case.")
+    @Test(groups = {"wso2.esb"}, description = "jira {createIssueLink} integration test negative case.")
     public void testCreateIssueLinkWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:createIssueLink");
@@ -912,8 +949,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {listGroupUserPicker} integration test with" +
-                                               " mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {listGroupUserPicker} integration test with mandatory parameters.")
     public void testListGroupUserPickerWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:listGroupUserPicker");
@@ -928,24 +964,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
                                                                        apiRequestHeadersMap);
         final JSONObject apiResponseObject = apiRestResponse.getBody();
-
         Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("total"),
                 apiResponseObject.getJSONObject("users").getString("total"));
-        Assert.assertEquals(
-                esbResponseObject.getJSONObject("users").getJSONArray("users").getJSONObject(0).
-                        getString("name"),
-                apiResponseObject.getJSONObject("users").getJSONArray("users").getJSONObject(0).
-                        getString("name"));
-        Assert.assertEquals(
-                esbResponseObject.getJSONObject("users").getJSONArray("users").getJSONObject(0).
-                        getString("key"),
-                apiResponseObject.getJSONObject("users").getJSONArray("users").getJSONObject(0).
-                        getString("key"));
-        Assert.assertEquals(
-                esbResponseObject.getJSONObject("users").getJSONArray("users").getJSONObject(0).
-                        getString("displayName"),
-                apiResponseObject.getJSONObject("users").getJSONArray("users").getJSONObject(0).
-                        getString("displayName"));
         Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("header"),
                             apiResponseObject.getJSONObject("users").getString("header"));
 
@@ -957,8 +977,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {listGroupUserPicker} integration test with" +
-                                               " mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {listGroupUserPicker} integration test with mandatory parameters.")
     public void testListGroupUserPickerWithOptionalParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:listGroupUserPicker");
@@ -973,24 +992,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         final JSONObject apiResponseObject = apiRestResponse.getBody();
         Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("total"),
                 apiResponseObject.getJSONObject("users").getString("total"));
-        Assert.assertEquals(
-                esbResponseObject.getJSONObject("users").getJSONArray("users").
-                        getJSONObject(0).getString("name"),
-                apiResponseObject.getJSONObject("users").getJSONArray("users").
-                        getJSONObject(0).getString("name"));
-        Assert.assertEquals(
-                esbResponseObject.getJSONObject("users").getJSONArray("users").
-                        getJSONObject(0).getString("avatarUrl"),
-                apiResponseObject.getJSONObject("users").getJSONArray("users").
-                        getJSONObject(0).getString("avatarUrl"));
-        Assert.assertEquals(
-                esbResponseObject.getJSONObject("users").getJSONArray("users").
-                        getJSONObject(0).getString("displayName"),
-                apiResponseObject.getJSONObject("users").getJSONArray("users").
-                        getJSONObject(0).getString("displayName"));
         Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("header"),
-                            apiResponseObject
-                .getJSONObject("users").getString("header"));
+                            apiResponseObject.getJSONObject("users").getString("header"));
     }
 
     /**
@@ -999,8 +1002,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {listGroupUserPicker} integration test negative " +
-                                               "case.")
+    @Test(groups = {"wso2.esb"}, description = "jira {listGroupUserPicker} integration test negative case.")
     public void testListGroupUserPickerWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:listGroupUserPicker");
@@ -1027,8 +1029,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {listGroupPicker} integration test with mandatory" +
-                                               " parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {listGroupPicker} integration test with mandatory parameters.")
     public void testListGroupPickerWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:listGroupPicker");
@@ -1061,8 +1062,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {listGroupPicker} integration test with optional" +
-                                               " parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {listGroupPicker} integration test with optional parameters.")
     public void testListGroupPickerWithOptionalParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:listGroupPicker");
@@ -1077,7 +1077,6 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
                                                                        apiRequestHeadersMap);
         final JSONObject apiResponseObject = apiRestResponse.getBody();
-
         Assert.assertEquals(esbResponseObject.getString("header"), apiResponseObject.getString("header"));
         Assert.assertEquals(esbResponseObject.getJSONArray("groups").getJSONObject(0).getString("name"),
                 apiResponseObject.getJSONArray("groups").getJSONObject(0).getString("name"));
@@ -1121,11 +1120,19 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getAttachmentById} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getAttachmentById} integration test with mandatory parameters.")
     public void testGetAttachmentByIdWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getAttachmentById");
+
+        final String apiEndpointForIssueDetails = apiUrl + "/issue/" + connectorProperties.getProperty("issueIdOrKey");
+
+        RestResponse<JSONObject> apiRestResponseWithIssueDetails = sendJsonRestRequest(apiEndpointForIssueDetails, "GET",
+                apiRequestHeadersMap);
+        final JSONObject apiRestResponseObject = apiRestResponseWithIssueDetails.getBody().getJSONObject("fields");
+
+        String attachmentId = apiRestResponseObject.getJSONArray("attachment").getJSONObject(0).getString("id");
+        connectorProperties.put("attachmentId", attachmentId);
 
         RestResponse<JSONObject> esbRestResponse =
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
@@ -1182,13 +1189,12 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {addVotesForIssue} integration test with mandatory" +
-                                               " parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {addVotesForIssue} integration test with mandatory parameters.")
     public void testAddVotesForIssueWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:addVotesForIssue");
 
-        final String apiEndPoint = apiUrl + "/issue/" + connectorProperties.getProperty("issueId");
+        final String apiEndPoint = apiUrl + "/issue/" + connectorProperties.getProperty("issueIdOrKey");
 
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
                                                                        apiRequestHeadersMap);
@@ -1219,7 +1225,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getAttachmentById} integration test negative case.")
+    @Test(groups = {"wso2.esb"}, description = "jira {addVotesForIssue} integration test negative case.")
     public void testAddVotesForIssueWithNegativeCase() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:addVotesForIssue");
@@ -1232,7 +1238,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
 
         final JSONObject esbResponseObject = esbRestResponse.getBody();
 
-        final String apiEndPoint = apiUrl + "/issue/" + connectorProperties.getProperty("issueId") + "/votes";
+        final String apiEndPoint = apiUrl + "/issue/" + connectorProperties.getProperty("issueIdOrKey") + "/votes";
 
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "POST",
                                                                        apiRequestHeadersMap);
@@ -1248,8 +1254,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getProject} integration test with mandatory" +
-                                               " parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getProject} integration test with mandatory parameters.")
     public void testGetProjectWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getProject");
@@ -1289,8 +1294,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getAvatarsForProject} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getAvatarsForProject} integration test with mandatory parameters.")
     public void testGetAvatarsForProjectWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getAvatarsForProject");
@@ -1311,8 +1315,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getRolesOfProject} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getRolesOfProject} integration test with mandatory parameters.")
     public void testGetRolesOfProjectWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getRolesOfProject");
@@ -1333,8 +1336,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getStatusesOfProject} integration test with" +
-                                               " mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getStatusesOfProject} integration test with mandatory parameters.")
     public void testGetStatusesOfProjectWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getStatusesOfProject");
@@ -1355,8 +1357,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getVersionsOfProject} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getVersionsOfProject} integration test with mandatory parameters.")
     public void testGetVersionsOfProjectWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getVersionsOfProject");
@@ -1378,8 +1379,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getUserPermissions} integration test with " +
-                                               "mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getUserPermissions} integration test with mandatory parameters.")
     public void testGetUserPermissionsWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getUserPermissions");
@@ -1400,8 +1400,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getDashboards} integration test with mandatory " +
-                                               "parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getDashboards} integration test with mandatory parameters.")
     public void testGetDashboardsWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getDashboards");
@@ -1422,8 +1421,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getIssuePriorities} integration test with" +
-                                               " mandatory parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getIssuePriorities} integration test with mandatory parameters.")
     public void testGetIssuePrioritiesWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getIssuePriorities");
@@ -1444,8 +1442,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws JSONException
      * @throws IOException
      */
-    @Test(groups = {"wso2.esb"}, description = "jira {getIssueTypes} integration test with mandatory" +
-                                               " parameters.")
+    @Test(groups = {"wso2.esb"}, description = "jira {getIssueTypes} integration test with mandatory parameters.")
     public void testGetIssueTypesWithMandatoryParameters() throws IOException, JSONException {
 
         esbRequestHeadersMap.put("Action", "urn:getIssueTypes");
@@ -1454,7 +1451,14 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
                                     "esb_getIssueTypes_mandatory.json");
         final String apiEndPoint = apiUrl +"/issuetype";
-
+        JSONArray itemArray=new JSONArray(esbRestResponse.getBody().getString("output"));
+        for (int i = 0 ; i<itemArray.length();i++){
+            JSONObject jsonObject = itemArray.getJSONObject(i);
+            if(jsonObject.getString("name").equals("Bug")) {
+                String id = jsonObject.getString("id");
+                connectorProperties.put("issueTypeId", id);
+            }
+        }
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
                                                                        apiRequestHeadersMap);
         Assert.assertEquals(esbRestResponse.getBody().toString(), apiRestResponse.getBody().toString());

@@ -3,5 +3,5 @@
 	"username":"%s(username)",
 	"password":"%s(password)",
 	"issueId":"%s(issueIdWithWatchList)",
-	"name" : "%s(issueWatcher)"
+	"name" : "%s(leadUserName)"
 }

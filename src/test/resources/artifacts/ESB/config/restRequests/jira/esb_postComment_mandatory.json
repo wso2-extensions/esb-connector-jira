@@ -1,0 +1,8 @@
+{
+  "uri":"%s(apiUrl)",
+  "username":"%s(username)",
+  "password":"%s(password)",
+  "issueIdOrKey":"%s(issueIdOrKey)",
+  "comment":"Waiting to hear back from the legal department.",
+  "visibleRole":"Administrators"
+}

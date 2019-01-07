@@ -6,7 +6,7 @@
    "subject": "%s(notificationSubject)",
    "to": {
       "users": [{
-         "name": "%s(notifyUser)"
+         "name": "%s(leadUserName)"
       }]
 
    }

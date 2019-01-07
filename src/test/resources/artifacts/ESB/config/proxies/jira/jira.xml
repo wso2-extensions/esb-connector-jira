@@ -57,6 +57,8 @@
             <property name="commentVisibility" expression="json-eval($.commentVisibility)"/>
             <property name="linkId" expression="json-eval($.linkId)"/>
             <property name="projectIdOrKey" expression="json-eval($.projectIdOrKey)"/>
+            <property name="visibleRole" expression="json-eval($.visibleRole)"/>
+            <property name="comment" expression="json-eval($.comment)"/>
             <jira.init>
                 <uri>{$ctx:uri}</uri>
                 <username>{$ctx:username}</username>
@@ -223,6 +225,14 @@
                 <case regex="urn:getIssueTypes">
                     <jira.getIssueTypes/>
                 </case>
+                <case regex="urn:postComment">
+                    <jira.postComment>
+                        <issueIdOrKey>{$ctx:issueIdOrKey}</issueIdOrKey>
+                        <comment>{$ctx:comment}</comment>
+                        <visibleRole>{$ctx:visibleRole}</visibleRole>
+                        <expand>{$ctx:expand}</expand>
+                    </jira.postComment>
+                </case>
             </switch>
             <respond/>
         </inSequence>
@@ -233,4 +243,3 @@
     </target>
     <description/>
 </proxy>
-                                

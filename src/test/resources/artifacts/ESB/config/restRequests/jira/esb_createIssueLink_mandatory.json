@@ -3,6 +3,6 @@
 	 "username":"%s(username)",
 	 "password":"%s(password)",
     "typeName": "%s(issueLinkType)",
-    "inwardIssueKey": "%s(inwardIssueKey)",
-    "outwardIssueKey": "%s(outwardIssueKey)"
+    "inwardIssueKey": "%s(issueIdOrKey)",
+    "outwardIssueKey": "%s(issueIdWithWatchList)"
 }
