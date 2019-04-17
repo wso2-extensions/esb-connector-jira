@@ -1,12 +1,13 @@
 ### JIRA ESB/EI Connector
 
-The JIRA connector [Connector](https://docs.wso2.com/display/EI640/Working+with+Connectors) allows you to connect to JIRA, an online issue-tracking database. The connector uses
+The JIRA connector [Connector](https://docs.wso2.com/display/EI650/Working+with+Connectors) allows you to connect to JIRA, an online issue-tracking database. The connector uses
 the [JIRA REST API version 6.1](https://docs.atlassian.com/DAC/rest/jira/6.1.html) to connect to JIRA, view and update issues, work with filters, and more.
 
 ## Compatibility
 
 | Connector version | Supported JIRA REST API version | Supported WSO2 ESB/EI version |
 | ------------- | ------------- | ------------- |
+| [1.0.5](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.5) | v2.0 | EI 6.5.0 |
 | [1.0.4](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.4) | v2.0 | ESB 4.9.0, 5.0.0, EI 6.1.0, 6.1.1, 6.2.0, 6.3.0, 6.4.0 |
 | [1.0.3](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.3) | v2.0 | ESB 4.9.0, 5.0.0, EI 6.1.0, 6.1.1, 6.2.0, 6.3.0, 6.4.0 |
 | [1.0.2](https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.2) | v2.0 | ESB 4.9.0, 5.0.0 |
@@ -18,9 +19,9 @@ the [JIRA REST API version 6.1](https://docs.atlassian.com/DAC/rest/jira/6.1.htm
 #### Download and install the connector
 
 1. Download the connector from the [WSO2 Store](https://store.wso2.com/store/assets/esbconnector/details/df59ac1e-88e7-46af-9b0a-f0f5f1e1b456) by clicking the Download Connector button.
-2. Then you can follow this [Documentation](https://docs.wso2.com/display/EI640/Working+with+Connectors+via+the+Management+Console) to add and enable the connector via the Management Console in your EI instance.
-3. For more information on using connectors and their operations in your EI configurations, see [Using a Connector](https://docs.wso2.com/display/EI640/Using+a+Connector).
-4. If you want to work with connectors via EI tooling, see [Working with Connectors via Tooling](https://docs.wso2.com/display/EI640/Working+with+Connectors+via+Tooling).
+2. Then you can follow this [Documentation](https://docs.wso2.com/display/EI650/Working+with+Connectors+via+the+Management+Console) to add and enable the connector via the Management Console in your EI instance.
+3. For more information on using connectors and their operations in your EI configurations, see [Using a Connector](https://docs.wso2.com/display/EI650/Using+a+Connector).
+4. If you want to work with connectors via EI tooling, see [Working with Connectors via Tooling](https://docs.wso2.com/display/EI650/Working+with+Connectors+via+Tooling).
 
 #### Configuring the connector operations
 

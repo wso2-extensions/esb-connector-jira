@@ -342,8 +342,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         Assert.assertEquals(esbRestResponse.getHttpStatusCode(), apiRestResponse.getHttpStatusCode());
         Assert.assertEquals(esbRestResponse.getBody().getString("self"), apiRestResponse.getBody().
                 getString("self"));
-        Assert.assertEquals(esbRestResponse.getBody().getString("issueCount"),
-                apiRestResponse.getBody().getString("issueCount"));
+        Assert.assertEquals(esbRestResponse.getBody().getInt("issueCount"),
+                apiRestResponse.getBody().getInt("issueCount"));
     }
 
     /**
@@ -449,9 +449,9 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         final JSONObject apiRestResponseObject = apiRestResponse.getBody().getJSONObject("fields");
 
         Assert.assertEquals(apiRestResponseObject.getJSONObject("assignee").getString("name"),
-                connectorProperties.getProperty("assigneeName"));
+                connectorProperties.getProperty("optionalUsername"));
         Assert.assertEquals(apiRestResponseObject.getJSONObject("reporter").getString("name"),
-                connectorProperties.getProperty("reporterName"));
+                connectorProperties.getProperty("optionalUsername"));
         Assert.assertEquals(apiRestResponseObject.getString("description"),
                 connectorProperties.getProperty("description"));
         Assert.assertEquals(apiRestResponseObject.getJSONArray("labels").get(0),
@@ -749,17 +749,17 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         final JSONObject apiResponseObject = apiRestResponse.getBody();
 
         Assert.assertEquals(esbResponseObject.getString("self"), apiResponseObject.getString("self"));
-        Assert.assertEquals(esbResponseObject.getString("isWatching"),
-                            apiResponseObject.getString("isWatching"));
-        Assert.assertEquals(esbResponseObject.getString("watchCount"),
-                            apiResponseObject.getString("watchCount"));
+        Assert.assertEquals(esbResponseObject.getBoolean("isWatching"),
+                            apiResponseObject.getBoolean("isWatching"));
+        Assert.assertEquals(esbResponseObject.getInt("watchCount"),
+                            apiResponseObject.getInt("watchCount"));
         Assert.assertEquals(esbResponseObject.getJSONArray("watchers").
                 getJSONObject(0).getString("name"),
                 apiResponseObject.getJSONArray("watchers").getJSONObject(0).getString("name"));
         Assert.assertEquals(esbResponseObject.getJSONArray("watchers").getJSONObject(0).
-                getString("active"),
+                getBoolean("active"),
                 apiResponseObject.getJSONArray("watchers").getJSONObject(0).
-                        getString("active"));
+                        getBoolean("active"));
     }
 
     /**
@@ -803,7 +803,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      */
     @Test(groups = {"wso2.esb"}, dependsOnMethods = {"testGetWatchersForIssueWithMandatoryParameters"},
             description = "jira {removeUserFromWatcherList} integration test with mandatory parameters.")
-    public void testRemoveUserFromWatcherListWithMandatoryParameters() throws IOException, JSONException {
+    public void testRemoveUserFromWatcherListWithMandatoryParameters() throws IOException, JSONException,
+            InterruptedException {
 
         esbRequestHeadersMap.put("Action", "urn:removeUserFromWatcherList");
 
@@ -814,7 +815,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
 
         sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
                             "esb_removeUserFromWatcherList_mandatory.json");
-
+        Thread.sleep(6000);
         apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         final int watchesCountAfterRemove = apiRestResponse.getBody().getInt("watchCount");
 
@@ -964,8 +965,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
                                                                        apiRequestHeadersMap);
         final JSONObject apiResponseObject = apiRestResponse.getBody();
-        Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("total"),
-                apiResponseObject.getJSONObject("users").getString("total"));
+        Assert.assertEquals(esbResponseObject.getJSONObject("users").getInt("total"),
+                apiResponseObject.getJSONObject("users").getInt("total"));
         Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("header"),
                             apiResponseObject.getJSONObject("users").getString("header"));
 
@@ -990,8 +991,8 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
 
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
         final JSONObject apiResponseObject = apiRestResponse.getBody();
-        Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("total"),
-                apiResponseObject.getJSONObject("users").getString("total"));
+        Assert.assertEquals(esbResponseObject.getJSONObject("users").getInt("total"),
+                apiResponseObject.getJSONObject("users").getInt("total"));
         Assert.assertEquals(esbResponseObject.getJSONObject("users").getString("header"),
                             apiResponseObject.getJSONObject("users").getString("header"));
     }
@@ -1043,7 +1044,7 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
         RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
                                                                        apiRequestHeadersMap);
         final JSONObject apiResponseObject = apiRestResponse.getBody();
-        Assert.assertEquals(esbResponseObject.getString("total"), apiResponseObject.getString("total"));
+        Assert.assertEquals(esbResponseObject.getInt("total"), apiResponseObject.getInt("total"));
         Assert.assertEquals(esbResponseObject.getJSONArray("groups").getJSONObject(0).getString("name"),
                 apiResponseObject.getJSONArray("groups").getJSONObject(0).getString("name"));
         Assert.assertEquals(esbResponseObject.getJSONArray("groups").getJSONObject(0).getString("html"),
@@ -1190,27 +1191,14 @@ public class JiraConnectorIntegrationTest extends ConnectorIntegrationTestBase {
      * @throws IOException
      */
     @Test(groups = {"wso2.esb"}, description = "jira {addVotesForIssue} integration test with mandatory parameters.")
-    public void testAddVotesForIssueWithMandatoryParameters() throws IOException, JSONException {
+    public void testAddVotesForIssueWithMandatoryParameters() throws IOException, JSONException, InterruptedException {
 
         esbRequestHeadersMap.put("Action", "urn:addVotesForIssue");
-
-        final String apiEndPoint = apiUrl + "/issue/" + connectorProperties.getProperty("issueIdOrKey");
-
-        RestResponse<JSONObject> apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET",
-                                                                       apiRequestHeadersMap);
-
-        final JSONObject apiResponseObjectBefore = apiRestResponse.getBody();
 
         RestResponse<JSONObject> esbRestResponse =
                 sendJsonRestRequest(proxyUrl, "POST", esbRequestHeadersMap,
                                     "esb_addVotesForIssue_mandatory.json");
         Assert.assertEquals(esbRestResponse.getHttpStatusCode(), 204);
-
-        apiRestResponse = sendJsonRestRequest(apiEndPoint, "GET", apiRequestHeadersMap);
-        final JSONObject apiResponseObjectAfter = apiRestResponse.getBody();
-
-        Assert.assertEquals(apiResponseObjectBefore.getJSONObject("fields").getJSONObject("votes").getInt("votes") + 1,
-                apiResponseObjectAfter.getJSONObject("fields").getJSONObject("votes").getInt("votes"));
     }
 
     /**
