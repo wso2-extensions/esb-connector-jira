@@ -8,12 +8,12 @@
 Tested Platform: 
 
  - Mac OS 10.12.6
- - WSO2 EI 6.4.0
+ - WSO2 EI 6.5.0
  - Java 1.8
 
 Steps to follow in setting integration test.
 
- 1. Download EI 6.4.0 from the official website
+ 1. Download EI 6.5.0 from the official website
 
  2. To work with the JIRA connector, you need to have a JIRA account. If you do not have a JIRA account,
   [installing the JIRA software](https://confluence.atlassian.com/jirasoftwareserver/installing-jira-software-938845212.html)
@@ -24,13 +24,17 @@ Steps to follow in setting integration test.
  4. Create two users by navigating to Administration -> User management and keep the usernames for the further reference. (E.g user1 , user2)
  Keep one of the user as an optional user (E.g user1) for the account and verify it, keep the username, password for further reference.
 
- 5. Create two issues (E.g issue1, issue2) under the project created in step 3. Add one of the users (E.g user2) created in step 4 (who is not verified with the account),
+ 5. Navigate to Administration -> Attachments and turn attachments on.
+
+ 6. Follow [configuring an smtp mail server to send notifications](https://confluence.atlassian.com/adminjiraserver/configuring-an-smtp-mail-server-to-send-notifications-947184044.html) to configure an SMTP server to send notifications.
+
+ 7. Create two issues (E.g issue1, issue2) under the project created in step 3. Add one of the users (E.g user2) created in step 4 (who is not verified with the account),
   as a watcher to one of the issues created (say issue1). Keep the issue keys and watcher username for further reference. Add an attachment to other issue (say issue2) and keep the issue id for further reference.
 
- 6. Before you start performing various operations with the connector, make sure to place the Jira certificate to the location
+ 8. Before you start performing various operations with the connector, make sure to place the Jira certificate to the location
        "<JIRA_CONNECTOR_HOME>/repository/.
 
- 7. Navigate to location "<EI_HOME>/repository/conf/axis2" and add/uncomment following lines in "axis2.xml".
+ 9. Navigate to location "<EI_HOME>/conf/axis2" and add/uncomment following lines in "axis2.xml".
 
     	   Message Formatters :
                <messageFormatter contentType="text/html" class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
@@ -38,11 +42,11 @@ Steps to follow in setting integration test.
            Message Builders :
                <messageBuilder contentType="text/html" class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
 
-8. Compress modified EI as wso2ei-6.4.0.zip and copy that zip file in to location "{JIRA_HOME}/repository".
+10. Compress modified EI as wso2ei-6.4.0.zip and copy that zip file in to location "{JIRA_HOME}/repository".
 
-9. Update the esb-connector-jira properties file at location "<JIRA_CONNECTOR_HOME>/repository/ with the suited values.
+11. Update the esb-connector-jira properties file at location "<JIRA_CONNECTOR_HOME>/repository/ with the suited values.
 
-10. Following are the properties used in the 'esb-connector-jira.properties' file and jira properties file at
+12. Following are the properties used in the 'esb-connector-jira.properties' file and jira properties file at
 location "JIRA_HOME}/src/test/resources/artifacts/ESB/connector/config" to run the integration tests.
 ```
     i)     apiUrl                      - Use the API URL as http://localhost:8080
@@ -77,6 +81,6 @@ location "JIRA_HOME}/src/test/resources/artifacts/ESB/connector/config" to run t
    2. To make the "testAddVotesForIssueWithMandatoryParameters" pass, make sure the same user name (optionlal username) already added the vote to the issue or not. The same user can't add vote again and again.
    ```
 
- 8. Navigate to "<JIRA_HOME>/" and run the following command. </br>
+ 13. Navigate to "<JIRA_HOME>/" and run the following command. </br>
  
     `$ mvn clean install -Dskip-tests=false`
