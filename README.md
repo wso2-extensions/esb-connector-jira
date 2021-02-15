@@ -21,7 +21,6 @@ The JIRA [Connector](https://docs.wso2.com/display/EI650/Working+with+Connectors
 
 1. Download the connector from the [WSO2 Store](https://store.wso2.com/store/assets/esbconnector/details/df59ac1e-88e7-46af-9b0a-f0f5f1e1b456) by clicking the Download Connector button.
 2. Then, you can follow this [documentation](https://docs.wso2.com/display/EI650/Working+with+Connectors+via+Tooling) to add and enable the connector in your EI instance.
-3. For more information on using connectors and their operations in your EI configurations, see [Using a Connector](https://docs.wso2.com/display/EI650/Using+a+Connector).
 
 #### Configuring the connector operations
 
