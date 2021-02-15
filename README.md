@@ -5,7 +5,7 @@ The JIRA [Connector](https://docs.wso2.com/display/EI650/Working+with+Connectors
 > **Note:** The latest JIRA connector version 1.0.5 is tested with JIRA server version **8.13.1**.
 
 ## Compatibility
-(https://github.com/wso2-extensions/esb-connector-jira/tree/org.wso2.carbon.connector.jira-1.0.5)  
+ 
 | Connector version | Supported JIRA REST API version | Supported WSO2 ESB/EI version |
 | ------------- | ------------- | ------------- |
 | 1.0.5 | v2.0 | EI 6.5.0 |
