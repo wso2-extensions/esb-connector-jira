@@ -2,6 +2,8 @@
 
 The JIRA [Connector](https://docs.wso2.com/display/EI650/Working+with+Connectors) allows you to connect to JIRA, an online issue-tracking database. The connector uses the JIRA REST API to connect to JIRA, view and update issues, work with filters, and more.
 
+> **Note:** The latest JIRA connector version 1.0.5 is tested with JIRA server version **8.13.1**.
+
 ## Compatibility
 
 | Connector version | Supported JIRA REST API version | Supported WSO2 ESB/EI version |
