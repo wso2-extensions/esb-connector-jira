@@ -6,8 +6,17 @@
     "description": "The JIRA connector allows you to connect to JIRA, an online issue-tracking database. The connector uses the JIRA REST API version 6.1 to connect to JIRA, view, and update issues, work with filters, and more.",
     "status": "Active",
     "labels": [
-        "Issue-Tracking",
-        "Project-Management"
+        "issue-tracking",
+        "project-management"
     ],
-    "releases": []
+    "releases": [
+        {
+            "tagName": "v1.0.5",
+            "products": [
+                "EI 6.6.0",
+                "EI 6.5.0"
+            ],
+            "isHidden": false
+        }
+    ]
 }
