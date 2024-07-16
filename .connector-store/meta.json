@@ -14,7 +14,8 @@
             "tagName": "org.wso2.carbon.connector.jira-1.0.5",
             "products": [
                 "EI 6.6.0",
-                "EI 6.5.0"
+                "EI 6.5.0",
+                "MI 4.x.x"
             ],
             "isHidden": false
         }
