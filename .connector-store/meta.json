@@ -2,7 +2,7 @@
     "name": "Jira",
     "owner": "WSO2",
     "category": "Issue Tracking and Project Management",
-    "documentationUrl": "https://github.com/wso2-extensions/esb-connector-jira/blob/1.0.5/README.md",
+    "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/jira-connector/jira-connector-overview/",
     "description": "The JIRA connector allows you to connect to JIRA, an online issue-tracking database. The connector uses the JIRA REST API version 6.1 to connect to JIRA, view, and update issues, work with filters, and more.",
     "status": "Active",
     "labels": [
@@ -13,8 +13,6 @@
         {
             "tagName": "org.wso2.carbon.connector.jira-1.0.5",
             "products": [
-                "EI 6.6.0",
-                "EI 6.5.0",
                 "MI 4.x.x"
             ],
             "isHidden": false
