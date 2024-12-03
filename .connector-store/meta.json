@@ -8,7 +8,7 @@
     "mavenArtifactId": "org.wso2.carbon.connector.jira",
     "description": "The JIRA connector allows you to connect to JIRA, an online issue-tracking database. The connector uses the JIRA REST API version 6.1 to connect to JIRA, view, and update issues, work with filters, and more.",
     "status": "Active",
-    "connectorRank": 113,
+    "rank": 113,
     "type": "Connector",
     "labels": [
         "issue-tracking",
@@ -315,7 +315,12 @@
                     "isHidden":false
                 }
             ],
-            "connections": [],
+            "connections": [
+                {
+                    "name": "jira",
+                    "description": "Connection for interacting with Jira systems."
+                }
+            ],
             "isHidden": false
         }
     ]
