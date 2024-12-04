@@ -4,8 +4,8 @@
     "product": "MI",
     "category": "Issue Tracking and Project Management",
     "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/jira-connector/jira-connector-overview/",
-    "mavenGroupId": "org.wso2.carbon.connector",
-    "mavenArtifactId": "org.wso2.carbon.connector.jira",
+    "mavenGroupId": "org.wso2.integration.connector",
+    "mavenArtifactId": "mi-connector-jira",
     "description": "The JIRA connector allows you to connect to JIRA, an online issue-tracking database. The connector uses the JIRA REST API version 6.1 to connect to JIRA, view, and update issues, work with filters, and more.",
     "status": "Active",
     "rank": 113,
@@ -16,7 +16,7 @@
     ],
     "releases": [
         {
-            "tagName": "v1.0.5",
+            "tagName": "org.wso2.carbon.connector.jira-1.0.5",
             "products": [
                 "MI 4.3.0",
                 "MI 4.2.0",
