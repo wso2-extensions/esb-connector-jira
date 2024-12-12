@@ -31,4 +31,5 @@
         <dependency component="jira_issueLink"/>
         <description>WSO2 ESB Connector Library for JIRA.</description>
     </component>
+    <displayName>Jira</displayName>
 </connector>
