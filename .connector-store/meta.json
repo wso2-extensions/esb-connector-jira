@@ -315,12 +315,7 @@
                     "isHidden":false
                 }
             ],
-            "connections": [
-                {
-                    "name": "jira",
-                    "description": "Connection for interacting with Jira systems."
-                }
-            ],
+            "connections": [],
             "isHidden": false
         },
         {
@@ -623,12 +618,7 @@
                     "isHidden":false
                 }
             ],
-            "connections": [
-                {
-                    "name": "jira",
-                    "description": "Connection for interacting with Jira systems."
-                }
-            ],
+            "connections": [],
             "isHidden": false
         }
     ]
