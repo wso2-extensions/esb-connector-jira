@@ -18,6 +18,8 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getDashboardById">
     <parameter name="id" description="the dashboard id"/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.id" expression="$func:id"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>

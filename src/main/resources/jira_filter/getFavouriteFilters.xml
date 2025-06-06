@@ -21,6 +21,8 @@
     <sequence>
         <property name="uri.var.jira.expand" expression="$func:expand"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+        <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
                 <call blocking="true">

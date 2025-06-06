@@ -1,0 +1,89 @@
+{
+  "connectorName": "jira",
+  "operationName": "deleteAvatarForProject",
+  "title": "Delete Avatar for Project",
+  "help": "Deletes a specific avatar from a Jira project using its project ID or key and the avatar ID.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Avatar Details",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "projectIdOrKey",
+                    "displayName": "Project ID or Key",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The unique ID or key for the Jira project."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "avatarId",
+                    "displayName": "Avatar ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The ID of the avatar to delete."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the variable to store the result of the operation."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "false",
+              "helpTip": "Whether to replace the current message body with the operation result."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

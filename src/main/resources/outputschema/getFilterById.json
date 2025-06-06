@@ -1,0 +1,233 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Filter by Id Operation Response Schema",
+  "description": "Schema representing the output of the get filter by id operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getFilterById` method.",
+      "type": "object",
+      "properties": {
+        "owner": {
+          "id": "The user who owns the filter.",
+          "type": "object",
+          "properties": {
+            "emailAddress": {
+              "description": "The email address of the user.",
+              "type": "string"
+            },
+            "avatarUrls": {
+              "type": "object",
+              "description": "The avatars of the user.",
+              "properties": {
+                "48x48": {
+                  "type": "string",
+                  "description": "The URL of the item's 48x48 pixel avatar."
+                },
+                "24x24": {
+                  "type": "string",
+                  "description": "The URL of the item's 24x24 pixel avatar."
+                },
+                "16x16": {
+                  "type": "string",
+                  "description": "The URL of the item's 16x16 pixel avatar."
+                },
+                "32x32": {
+                  "type": "string",
+                  "description": "The URL of the item's 32x32 pixel avatar."
+                }
+              }
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the user."
+            },
+            "active": {
+              "type": "boolean",
+              "description": "Whether the user is active."
+            },
+            "timeZone": {
+              "type": "string",
+              "description": "The time zone specified in the user's profile."
+            },
+            "self": {
+              "type": "string",
+              "description": "The URL of the user."
+            },
+            "key": {
+              "description": "The key of the user.",
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string",
+              "description": "The display name of the user."
+            }
+          }
+        },
+        "sharedUsers": {
+          "id": "A paginated list of the users that the filter is shared with.",
+          "type": "object",
+          "properties": {
+            "max-results": {
+              "id": "The maximum number of results that could be on the page.",
+              "type": "number"
+            },
+            "items": {
+              "id": "The list of items.",
+              "properties": {},
+              "type": "array"
+            },
+            "end-index": {
+              "id": "The index of the last item returned on the page.",
+              "type": "number"
+            },
+            "start-index": {
+              "id": "The index of the first item returned on the page.",
+              "type": "number"
+            },
+            "size": {
+              "id": "The number of items on the page.",
+              "type": "number"
+            }
+          }
+        },
+        "subscriptions": {
+          "id": "A paginated list of the users that are subscribed to the filter.",
+          "type": "object",
+          "properties": {
+            "max-results": {
+              "id": "The maximum number of results that could be on the page.",
+              "type": "number"
+            },
+            "items": {
+              "id": "The group subscribing to filter.",
+              "type": "array",
+              "properties": {}
+            },
+            "end-index": {
+              "id": "The index of the last item returned on the page.",
+              "type": "number"
+            },
+            "start-index": {
+              "id": "The index of the first item returned on the page.",
+              "type": "number"
+            },
+            "size": {
+              "id": "The number of items on the page.e",
+              "type": "number"
+            }
+          }
+        },
+        "jql": {
+          "id": "The JQL query for the filter.",
+          "type": "string"
+        },
+        "name": {
+          "id": "The name of the filter. Must be unique.",
+          "type": "string"
+        },
+        "viewUrl": {
+          "id": "http:\/\/wso2jsonschema.org\/viewUrl",
+          "type": "string"
+        },
+        "self": {
+          "id": "The URL of the filter.",
+          "type": "string"
+        },
+        "searchUrl": {
+          "id": "A URL to view the filter results in Jira",
+          "type": "string"
+        },
+        "id": {
+          "id": "The unique identifier for the filter.",
+          "type": "string"
+        },
+        "sharePermissions": {
+          "id": "The groups and projects that the filter is shared with.",
+          "type": "array",
+          "properties": {
+            "id": {
+              "id": "The unique identifier of the share permission.",
+              "type": "number"
+            },
+            "project": {
+              "id": "The project that the filter is shared with. ",
+              "properties": {
+                "projectTypeKey": {
+                  "id": "The project type of the project.",
+                  "type": "string"
+                },
+                "id": {
+                  "id": "The ID of the project.",
+                  "type": "string"
+                },
+                "assigneeType": {
+                  "id": "The default assignee when creating issues for this project.",
+                  "type": "string"
+                },
+                "roles": {
+                  "id": "The name and self URL for each role defined in the project.",
+                  "type": "null"
+                },
+                "name": {
+                  "id": "The name of the project.",
+                  "type": "string"
+                },
+                "self": {
+                  "id": "The URL of the project details.",
+                  "type": "string"
+                },
+                "avatarUrls": {
+                  "id": "The URLs of the project's avatars.",
+                  "type": "object",
+                  "properties": {
+                    "48x48": {
+                      "type": "string",
+                      "description": "The URL of the item's 48x48 pixel avatar."
+                    },
+                    "24x24": {
+                      "type": "string",
+                      "description": "The URL of the item's 24x24 pixel avatar."
+                    },
+                    "16x16": {
+                      "type": "string",
+                      "description": "The URL of the item's 16x16 pixel avatar."
+                    },
+                    "32x32": {
+                      "type": "string",
+                      "description": "The URL of the item's 32x32 pixel avatar."
+                    }
+                  }
+                },
+                "key": {
+                  "id": "The key of the project.",
+                  "type": "string"
+                }
+              }
+            },
+            "type": {
+              "id": "The type of share permission",
+              "type": "string"
+            }
+          }
+        },
+        "favourite": {
+          "id": "Whether the filter is selected as a favorite.",
+          "type": "boolean"
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

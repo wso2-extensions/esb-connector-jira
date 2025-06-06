@@ -1,0 +1,80 @@
+{
+  "connectorName": "jira",
+  "operationName": "addAttachmentToIssueId",
+  "title": "Add Attachment to Issue",
+  "help": "Attach a file to a Jira issue using its ID or key. Ensure the payload is a multipart/form-data request containing the file.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "JIRA"
+              ],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Attachment Input",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "issueIdOrKey",
+                    "displayName": "Issue ID or Key",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The Jira issue ID or key to which the attachment will be added."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Operation Result",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Response Variable",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Name of the property to store the operation result."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "true",
+                    "required": "true",
+                    "helpTip": "Set to true to replace the current message body with the operation output."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "connectorName": "jira",
+  "operationName": "getIssuePriorities",
+  "title": "Get Issue Priorities",
+  "help": "Retrieve all available issue priorities configured in the Jira instance.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "JIRA"
+              ],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the property to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "true",
+              "helpTip": "Set to true to replace the current message body with the operation output."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "connectorName": "jira",
+  "operationName": "getVersionsOfProject",
+  "title": "Get Versions of Project",
+  "help": "Retrieves all versions defined for the specified project.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Project Details",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "projectIdOrKey",
+              "displayName": "Project ID or Key",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "The unique identifier or key of the project."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "expand",
+              "displayName": "Expand",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Comma-separated list of fields to expand in the response (optional)."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Variable name to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "false",
+              "helpTip": "Whether to replace the existing message body with the response content."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

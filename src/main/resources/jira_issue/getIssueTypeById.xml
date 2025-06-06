@@ -17,7 +17,9 @@
 ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getIssueTypeById">
-    <parameter name="issueTypeId" description="a String containing the issue type id."/>
+    <parameter name="issueTypeId" description="A String containing the issue type id."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.issueTypeId" expression="$func:issueTypeId"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>

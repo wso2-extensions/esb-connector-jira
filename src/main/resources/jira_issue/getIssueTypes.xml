@@ -17,6 +17,8 @@
 ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getIssueTypes">
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
         <filter source="$ctx:jiraBlocking" regex="true">

@@ -19,6 +19,8 @@
 <template xmlns="http://ws.apache.org/ns/synapse" name="deleteComment">
     <parameter name="issueIdOrKey" description="a String containing the issue id."/>
     <parameter name="commentId" description="a String containing the issue id."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.issueIdOrKey" expression="$func:issueIdOrKey"/>
         <property name="uri.var.jira.commentId" expression="$func:commentId"/>

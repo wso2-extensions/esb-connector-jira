@@ -19,6 +19,8 @@
 <!-- Method Documentation URL: https://developer.atlassian.com/static/rest/jira/6.1.html#d2e1133 -->
 <template name="addVotesForIssue" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="issueId" description="Id of the issues that the vote is made for."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.issueId" expression="$func:issueId"/>
         <filter source="$ctx:jiraBlocking" regex="true">

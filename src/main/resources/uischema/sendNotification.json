@@ -1,0 +1,207 @@
+{
+  "connectorName": "jira",
+  "operationName": "sendNotification",
+  "title": "Send Notification",
+  "help": "Sends a custom notification about a Jira issue to selected users, groups, or roles with specified content and restrictions.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Notification Details",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "issueIdOrKey",
+              "displayName": "Issue ID or Key",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The Jira issue ID or key associated with this notification."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "subject",
+              "displayName": "Subject",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "Subject of the notification message."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "textBody",
+              "displayName": "Text Body",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "Plain text body content of the notification."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "htmlBody",
+              "displayName": "HTML Body",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "HTML formatted content for the notification."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Recipients",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "toReporter",
+              "displayName": "Notify Reporter",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "false",
+              "required": "false",
+              "helpTip": "Whether to notify the issue reporter."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "toAssignee",
+              "displayName": "Notify Assignee",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "false",
+              "required": "false",
+              "helpTip": "Whether to notify the assignee."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "toWatchers",
+              "displayName": "Notify Watchers",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "false",
+              "required": "false",
+              "helpTip": "Whether to notify the watchers of the issue."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "toVoters",
+              "displayName": "Notify Voters",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "false",
+              "required": "false",
+              "helpTip": "Whether to notify users who voted for the issue."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "toUsers",
+              "displayName": "Notify Users",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "JSON array of usernames to notify (e.g., ['user1','user2'])."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "toGroups",
+              "displayName": "Notify Groups",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "JSON array of group names to notify (e.g., ['jira-users','admins'])."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Restrictions",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "restrictGroups",
+              "displayName": "Restrict Groups",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "JSON array of group names to restrict notification visibility (e.g., ['support-team'])."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "restrictPermissions",
+              "displayName": "Restrict Permissions",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "JSON array of permissions required to view this notification (e.g., ['Browse Projects'])."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the property to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "true",
+              "helpTip": "Set to true to replace the current message body with the operation output."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

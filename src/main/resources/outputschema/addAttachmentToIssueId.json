@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "title": "Jira API Add Attachment to the Issue Operation Response Schema",
+  "description": "Schema representing the output of the add attachment to the issue operation in Jira API",
+  "properties": {
+    "payload": {
+      "type": "array",
+      "description": "Response for the `addAttachmentToIssueId` method.",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The content of the attachment."
+        },
+        "id": {
+          "type": "string",
+          "description": "The ID of the attachment."
+        },
+        "author": {
+          "type": "object",
+          "description": "Details of the user who added the attachment.",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the user."
+            },
+            "active": {
+              "type": "boolean",
+              "description": "Whether the user is active."
+            },
+            "emailAddress": {
+              "type": "string",
+              "description": "The email address of the user."
+            },
+            "timeZone": {
+              "type": "string",
+              "description": "The time zone specified in the user's profile."
+            },
+            "self": {
+              "type": "string",
+              "description": "The URL of the user."
+            },
+            "displayName": {
+              "type": "string",
+              "description": "The display name of the user."
+            },
+            "avatarUrls": {
+              "type": "object",
+              "description": "The avatars of the user.",
+              "properties": {
+                "48x48": {
+                  "type": "string",
+                  "description": "The URL of the item's 48x48 pixel avatar."
+                },
+                "24x24": {
+                  "type": "string",
+                  "description": "The URL of the item's 24x24 pixel avatar."
+                },
+                "16x16": {
+                  "type": "string",
+                  "description": "The URL of the item's 16x16 pixel avatar."
+                },
+                "32x32": {
+                  "type": "string",
+                  "description": "The URL of the item's 32x32 pixel avatar."
+                }
+              }
+            },
+            "key": {
+              "type": "string",
+              "description": "Key of the user."
+            }
+          }
+        },
+        "created": {
+          "type": "string",
+          "description": "The datetime the attachment was created."
+        },
+        "filename": {
+          "type": "string",
+          "description": "The file name of the attachment."
+        },
+        "self": {
+          "type": "string",
+          "description": "The URL of the attachment details response."
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The MIME type of the attachment."
+        },
+        "size": {
+          "type": "number",
+          "description": "The size of the attachment."
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

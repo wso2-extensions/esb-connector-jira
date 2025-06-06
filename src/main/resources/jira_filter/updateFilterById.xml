@@ -23,6 +23,8 @@
     <parameter name="description" description="a String containing the description of the filter"/>
     <parameter name="favourite" description="a Boolean which set the filter in favourite filters"/>
     <parameter name="expand" description="The parameters to expand."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.filterId" expression="$func:filterId"/>
         <property name="uri.var.jira.expand" expression="$func:expand"/>

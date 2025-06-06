@@ -1,0 +1,127 @@
+{
+  "connectorName": "jira",
+  "operationName": "searchJira",
+  "title": "Search Issues",
+  "help": "Executes a JQL (Jira Query Language) search against issues in Jira.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Search Criteria",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "query",
+              "displayName": "JQL Query",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The JQL query string used to search for issues."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "maxResults",
+              "displayName": "Max Results",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "Maximum number of results to return."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "startAt",
+              "displayName": "Start At",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "The index of the first issue to return (0-based)."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "fields",
+              "displayName": "Fields",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "Comma-separated list of fields to include in the response."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "validateQuery",
+              "displayName": "Validate Query",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "Whether to validate the JQL query before execution (true/false)."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "expand",
+              "displayName": "Expand",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "Comma-separated list of parameters to expand (e.g., 'names,schema')."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the property to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "true",
+              "helpTip": "Set to true to replace the current message body with the operation output."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

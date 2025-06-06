@@ -21,6 +21,8 @@
     <parameter name="query" description="The query to match groups against."/>
     <parameter name="exclude" description="The exclude from the result."/>
     <parameter name="maxResults" description="The max results to return."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.query" expression="$func:query"/>
         <property name="uri.var.exclude" expression="$func:exclude"/>

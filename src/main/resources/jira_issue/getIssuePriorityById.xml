@@ -18,6 +18,8 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getIssuePriorityById">
     <parameter name="issuePriorityId" description="a String containing the issue priority id."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.issuePriorityId" expression="$func:issuePriorityId"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>

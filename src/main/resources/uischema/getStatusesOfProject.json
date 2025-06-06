@@ -1,0 +1,78 @@
+{
+  "connectorName": "jira",
+  "operationName": "getStatusesOfProject",
+  "title": "Get Project Statuses",
+  "help": "Retrieve all issue statuses for a given project using its ID or key.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Project Input",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "projectIdOrKey",
+                    "displayName": "Project ID or Key",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The unique ID or key of the Jira project to fetch statuses for."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the variable to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "false",
+              "helpTip": "Whether to replace the existing message body with the response."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

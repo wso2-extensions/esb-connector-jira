@@ -1,0 +1,102 @@
+{
+  "connectorName": "jira",
+  "operationName": "getIssue",
+  "title": "Get Issue",
+  "help": "Retrieve details of a Jira issue using its ID or key. You can optionally limit returned fields and expand additional data.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "JIRA"
+              ],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Issue Input",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "issueIdOrKey",
+                    "displayName": "Issue ID or Key",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The ID or key of the Jira issue to retrieve."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fields",
+                    "displayName": "Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated list of fields to return (e.g., 'summary,description,status')."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "expand",
+                    "displayName": "Expand",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Optional expansion flags (e.g., 'renderedFields,transitions')."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Operation Result",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Response Variable",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Name of the property to store the operation result."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "true",
+                    "required": "true",
+                    "helpTip": "Set to true to replace the current message body with the operation output."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

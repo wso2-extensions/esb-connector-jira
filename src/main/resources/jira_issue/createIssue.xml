@@ -18,6 +18,8 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="createIssue">
     <parameter name="issueFields" description="The fields of the issue."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <payloadFactory media-type="json">
             <format>

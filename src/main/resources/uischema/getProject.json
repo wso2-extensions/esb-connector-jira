@@ -1,0 +1,91 @@
+{
+  "connectorName": "jira",
+  "operationName": "getProject",
+  "title": "Get Jira Project",
+  "help": "Retrieve a Jira project using its ID or key. Optionally expand additional fields.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "JIRA"
+              ],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Project Input",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "projectIdOrKey",
+                    "displayName": "Project ID or Key",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "A string containing the unique ID or key for a Jira project."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "expand",
+                    "displayName": "Expand Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated list of fields to expand (e.g., 'description,lead,url')."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the property to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "true",
+              "helpTip": "Set to true to replace the current message body with the operation output."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

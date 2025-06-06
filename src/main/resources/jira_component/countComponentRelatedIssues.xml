@@ -19,6 +19,8 @@
 <!-- Method Documentation URL: https://developer.atlassian.com/static/rest/jira/5.0.html#id197913 -->
 <template name="countComponentRelatedIssues" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="componentId" description="The unique identifier for a particular component."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.componentId" expression="$func:componentId"/>
         <filter source="$ctx:jiraBlocking" regex="true">

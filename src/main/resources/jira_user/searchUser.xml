@@ -25,6 +25,8 @@
                description="If true, then active users are included in the results (default true)"/>
     <parameter name="includeInactive"
                description="If true, then inactive users are included in the results (default false)"/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.usernameForSearch" expression="$func:usernameForSearch"/>
         <property name="uri.var.jira.startAt" expression="$func:startAt"/>

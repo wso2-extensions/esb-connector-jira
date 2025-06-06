@@ -1,0 +1,133 @@
+{
+  "connectorName": "jira",
+  "operationName": "updateComponent",
+  "title": "Update Component",
+  "help": "Update an existing component using its unique component ID.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Component Details",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "componentId",
+              "displayName": "Component ID",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "The unique ID of the component to be updated."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "name",
+              "displayName": "Component Name",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the component."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "description",
+              "displayName": "Description",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Description of the component."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "leadUserName",
+              "displayName": "Lead Username",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Username of the component lead."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "assigneeType",
+              "displayName": "Assignee Type",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "The assignee type for the component (e.g., PROJECT_LEAD, COMPONENT_LEAD, UNASSIGNED)."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "isAssigneeTypeValid",
+              "displayName": "Is Assignee Type Valid",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "false",
+              "helpTip": "Specify whether the provided assignee type is valid."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the variable to store the operation response."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "true",
+              "helpTip": "Whether to replace the current message body with the response."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

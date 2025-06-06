@@ -1,0 +1,111 @@
+{
+  "connectorName": "jira",
+  "operationName": "getUserAssignableProjects",
+  "title": "Get User Assignable Projects",
+  "help": "Retrieves the list of projects where the specified user can be assigned to issues.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "User and Project",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "usernameForSearch",
+                    "displayName": "Username",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Username of the user to search for assignable projects."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "projectKeys",
+                    "displayName": "Project Keys",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Comma-separated list of project keys to filter the results."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "maxResults",
+                    "displayName": "Maximum Results",
+                    "inputType": "intOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Maximum number of results to return."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "startAt",
+                    "displayName": "Start At",
+                    "inputType": "intOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Index of the first item to return in the page of results."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the variable to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "false",
+              "helpTip": "Whether to replace the existing message body with the response."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

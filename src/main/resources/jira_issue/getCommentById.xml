@@ -21,6 +21,8 @@
     <parameter name="commentId" description="The unique identifier of the comment."/>
     <parameter name="expand" description="The optional flags: renderedBody (provides body rendered in HTML)."/>
     <parameter name="issueIdOrKey" description="A string containing the issue id or key the comment belongs to."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.commentId" expression="$func:commentId"/>
         <property name="uri.var.issueIdOrKey" expression="$func:issueIdOrKey"/>

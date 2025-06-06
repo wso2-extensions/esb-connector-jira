@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Attachment by Id Response Schema",
+  "description": "Schema representing the output of the get attachment by id operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getAttachmentById` method.",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "description": "The file name of the attachment."
+        },
+        "size": {
+          "type": "number",
+          "description": "The size of the attachment."
+        },
+        "author": {
+          "description": "Details of the user who added the attachment.",
+          "type": "object",
+          "properties": {
+            "avatarUrls": {
+              "type": "object",
+              "description": "The avatars of the user.",
+              "properties": {
+                "48x48": {
+                  "type": "string",
+                  "description": "The URL of the item's 48x48 pixel avatar."
+                },
+                "24x24": {
+                  "type": "string",
+                  "description": "The URL of the item's 24x24 pixel avatar."
+                },
+                "16x16": {
+                  "type": "string",
+                  "description": "The URL of the item's 16x16 pixel avatar."
+                },
+                "32x32": {
+                  "type": "string",
+                  "description": "The URL of the item's 32x32 pixel avatar."
+                }
+              }
+            },
+            "displayName": {
+              "type": "string",
+              "description": "The display name of the user."
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the user."
+            },
+            "active": {
+              "type": "boolean",
+              "description": "Whether the user is active."
+            },
+            "self": {
+              "type": "string",
+              "description": "The URL of the user."
+            }
+          }
+        },
+        "created": {
+          "type": "string",
+          "description": "The datetime the attachment was created."
+        },
+        "self": {
+          "type": "string",
+          "description": "The URL of the attachment details response."
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The MIME type of the attachment."
+        },
+        "properties": {
+          "description": "The properties of the attachment.",
+          "type": "null"
+        },
+        "content": {
+          "type": "string",
+          "description": "The content of the attachment."
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

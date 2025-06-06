@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Component of Issues Operation Response Schema",
+  "description": "Schema representing the output of the get component of issue operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getComponentsOfProject` method.",
+      "type": "array",
+      "properties": {
+        "id": {
+          "id": "The unique identifier for the component.",
+          "type": "string"
+        },
+        "project": {
+          "id": "The key of the project the component is assigned to.",
+          "type": "string"
+        },
+        "isAssigneeTypeValid": {
+          "id": "Whether a user is associated with assigneeType",
+          "type": "boolean"
+        },
+        "realAssigneeType": {
+          "id": "The user assigned to issues created with this component, when assigneeType does not identify a valid assignee.",
+          "type": "string"
+        },
+        "assigneeType": {
+          "id": "The nominal user type used to determine the assignee for issues created with this component.",
+          "type": "string"
+        },
+        "description": {
+          "id": "The description for the component.",
+          "type": "string"
+        },
+        "name": {
+          "id": "The unique name for the component in the project.",
+          "type": "string"
+        },
+        "realAssignee": {
+          "id": "The user assigned to issues created with this component, when assigneeType does not identify a valid assignee.",
+          "properties": {
+            "name": {
+              "id": "The name of the user.",
+              "type": "string"
+            },
+            "active": {
+              "id": "Whether the user is active.",
+              "type": "boolean"
+            },
+            "self": {
+              "id": "The URL of the user.",
+              "type": "string"
+            },
+            "displayName": {
+              "id": "The display name of the user.",
+              "type": "string"
+            },
+            "avatarUrls": {
+              "type": "object",
+              "description": "The avatars of the user.",
+              "properties": {
+                "48x48": {
+                  "type": "string",
+                  "description": "The URL of the item's 48x48 pixel avatar."
+                },
+                "24x24": {
+                  "type": "string",
+                  "description": "The URL of the item's 24x24 pixel avatar."
+                },
+                "16x16": {
+                  "type": "string",
+                  "description": "The URL of the item's 16x16 pixel avatar."
+                },
+                "32x32": {
+                  "type": "string",
+                  "description": "The URL of the item's 32x32 pixel avatar."
+                }
+              }
+            }
+          },
+          "key": {
+            "description": "The key of the user.",
+            "type": "string"
+          }
+        },
+        "assignee": {
+          "id": "The user assigned to issues created with this component, when assigneeType does not identify a valid assignee.",
+          "properties": {
+            "name": {
+              "id": "The name of the user.",
+              "type": "string"
+            },
+            "active": {
+              "id": "Whether the user is active.",
+              "type": "boolean"
+            },
+            "self": {
+              "id": "The URL of the user.",
+              "type": "string"
+            },
+            "displayName": {
+              "id": "The display name of the user.",
+              "type": "string"
+            },
+            "avatarUrls": {
+              "type": "object",
+              "description": "The avatars of the user.",
+              "properties": {
+                "48x48": {
+                  "type": "string",
+                  "description": "The URL of the item's 48x48 pixel avatar."
+                },
+                "24x24": {
+                  "type": "string",
+                  "description": "The URL of the item's 24x24 pixel avatar."
+                },
+                "16x16": {
+                  "type": "string",
+                  "description": "The URL of the item's 16x16 pixel avatar."
+                },
+                "32x32": {
+                  "type": "string",
+                  "description": "The URL of the item's 32x32 pixel avatar."
+                }
+              }
+            }
+          },
+          "key": {
+            "description": "The key of the user.",
+            "type": "string"
+          }
+        },
+        "self": {
+          "id": "The URL of the component.",
+          "type": "string"
+        },
+        "projectId": {
+          "id": "The ID of the project the component is assigned to.",
+          "type": "number"
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

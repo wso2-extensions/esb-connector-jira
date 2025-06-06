@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get user Operation Response Schema",
+  "description": "Schema representing the output of the get user operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getUser` method.",
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "id": "The email address of the user.",
+          "type": "string"
+        },
+        "expand": {
+          "id": "Expand options that include additional user details in the response.",
+          "type": "string"
+        },
+        "avatarUrls": {
+          "id": "The avatars of the user.",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "type": "string",
+              "description": "The URL of the item's 48x48 pixel avatar."
+            },
+            "24x24": {
+              "type": "string",
+              "description": "The URL of the item's 24x24 pixel avatar."
+            },
+            "16x16": {
+              "type": "string",
+              "description": "The URL of the item's 16x16 pixel avatar."
+            },
+            "32x32": {
+              "type": "string",
+              "description": "The URL of the item's 32x32 pixel avatar."
+            }
+          }
+        },
+        "displayName": {
+          "id": "The display name of the user.",
+          "type": "string"
+        },
+        "name": {
+          "id": "The name of the user.",
+          "type": "string"
+        },
+        "self": {
+          "id": "The URL of the user.",
+          "type": "string"
+        },
+        "active": {
+          "id": "Whether the user is active.",
+          "type": "boolean"
+        },
+        "timeZone": {
+          "id": "The time zone specified in the user's profile.",
+          "type": "string"
+        },
+        "groups": {
+          "id": "The groups that the user belongs to.",
+          "type": "object",
+          "properties": {}
+        },
+        "locale": {
+          "id": "The locale of the user. ",
+          "type": "string"
+        },
+        "key": {
+          "id": "The key of the user. ",
+          "type": "string"
+        },
+        "applicationRoles": {
+          "id": "The application roles the user is assigned to.",
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

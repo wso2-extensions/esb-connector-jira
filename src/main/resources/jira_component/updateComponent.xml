@@ -25,6 +25,8 @@
     <parameter name="assigneeType" description="The type of the assignee."/>
     <parameter name="isAssigneeTypeValid"
                description="A Boolean which specifies whether the assignee type is valid or not."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.componentId" expression="$func:componentId"/>
         <property name="uri.var.name" expression="$func:name"/>

@@ -26,21 +26,6 @@
         <property name="jira.username" expression="$func:username"/>
         <property name="jira.password" expression="$func:password"/>
         <property name="uri.var.jira.url" expression="$func:uri"/>
-        <filter source="boolean(get-property('jira.username'))" regex="false">
-            <then>
-                <property name="jira.username" expression="get-property('registry', 'connectors/Jira/username')"/>
-            </then>
-        </filter>
-        <filter source="boolean(get-property('jira.password'))" regex="false">
-            <then>
-                <property name="jira.password" expression="get-property('registry', 'connectors/Jira/password')"/>
-            </then>
-        </filter>
-        <filter source="boolean(get-property('uri.var.jira.url'))" regex="false">
-            <then>
-                <property name="uri.var.jira.url" expression="get-property('registry', 'connectors/Jira/uri')"/>
-            </then>
-        </filter>
         <property name="jiraBlocking" expression="$func:blocking"/>
         <property name="jira.for.auth" expression="fn:concat($ctx:jira.username,':',$ctx:jira.password)"/>
         <property name="Authorization" expression="fn:concat('Basic ', base64Encode($ctx:jira.for.auth))"

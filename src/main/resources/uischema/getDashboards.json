@@ -1,0 +1,102 @@
+{
+  "connectorName": "jira",
+  "operationName": "getDashboards",
+  "title": "Get Dashboards",
+  "help": "Retrieve a list of dashboards with optional filtering and pagination.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "JIRA"
+              ],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Query Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "maxResults",
+                    "displayName": "Max Results",
+                    "inputType": "integerOrExpression",
+                    "defaultValue": "20",
+                    "required": "false",
+                    "helpTip": "Maximum number of dashboard results to return."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "startAt",
+                    "displayName": "Start At",
+                    "inputType": "integerOrExpression",
+                    "defaultValue": "0",
+                    "required": "false",
+                    "helpTip": "Index of the first dashboard to return (pagination)."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "filter",
+                    "displayName": "Filter",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Optional filter to apply to the list of dashboards."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the variable to store the result of the API call."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "false",
+              "helpTip": "Whether to replace the current message body with the response content."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

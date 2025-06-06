@@ -1,0 +1,80 @@
+{
+  "connectorName": "jira",
+  "operationName": "createBulkIssue",
+  "title": "Create Bulk Issues",
+  "help": "Create multiple Jira issues in a single request using an array of issue objects.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "JIRA"
+              ],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Issue Input",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "issueUpdates",
+                    "displayName": "Issue Updates",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "A JSON array of issue objects to be created. Each object must follow the Jira issue format."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Operation Result",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "responseVariable",
+                    "displayName": "Response Variable",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Name of the property to store the operation result."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "overwriteBody",
+                    "displayName": "Overwrite Message Body",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "true",
+                    "required": "true",
+                    "helpTip": "Set to true to replace the current message body with the operation output."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

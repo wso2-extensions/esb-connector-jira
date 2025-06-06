@@ -19,6 +19,8 @@
 <!-- Method Documentation URL: https://developer.atlassian.com/static/rest/jira/6.1.html#d2e1295 -->
 <template name="createBulkIssue" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="issueUpdates" description="The array of objects containing the issue details."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.issueUpdates" expression="$func:issueUpdates"/>
         <script language="js">

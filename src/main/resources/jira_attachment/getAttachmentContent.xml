@@ -20,6 +20,8 @@
 <template name="getAttachmentContent" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="attachmentUrl" description="The url of the attachment content."/>
     <parameter name="fileType" description="Type of the attachment."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property expression="$func:attachmentUrl" name="uri.var.attachmentUrl"/>
         <property expression="$func:fileType" name="fileType"/>

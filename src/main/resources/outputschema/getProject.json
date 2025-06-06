@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Project Operation Response Schema",
+  "description": "Schema representing the output of the get project operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getProject` method.",
+      "type": "object",
+      "properties": {
+        "components": {
+          "id": "List of the components contained in the project.",
+          "type": "array",
+          "properties": {}
+        },
+        "avatarUrls": {
+          "id": "The URLs of the project's avatars.",
+          "type": "object",
+          "properties": {
+            "48x48": {
+              "type": "string",
+              "description": "The URL of the item's 48x48 pixel avatar."
+            },
+            "24x24": {
+              "type": "string",
+              "description": "The URL of the item's 24x24 pixel avatar."
+            },
+            "16x16": {
+              "type": "string",
+              "description": "The URL of the item's 16x16 pixel avatar."
+            },
+            "32x32": {
+              "type": "string",
+              "description": "The URL of the item's 32x32 pixel avatar."
+            }
+          }
+        },
+        "roles": {
+          "id": "The name and self URL for each role defined in the project.",
+          "type": "object",
+          "properties": {}
+        },
+        "description": {
+          "id": "A brief description of the project.",
+          "type": "string"
+        },
+        "lead": {
+          "id": "The username of the project lead.",
+          "type": "object",
+          "properties": {
+            "avatarUrls": {
+              "id": "The avatars of the user.",
+              "type": "object",
+              "properties": {
+                "48x48": {
+                  "type": "string",
+                  "description": "The URL of the item's 48x48 pixel avatar."
+                },
+                "24x24": {
+                  "type": "string",
+                  "description": "The URL of the item's 24x24 pixel avatar."
+                },
+                "16x16": {
+                  "type": "string",
+                  "description": "The URL of the item's 16x16 pixel avatar."
+                },
+                "32x32": {
+                  "type": "string",
+                  "description": "The URL of the item's 32x32 pixel avatar."
+                }
+              }
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the user."
+            },
+            "active": {
+              "type": "boolean",
+              "description": "Whether the user is active."
+            },
+            "self": {
+              "type": "string",
+              "description": "The URL of the user."
+            },
+            "key": {
+              "description": "The key of the user.",
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string",
+              "description": "The display name of the user."
+            }
+          }
+        },
+        "issueTypes": {
+          "id": "List of the issue types available in the project.",
+          "type": "array",
+          "properties": {
+            "name": {
+              "id": "The name of the issue type.",
+              "type": "string"
+            },
+            "self": {
+              "id": "The URL of these issue type details.",
+              "type": "string"
+            },
+            "description": {
+              "id": "The description of the issue type.",
+              "type": "string"
+            },
+            "id": {
+              "id": "The ID of the issue type.",
+              "type": "string"
+            },
+            "iconUrl": {
+              "id": "The URL of the issue type's avatar.",
+              "type": "string"
+            },
+            "subtask": {
+              "id": "Whether this issue type is used to create subtasks.",
+              "type": "boolean"
+            }
+          }
+        },
+        "expand": {
+          "id": "Additional project details in the response.",
+          "type": "string"
+        },
+        "versions": {
+          "id": "The versions defined in the project. ",
+          "type": "array",
+          "properties": {}
+        },
+        "name": {
+          "id": "The name of the project.",
+          "type": "string"
+        },
+        "self": {
+          "id": "The URL of the project details.",
+          "type": "string"
+        },
+        "id": {
+          "id": "The ID of the project.",
+          "type": "string"
+        },
+        "assigneeType": {
+          "id": "The default assignee when creating issues for this project.",
+          "type": "string"
+        },
+        "projectTypeKey": {
+          "id": "The project type of the project.",
+          "type": "string"
+        },
+        "key": {
+          "id": "The key of the project.",
+          "type": "string"
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

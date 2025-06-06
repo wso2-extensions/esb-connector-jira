@@ -1,0 +1,133 @@
+{
+  "connectorName": "jira",
+  "operationName": "searchAssignableUser",
+  "title": "Search Assignable User",
+  "help": "Search for users that can be assigned to issues in a project.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Search Criteria",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "usernameForSearch",
+              "displayName": "Username for Search",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Username to search for assignable users."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "project",
+              "displayName": "Project Key",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Key of the project to filter assignable users."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "issueKey",
+              "displayName": "Issue Key",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Key of the issue to refine the assignable user search."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "startAt",
+              "displayName": "Start At",
+              "inputType": "numberOrExpression",
+              "defaultValue": "0",
+              "required": "false",
+              "helpTip": "Index of the first user to return (0-based)."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "maxResults",
+              "displayName": "Max Results",
+              "inputType": "numberOrExpression",
+              "defaultValue": "50",
+              "required": "false",
+              "helpTip": "Maximum number of users to return. Default is 50, maximum is 1000."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "actionDescriptorId",
+              "displayName": "Action Descriptor ID",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "The ID of the workflow action descriptor for filtering assignable users."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Name of the variable to store the operation result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "true",
+              "helpTip": "Set to true to replace the current message body with the operation result."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

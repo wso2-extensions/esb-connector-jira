@@ -18,11 +18,13 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="searchJira">
     <parameter name="query" description="the search query to be executed as a String."/>
-    <parameter name="maxResults" description="maxium results to be shown."/>
+    <parameter name="maxResults" description="maximum results to be shown."/>
     <parameter name="startAt" description="starts from."/>
     <parameter name="fields" description="Specifies a comma-separated list of fields to be included in the response."/>
     <parameter name="validateQuery" description="whether to validate the JQL query."/>
     <parameter name="expand" description="A comma-separated list of the parameters to expand."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.jqlQuery" expression="$func:query"/>
         <property name="uri.var.jira.maxResults" expression="$func:maxResults"/>

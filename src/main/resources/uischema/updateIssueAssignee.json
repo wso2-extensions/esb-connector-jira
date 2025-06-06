@@ -1,0 +1,87 @@
+{
+  "connectorName": "jira",
+  "operationName": "updateIssueAssignee",
+  "title": "Update Issue Assignee",
+  "help": "Assign a user to a Jira issue using the issue ID or key.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Assignee Information",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "issueIdOrKey",
+              "displayName": "Issue ID or Key",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The ID or key of the Jira issue to assign (e.g., 'JRA-123')."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "name",
+              "displayName": "Assignee Username",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The username of the user to be assigned to the issue."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Operation Result",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Response Variable",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "The name of the property to store the result of the operation."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "true",
+              "helpTip": "Set to true to replace the current message body with the operation output."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

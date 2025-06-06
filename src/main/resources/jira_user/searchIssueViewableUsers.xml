@@ -24,6 +24,8 @@
     <parameter name="startAt" description="the index of the first user to return (0-based)"/>
     <parameter name="maxResults"
                desciption="the maximum number of users to return (defaults to 50). The maximum allowed value is 1000."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.usernameForSearch" expression="$func:usernameForSearch"/>
         <property name="uri.var.jira.issueKey" expression="$func:issueKey"/>

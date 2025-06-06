@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Update Component Operation Response Schema",
+  "description": "Schema representing the output of the update component operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `updateComponent` method.",
+      "type": "object",
+      "properties": {
+        "self": {
+          "description": "The URL for this count of issues for a component.",
+          "type": "string"
+        },
+        "issueCount": {
+          "description": "The count of issues assigned to a component.",
+          "type": "number"
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

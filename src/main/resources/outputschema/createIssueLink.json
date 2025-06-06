@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Create Issue Link Operation Response Schema",
+  "description": "Schema representing the output of the create issue link operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `createIssueLink` method.",
+      "properties": {}
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}
