@@ -19,24 +19,29 @@
 <component name="jira_filter" type="synapse/template">
     <subComponents>
         <component name="createFilter">
+            <displayName>Create Filter</displayName>
             <file>createFilter.xml</file>
             <description>Creates a new filter, and returns newly created filter. Currently sets permissions just using
                 the users default sharing permissions
             </description>
         </component>
         <component name="deleteFilter">
+            <displayName>Delete Filter</displayName>
             <file>deleteFilter.xml</file>
             <description>Delete a filter.</description>
         </component>
         <component name="getFavouriteFilters">
+            <displayName>Get Favourite Filters</displayName>
             <file>getFavouriteFilters.xml</file>
             <description>Returns the favourite filters of the logged-in user.</description>
         </component>
         <component name="getFilterById">
+            <displayName>Get Filter by Id</displayName>
             <file>getFilterById.xml</file>
             <description>Returns a filter given an id</description>
         </component>
         <component name="updateFilterById">
+            <displayName>Update Filter by Id</displayName>
             <file>updateFilterById.xml</file>
             <description>Updates an existing filter, and returns its new value.</description>
         </component>

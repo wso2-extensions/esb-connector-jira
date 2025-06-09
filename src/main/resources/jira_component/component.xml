@@ -19,18 +19,22 @@
 <component name="jira_component" type="synapse/template">
     <subComponents>
         <component name="createComponent">
+            <displayName>Create Component</displayName>
             <file>createComponent.xml</file>
             <description>Create a component.</description>
         </component>
         <component name="getComponent">
+            <displayName>Get Component</displayName>
             <file>getComponent.xml</file>
             <description>Returns a project component.</description>
         </component>
         <component name="updateComponent">
+            <displayName>Update Component</displayName>
             <file>updateComponent.xml</file>
             <description>Modify a component .</description>
         </component>
         <component name="countComponentRelatedIssues">
+            <displayName>Count Component Related Issues</displayName>
             <file>countComponentRelatedIssues.xml</file>
             <description>Returns counts of issues related to this component.</description>
         </component>

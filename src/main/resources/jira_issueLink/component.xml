@@ -19,10 +19,12 @@
 <component name="jira_issueLink" type="synapse/template">
     <subComponents>
         <component name="createIssueLink">
+            <displayName>Create Issue Link</displayName>
             <file>createIssueLink.xml</file>
             <description>Creates an issue link between two issues.</description>
         </component>
         <component name="getIssueLinkById">
+            <displayName>Create Issue Link by Id</displayName>
             <file>getIssueLinkById.xml</file>
             <description>Returns an issue link with the specified id.</description>
         </component>

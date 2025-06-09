@@ -19,11 +19,13 @@
 <component name="jira_attachment" type="synapse/template">
     <subComponents>
         <component name="getAttachmentById">
+            <displayName>Get Attachment by ID</displayName>
             <file>getAttachmentById.xml</file>
             <description>Returns the meta-data for an attachment, including the URI of the actual attached file.
             </description>
         </component>
         <component name="getAttachmentContent">
+            <displayName>Get Attachment Content</displayName>
             <file>getAttachmentContent.xml</file>
             <description>Returns the content of an attachment.</description>
         </component>

@@ -24,7 +24,7 @@
                 {
                     "name": "init",
                     "description": "configure jira connector",
-                    "isHidden": false
+                    "isHidden": true
                 },
                 {
                     "name": "getDashboards",
@@ -312,7 +312,7 @@
                     "isHidden": false
                 }
             ],
-            "connections": [],
+            "connections": ["JIRA"],
             "isHidden": false
         },
         {

@@ -19,6 +19,7 @@
 <component name="jira_search" type="synapse/template">
     <subComponents>
         <component name="searchJira">
+            <displayName>Search Jira</displayName>
             <file>searchJira.xml</file>
             <description>Search jira using JQL</description>
         </component>
