@@ -25,6 +25,8 @@
     <parameter name="assigneeType" description="The type of the assignee."/>
     <parameter name="isAssigneeTypeValid"
                description="A Boolean which specifies whether the assignee type is valid or not."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.componentId" expression="$func:componentId"/>
         <property name="uri.var.name" expression="$func:name"/>
@@ -32,6 +34,7 @@
         <property name="uri.var.leadUserName" expression="$func:leadUserName"/>
         <property name="uri.var.assigneeType" expression="$func:assigneeType"/>
         <property name="uri.var.isAssigneeTypeValid" expression="$func:isAssigneeTypeValid"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var payload = {};

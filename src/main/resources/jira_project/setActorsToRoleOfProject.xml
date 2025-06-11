@@ -19,11 +19,14 @@
 <template xmlns="http://ws.apache.org/ns/synapse" name="setActorsToRoleOfProject">
     <parameter name="projectIdOrKey" description="a String containing of the unique key for a project"/>
     <parameter name="roleId" description="role id for the given project"/>
-    <parameter name="roles" description="roles for the given project"/>
+    <parameter name="roles" description="The actors to add to the project role."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.projectIdOrKey" expression="$func:projectIdOrKey"/>
         <property name="uri.var.jira.roleId" expression="$func:roleId"/>
         <property name="uri.var.jira.roles" expression="$func:roles"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <payloadFactory media-type="json">
             <format>
                 $1

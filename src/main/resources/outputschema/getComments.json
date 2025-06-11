@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Comments Operation Response Schema",
+  "description": "Schema representing the output of the get comments operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getComments` method.",
+      "properties": {
+        "total": {
+          "id": "The number of items returned.",
+          "type": "number"
+        },
+        "comments": {
+          "id": "The list of comments.",
+          "type": "array",
+          "properties": {
+            "visibility": {
+              "description": "The group or role to which this comment is visible.",
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "Whether visibility of this item is restricted to a group or role.",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The name of the group or role that visibility of this item is restricted to.",
+                  "type": "string"
+                }
+              }
+            },
+            "author": {
+              "description": "The details of the user who created the comment.",
+              "type": "object",
+              "properties": {
+                "emailAddress": {
+                  "description": "The email address of the user.",
+                  "type": "string"
+                },
+                "avatarUrls": {
+                  "type": "object",
+                  "description": "The avatars of the user.",
+                  "properties": {
+                    "48x48": {
+                      "type": "string",
+                      "description": "The URL of the item's 48x48 pixel avatar."
+                    },
+                    "24x24": {
+                      "type": "string",
+                      "description": "The URL of the item's 24x24 pixel avatar."
+                    },
+                    "16x16": {
+                      "type": "string",
+                      "description": "The URL of the item's 16x16 pixel avatar."
+                    },
+                    "32x32": {
+                      "type": "string",
+                      "description": "The URL of the item's 32x32 pixel avatar."
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the user."
+                },
+                "active": {
+                  "type": "boolean",
+                  "description": "Whether the user is active."
+                },
+                "timeZone": {
+                  "type": "string",
+                  "description": "The time zone specified in the user's profile."
+                },
+                "self": {
+                  "type": "string",
+                  "description": "The URL of the user."
+                },
+                "key": {
+                  "description": "The key of the user.",
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string",
+                  "description": "The display name of the user."
+                }
+              }
+            },
+            "created": {
+              "description": "The date and time at which the comment was created.",
+              "type": "string"
+            },
+            "updateAuthor": {
+              "description": "The details of the user who updated the comment last.",
+              "type": "object",
+              "properties": {
+                "emailAddress": {
+                  "description": "The email address of the user.",
+                  "type": "string"
+                },
+                "avatarUrls": {
+                  "type": "object",
+                  "description": "The avatars of the user.",
+                  "properties": {
+                    "48x48": {
+                      "type": "string",
+                      "description": "The URL of the item's 48x48 pixel avatar."
+                    },
+                    "24x24": {
+                      "type": "string",
+                      "description": "The URL of the item's 24x24 pixel avatar."
+                    },
+                    "16x16": {
+                      "type": "string",
+                      "description": "The URL of the item's 16x16 pixel avatar."
+                    },
+                    "32x32": {
+                      "type": "string",
+                      "description": "The URL of the item's 32x32 pixel avatar."
+                    }
+                  }
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The name of the user."
+                },
+                "active": {
+                  "type": "boolean",
+                  "description": "Whether the user is active."
+                },
+                "timeZone": {
+                  "type": "string",
+                  "description": "The time zone specified in the user's profile."
+                },
+                "self": {
+                  "type": "string",
+                  "description": "The URL of the user."
+                },
+                "key": {
+                  "description": "The key of the user.",
+                  "type": "string"
+                },
+                "displayName": {
+                  "type": "string",
+                  "description": "The display name of the user."
+                }
+              }
+            },
+            "self": {
+              "description": "The URL of the comment.",
+              "type": "string"
+            },
+            "id": {
+              "description": "The ID of the comment.",
+              "type": "string"
+            },
+            "body": {
+              "description": "The comment text in Atlassian Document Format.",
+              "type": "string"
+            },
+            "updated": {
+              "description": "The date and time at which the comment was updated last.",
+              "type": "string"
+            }
+          }
+        },
+        "maxResults": {
+          "id": "The maximum number of items to return per page.",
+          "type": "number"
+        },
+        "startAt": {
+          "id": "The index of the first item to return in a page of results.",
+          "type": "number"
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

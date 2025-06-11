@@ -21,11 +21,14 @@
     <parameter name="projectId" description="id of project to scope returned permissions for."/>
     <parameter name="issueKey" description="key of the issue to scope returned permissions for."/>
     <parameter name="issueId" description="id of the issue to scope returned permissions for."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.projectKey" expression="$func:projectKey"/>
         <property name="uri.var.jira.projectId" expression="$func:projectId"/>
         <property name="uri.var.jira.issueKey" expression="$func:issueKey"/>
         <property name="uri.var.jira.issueId" expression="$func:issueId"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var projectKey = mc.getProperty('uri.var.jira.projectKey');

@@ -19,6 +19,8 @@
 <template xmlns="http://ws.apache.org/ns/synapse" name="getGroup">
     <parameter name="groupName" description="a String containing the name of the group."/>
     <parameter name="expand" description="List of fields to expand. Currently only available expand is users."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.groupName" expression="$func:groupName"/>
         <property name="uri.var.jira.expand" expression="$func:expand"/>

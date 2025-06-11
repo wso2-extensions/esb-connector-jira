@@ -22,14 +22,16 @@
     <parameter name="subject" description="The subject of the notification."/>
     <parameter name="textBody" description="The text body of the notification."/>
     <parameter name="htmlBody" description="The html body of the notification."/>
-    <parameter name="toReporter" description="The boolen flag to indicate whether to notify the reporter."/>
-    <parameter name="toAssignee" description="The boolen flag to indicate whether to notify the assignee."/>
-    <parameter name="toWatchers" description="The boolen flag to indicate whether to notify the watchers."/>
-    <parameter name="toVoters" description="The boolen flag to indicate whether to notify the voters."/>
-    <parameter name="toUsers" description="The boolen flag to indicate whether to notify the users."/>
+    <parameter name="toReporter" description="The boolean flag to indicate whether to notify the reporter."/>
+    <parameter name="toAssignee" description="The boolean flag to indicate whether to notify the assignee."/>
+    <parameter name="toWatchers" description="The boolean flag to indicate whether to notify the watchers."/>
+    <parameter name="toVoters" description="The boolean flag to indicate whether to notify the voters."/>
+    <parameter name="toUsers" description="The boolean flag to indicate whether to notify the users."/>
     <parameter name="toGroups" description="The Array of notification groups to be notified."/>
     <parameter name="restrictGroups" description="The Array of notification groups to be restricted."/>
     <parameter name="restrictPermissions" description="The Array of restricted permissions for the notification."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.issueIdOrKey" expression="$func:issueIdOrKey"/>
         <property name="uri.var.subject" expression="$func:subject"/>
@@ -43,6 +45,7 @@
         <property name="uri.var.toGroups" expression="$func:toGroups"/>
         <property name="uri.var.restrictGroups" expression="$func:restrictGroups"/>
         <property name="uri.var.restrictPermissions" expression="$func:restrictPermissions"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var subject = mc.getProperty('uri.var.subject');
@@ -93,17 +96,17 @@
                restrict.permissions = eval ("(" + restrictPermissions + ")");
             }
             for(var toProp in to) {
-               if (to.hasOwnProperty(toProp)) {
+                if (to.hasOwnProperty(toProp)) {
                   payload.to = to;
                   break;
-               }
-            } 
+                }
+            }
             for(var resProp in restrict) {
-               if (restrict.hasOwnProperty(resProp)) {
+                if (restrict.hasOwnProperty(resProp)) {
                   payload.restrict = restrict;
                   break;
-               }
-            } 
+                }
+            }
             mc.setPayloadJSON(payload);
          ]]>
         </script>

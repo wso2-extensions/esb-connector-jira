@@ -17,14 +17,17 @@
 ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="getDashboards">
-    <parameter name="maxResults" description="maxium results to be shown."/>
+    <parameter name="maxResults" description="maximum results to be shown."/>
     <parameter name="startAt" description="starts from."/>
     <parameter name="filter" description="An optional filter that is applied to the list of dashboards."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.maxResults" expression="$func:maxResults"/>
         <property name="uri.var.jira.startAt" expression="$func:startAt"/>
         <property name="uri.var.jira.filter" expression="$func:filter"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var maxResults = mc.getProperty('uri.var.jira.maxResults');

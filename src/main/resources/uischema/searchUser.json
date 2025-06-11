@@ -1,0 +1,122 @@
+{
+  "connectorName": "jira",
+  "operationName": "searchUser",
+  "title": "Search Users",
+  "help": "Search for users in Jira based on username and filtering options.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Search Criteria",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "usernameForSearch",
+              "displayName": "Username for Search",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "The username string used to search for users."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "startAt",
+              "displayName": "Start At",
+              "inputType": "numberOrExpression",
+              "defaultValue": "0",
+              "required": "false",
+              "helpTip": "The index of the first user to return (0-based)."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "maxResults",
+              "displayName": "Max Results",
+              "inputType": "numberOrExpression",
+              "defaultValue": "50",
+              "required": "false",
+              "helpTip": "Maximum number of users to return. Default is 50, maximum allowed is 1000."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "includeActive",
+              "displayName": "Include Active Users",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "true",
+              "required": "false",
+              "helpTip": "If true, active users are included in the result."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "includeInactive",
+              "displayName": "Include Inactive Users",
+              "inputType": "booleanOrExpression",
+              "defaultValue": "false",
+              "required": "false",
+              "helpTip": "If true, inactive users are included in the result."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": "true",
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

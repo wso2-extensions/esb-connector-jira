@@ -19,8 +19,11 @@
 <!-- Method Documentation URL: https://developer.atlassian.com/static/rest/jira/5.0.html#id199057 -->
 <template name="getIssueLinkById" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="linkId" description="The issue link id."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.linkId" expression="$func:linkId"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
                 <call blocking="true">

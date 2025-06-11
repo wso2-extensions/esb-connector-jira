@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Dashboard by Id Operation Response Schema",
+  "description": "Schema representing the output of the get dashboard by id operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getDashboardById` method.",
+      "type": "object",
+      "properties": {
+        "view": {
+          "id": "The URL of the dashboard.",
+          "type": "string"
+        },
+        "name": {
+          "id": "The name of the dashboard.",
+          "type": "string"
+        },
+        "self": {
+          "id": "The URL of these dashboard details.",
+          "type": "string"
+        },
+        "id": {
+          "id": "The ID of the dashboard.",
+          "type": "string"
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

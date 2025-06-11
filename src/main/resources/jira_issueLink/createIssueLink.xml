@@ -23,12 +23,15 @@
     <parameter name="outwardIssueKey" description="Key of the outward issue."/>
     <parameter name="commentBody" description="Body of the comment."/>
     <parameter name="commentVisibility" description="Visibility of the comment."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.typeName" expression="$func:typeName"/>
         <property name="uri.var.inwardIssueKey" expression="$func:inwardIssueKey"/>
         <property name="uri.var.outwardIssueKey" expression="$func:outwardIssueKey"/>
         <property name="uri.var.commentBody" expression="$func:commentBody"/>
         <property name="uri.var.commentVisibility" expression="$func:commentVisibility"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
         	var payload = {};
@@ -60,11 +63,11 @@
                comment.visibility=eval ("(" + commentVisibility + ")");
             }
             for(var prop in comment) {
-               if (comment.hasOwnProperty(prop)) {
+                if (comment.hasOwnProperty(prop)) {
                   payload.comment = comment;
                   break;
-               }
-            } 
+                }
+            }
             mc.setPayloadJSON(payload);
       	]]>
         </script>

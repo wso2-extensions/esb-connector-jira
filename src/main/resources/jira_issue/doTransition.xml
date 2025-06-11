@@ -19,8 +19,11 @@
 <template xmlns="http://ws.apache.org/ns/synapse" name="doTransition">
     <parameter name="issueIdOrKey" description="a String containing the issue id."/>
     <parameter name="issueFields" description="The fields of the issue."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.issueId" expression="$func:issueIdOrKey"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <payloadFactory media-type="json">
             <format>
                 $1

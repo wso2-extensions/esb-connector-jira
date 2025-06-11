@@ -1,0 +1,91 @@
+{
+  "connectorName": "jira",
+  "operationName": "getAttachmentContent",
+  "title": "Get Attachment Content",
+  "help": "Retrieves the content of a Jira attachment using its URL. Automatically follows redirect if HTTP 302 is received.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "JIRA"
+              ],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Attachment Input",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "attachmentUrl",
+                    "displayName": "Attachment URL",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "The direct URL of the Jira attachment content."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fileType",
+                    "displayName": "File Type",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "application/octet-stream",
+                    "required": "false",
+                    "helpTip": "MIME type of the file (e.g., application/pdf, image/png)."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": "true",
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

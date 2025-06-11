@@ -21,12 +21,15 @@
     <parameter name="projectKeys" description="a String containing of the unique key for a project"/>
     <parameter name="maxResults" description="maxium results to be shown"/>
     <parameter name="startAt" description="starts from"/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.usernameForSearch" expression="$func:usernameForSearch"/>
         <property name="uri.var.jira.projectKeys" expression="$func:projectKeys"/>
         <property name="uri.var.jira.maxResults" expression="$func:maxResults"/>
         <property name="uri.var.jira.startAt" expression="$func:startAt"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var maxResults = mc.getProperty('uri.var.jira.maxResults');

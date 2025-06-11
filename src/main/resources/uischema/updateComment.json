@@ -1,0 +1,118 @@
+{
+  "connectorName": "jira",
+  "operationName": "updateComment",
+  "title": "Update Issue Comment",
+  "help": "Update an existing comment on a Jira issue. You can also restrict visibility to a specific role.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Comment Input",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "issueIdOrKey",
+              "displayName": "Issue ID or Key",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The Jira issue ID or key for which the comment is being updated."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "commentId",
+              "displayName": "Comment ID",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The ID of the comment to be updated."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "comment",
+              "displayName": "Comment",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The updated comment content."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "visibleRole",
+              "displayName": "Visible Role",
+              "inputType": "stringOrExpression",
+              "required": "false",
+              "helpTip": "Restrict visibility of the comment to a specific Jira role (e.g., 'Administrators')."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "expand",
+              "displayName": "Expand",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "Comma-separated expand options, such as 'renderedBody' to get the HTML version of the comment."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": "true",
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

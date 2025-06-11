@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Issue Operation Response Schema",
+  "description": "Schema representing the output of the get issue operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getIssue` method.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "id": "The ID of the issue.",
+          "type": "string"
+        },
+        "expand": {
+          "id": "Expand options that include additional issue details in the response.",
+          "type": "string"
+        },
+        "self": {
+          "id": "The URL of the issue details.",
+          "type": "string"
+        },
+        "key": {
+          "id": "The key of the issue.",
+          "type": "string"
+        },
+        "fields": {
+          "id": "The list of filed of the issue.",
+          "type": "object",
+          "properties": {}
+        },
+        "operations": {
+          "id": "The operations that can be performed on the issue.",
+          "type": "object",
+          "properties": {
+            "linkGroups": {
+              "id": "The operations that can be performed on the issue.",
+              "type": "object",
+              "properties": {}
+            },
+            "Additional Properties": {
+              "id": "The operations that can be performed on the issue.",
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "properties" : {
+          "id": "Details of the issue properties identified in the request.",
+          "type": "object",
+          "properties": {}
+        },
+        "transitions" : {
+          "id": "The transitions that can be performed on the issue.",
+          "type": "object",
+          "properties": {}
+        },
+        "versionedRepresentations": {
+          "id": "The versions of each field on the issue.",
+          "type": "object",
+          "properties": {}
+        },
+        "renderedFields": {
+          "id": "The rendered value of each field present on the issue.",
+          "type": "object",
+          "properties": {}
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

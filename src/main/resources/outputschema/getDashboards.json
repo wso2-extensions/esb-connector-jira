@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Jira API Get Dashboards Response Schema",
+  "description": "Schema representing the output of the get dashboards operation in Jira API",
+  "properties": {
+    "payload": {
+      "description": "Response for the `getDashboards` method.",
+      "type": "object",
+      "properties": {
+        "next": {
+          "id": "The URL of the next page of results, if any.",
+          "type": "string"
+        },
+        "total": {
+          "id": "The number of results on the page.",
+          "type": "number"
+        },
+        "maxResults": {
+          "id": "The number of results on the page.",
+          "type": "number"
+        },
+        "prev": {
+          "id": "The URL of the previous page of results, if any.",
+          "type": "string"
+        },
+        "dashboards": {
+          "id": "List of dashboards.",
+          "type": "array",
+          "properties": {
+            "view": {
+              "id": "The URL of the dashboard.",
+              "type": "string"
+            },
+            "name": {
+              "id": "The name of the dashboard.",
+              "type": "string"
+            },
+            "self": {
+              "id": "The URL of these dashboard details.",
+              "type": "string"
+            },
+            "id": {
+              "id": "The ID of the dashboard.",
+              "type": "string"
+            }
+          }
+        },
+        "startAt": {
+          "id": "The index of the first item returned on the page.",
+          "type": "number"
+        }
+      }
+    },
+    "attributes": {
+      "description": "Metadata about the operation.",
+      "properties": {
+        "statusCode": {
+          "description": "HTTP status code of the API response."
+        }
+      }
+    },
+    "headers": {
+      "description": "HTTP headers of the API response.",
+      "properties": {}
+    }
+  }
+}

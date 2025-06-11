@@ -1,0 +1,100 @@
+{
+  "connectorName": "jira",
+  "operationName": "listGroupUserPicker",
+  "title": "List Group User Picker",
+  "help": "Search for users by username, name, or email address with optional filters and avatar display settings.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "User Picker Filters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "query",
+                    "displayName": "Search Query",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "String to search usernames, names, or email addresses."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "maxResults",
+                    "displayName": "Max Results",
+                    "inputType": "integerOrExpression",
+                    "defaultValue": "50",
+                    "required": "false",
+                    "helpTip": "Maximum number of users to return."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "isShowAvatar",
+                    "displayName": "Show Avatar",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Boolean value indicating whether to include avatar information in results."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": "true",
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

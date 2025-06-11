@@ -20,9 +20,12 @@
 <template name="assignIssueToUser" xmlns="http://ws.apache.org/ns/synapse">
     <parameter name="name" description="The name of the assignee."/>
     <parameter name="issueIdOrKey" description="A String containing an issue key."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.name" expression="$func:name"/>
         <property name="uri.var.issueIdOrKey" expression="$func:issueIdOrKey"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var name = mc.getProperty('uri.var.name');

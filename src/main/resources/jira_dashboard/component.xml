@@ -19,10 +19,12 @@
 <component name="jira_dashboard" type="synapse/template">
     <subComponents>
         <component name="getDashboards">
+            <displayName>Get Dashboards</displayName>
             <file>getDashboards.xml</file>
             <description>get available jira dashboards</description>
         </component>
         <component name="getDashboardById">
+            <displayName>Get Dashboard by Id</displayName>
             <file>getDashboardById.xml</file>
             <description>get jira dashboard by ID</description>
         </component>

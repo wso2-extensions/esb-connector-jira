@@ -1,0 +1,88 @@
+{
+  "connectorName": "jira",
+  "connectionName": "JIRA",
+  "title": "Jira Connection",
+  "help": "<h1>Jira Connection</h1><p>Use this connection to integrate with Jira services.</p>",
+  "testConnectionEnabled": false,
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "connectionName",
+        "displayName": "Connection Name",
+        "inputType": "string",
+        "defaultValue": "JIRA_CONNECTION_1",
+        "required": "false",
+        "helpTip": "The unique name of the connection to Jira."
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Basic",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "username",
+                    "displayName": "Username",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Username used to log in to Jira."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "password",
+                    "displayName": "Password",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Password used to log in to Jira."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "blocking",
+                    "displayName": "Blocking",
+                    "inputType": "boolean",
+                    "defaultValue": "true",
+                    "required": "true",
+                    "helpTip": "Indicates whether the connector should perform blocking invocations to Jira."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "API Details",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "uri",
+                    "displayName": "API URL",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "URI of the Jira instance, e.g., https://<site-url>/"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

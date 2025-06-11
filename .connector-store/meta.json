@@ -16,6 +16,306 @@
     ],
     "releases": [
         {
+            "tagName": "v2.0.0",
+            "products": [
+                "MI 4.4.0"
+            ],
+            "operations": [
+                {
+                    "name": "init",
+                    "description": "configure jira connector",
+                    "isHidden": true
+                },
+                {
+                    "name": "getDashboards",
+                    "description": "get available jira dashboards",
+                    "isHidden": false
+                },
+                {
+                    "name": "getDashboardById",
+                    "description": "get jira dashboard by ID",
+                    "isHidden": false
+                },
+                {
+                    "name": "createFilter",
+                    "description": "Creates a new filter, and returns newly created filter. Currently sets permissions just using the users default sharing permissions",
+                    "isHidden": false
+                },
+                {
+                    "name": "deleteFilter",
+                    "description": "Delete a filter.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getFavouriteFilters",
+                    "description": "Returns the favourite filters of the logged-in user.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getFilterById",
+                    "description": "Returns a filter given an id",
+                    "isHidden": false
+                },
+                {
+                    "name": "updateFilterById",
+                    "description": "Updates an existing filter, and returns its new value.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getGroup",
+                    "description": "Returns REST representation for the requested group",
+                    "isHidden": false
+                },
+                {
+                    "name": "listGroupPicker",
+                    "description": "Returns groups with substrings matching a given query.",
+                    "isHidden": false
+                },
+                {
+                    "name": "listGroupUserPicker",
+                    "description": "Returns a list of users and groups matching query with highlighting.",
+                    "isHidden": false
+                },
+                {
+                    "name": "createIssue",
+                    "description": "creates jira issue",
+                    "isHidden": false
+                },
+                {
+                    "name": "getIssue",
+                    "description": "get jira issue",
+                    "isHidden": false
+                },
+                {
+                    "name": "updateIssue",
+                    "description": "update jira issue",
+                    "isHidden": false
+                },
+                {
+                    "name": "updateIssueAssignee",
+                    "description": "update jira issue assinee",
+                    "isHidden": false
+                },
+                {
+                    "name": "getTransitions",
+                    "description": "get transitions for the requested jira",
+                    "isHidden": false
+                },
+                {
+                    "name": "doTransition",
+                    "description": "change transitions for the requested jira",
+                    "isHidden": false
+                },
+                {
+                    "name": "deleteComment",
+                    "description": "delete comment of the given jira issue",
+                    "isHidden": false
+                },
+                {
+                    "name": "getComments",
+                    "description": "get jira issue commnents",
+                    "isHidden": false
+                },
+                {
+                    "name": "postComment",
+                    "description": "Posting jira issue comment",
+                    "isHidden": false
+                },
+                {
+                    "name": "updateComment",
+                    "description": "updating jira issue comment",
+                    "isHidden": false
+                },
+                {
+                    "name": "getVotesForIssue",
+                    "description": "get vote for the requested jira",
+                    "isHidden": false
+                },
+                {
+                    "name": "addAttachmentToIssueId",
+                    "description": "Add one or more attachments to an issue.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getIssuePriorities",
+                    "description": "Get a list of issue priorities.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getIssuePriorityById",
+                    "description": "Get information about issue priority by ID.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getIssueTypes",
+                    "description": "Get issue types defined in the system.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getIssueTypeById",
+                    "description": "Get information about issue type by ID.",
+                    "isHidden": false
+                },
+                {
+                    "name": "createBulkIssue",
+                    "description": "Creates many issues in one bulk operation.",
+                    "isHidden": false
+                },
+                {
+                    "name": "assignIssueToUser",
+                    "description": "Assigns an issue to a user.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getCommentById",
+                    "description": "Returns all comments for an issue.",
+                    "isHidden": false
+                },
+                {
+                    "name": "sendNotification",
+                    "description": "Sends a notification (email) to the list or recipients defined in the request.",
+                    "isHidden": false
+                },
+                {
+                    "name": "addVotesForIssue",
+                    "description": "Cast your vote in favour of an issue.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getWatchersForIssue",
+                    "description": "Returns the list of watchers for the issue with the given key.",
+                    "isHidden": false
+                },
+                {
+                    "name": "removeUserFromWatcherList",
+                    "description": "Removes a user from an issue's watcher list.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getProject",
+                    "description": "Get Jira Project information.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getAvatarsForProject",
+                    "description": "returns all avatars which are visible for the currently logged in user. The avatars are grouped into system and custom.",
+                    "isHidden": false
+                },
+                {
+                    "name": "deleteAvatarForProject",
+                    "description": "Deletes avatar",
+                    "isHidden": false
+                },
+                {
+                    "name": "getComponentsOfProject",
+                    "description": "Contains a full representation of a the specified project's components.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getStatusesOfProject",
+                    "description": "Get all issue types with valid status values for a project.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getVersionsOfProject",
+                    "description": "Contains a full representation of a the specified project's versions.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getRolesOfProject",
+                    "description": "Contains a list of roles in this project with links to full details.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getRolesByIdOfProject",
+                    "description": "Details on a given project role.",
+                    "isHidden": false
+                },
+                {
+                    "name": "setActorsToRoleOfProject",
+                    "description": "Set actors to a given project role.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getUserAssignableProjects",
+                    "description": "Returns a list of users that match the search string and can be assigned issues for all the given projects. This resource cannot be accessed anonymously.",
+                    "isHidden": false
+                },
+                {
+                    "name": "searchJira",
+                    "description": "Search jira using JQL",
+                    "isHidden": false
+                },
+                {
+                    "name": "getUser",
+                    "description": "Get Jira user information",
+                    "isHidden": false
+                },
+                {
+                    "name": "getUserPermissions",
+                    "description": "Get permissions granted for current user",
+                    "isHidden": false
+                },
+                {
+                    "name": "searchAssignableUser",
+                    "description": "Returns a list of assignable users that match the given issue.",
+                    "isHidden": false
+                },
+                {
+                    "name": "searchIssueViewableUsers",
+                    "description": "Given an issue key this resource will provide a list of users that match the search string and have the browse issue permission for the issue provided.",
+                    "isHidden": false
+                },
+                {
+                    "name": "searchUser",
+                    "description": "Get Jira user information",
+                    "isHidden": false
+                },
+                {
+                    "name": "getAttachmentById",
+                    "description": "Returns the meta-data for an attachment, including the URI of the actual attached file.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getAttachmentContent",
+                    "description": "Returns the content of an attachment.",
+                    "isHidden": false
+                },
+                {
+                    "name": "createComponent",
+                    "description": "Create a component.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getComponent",
+                    "description": "Returns a project component.",
+                    "isHidden": false
+                },
+                {
+                    "name": "updateComponent",
+                    "description": "Modify a component .",
+                    "isHidden": false
+                },
+                {
+                    "name": "countComponentRelatedIssues",
+                    "description": "Returns counts of issues related to this component.",
+                    "isHidden": false
+                },
+                {
+                    "name": "createIssueLink",
+                    "description": "Creates an issue link between two issues.",
+                    "isHidden": false
+                },
+                {
+                    "name": "getIssueLinkById",
+                    "description": "Returns an issue link with the specified id.",
+                    "isHidden": false
+                }
+            ],
+            "connections": ["JIRA"],
+            "isHidden": false
+        },
+        {
             "tagName": "v1.0.6",
             "products": [
                 "MI 4.4.0",

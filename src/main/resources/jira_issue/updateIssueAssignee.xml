@@ -17,11 +17,14 @@
 ~  under the License.
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="updateIssueAssignee">
-    <parameter name="issueIdOrKey" description="a String containing the issue id."/>
-    <parameter name="name" description="a String containing the name of assignee."/>
+    <parameter name="issueIdOrKey" description="The ID or key of the issue."/>
+    <parameter name="name" description="A String containing the name of assignee."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.issueId" expression="$func:issueIdOrKey"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <payloadFactory media-type="json">
             <format>
                 {

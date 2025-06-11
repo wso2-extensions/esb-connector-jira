@@ -1,0 +1,107 @@
+{
+  "connectorName": "jira",
+  "operationName": "createIssueLink",
+  "title": "Create Issue Link",
+  "help": "Creates a link between two Jira issues and optionally adds a comment.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Link Information",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "typeName",
+              "displayName": "Link Type Name",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "defaultValue": "",
+              "helpTip": "Name of the link type (e.g., 'Blocks', 'Relates')."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "inwardIssueKey",
+              "displayName": "Inward Issue Key",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "defaultValue": "",
+              "helpTip": "Key of the inward issue (e.g., JIRA-100)."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "outwardIssueKey",
+              "displayName": "Outward Issue Key",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "defaultValue": "",
+              "helpTip": "Key of the outward issue (e.g., JIRA-101)."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Optional Comment",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "commentBody",
+              "displayName": "Comment Body",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "helpTip": "Optional comment to add to the issue link."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "commentVisibility",
+              "displayName": "Comment Visibility",
+              "inputType": "jsonOrExpression",
+              "defaultValue": "",
+              "helpTip": "Visibility of the comment (e.g., {\"type\": \"role\", \"value\": \"Developers\"})."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": "true",
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

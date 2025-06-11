@@ -19,9 +19,12 @@
 <template xmlns="http://ws.apache.org/ns/synapse" name="getRolesByIdOfProject">
     <parameter name="projectIdOrKey" description="a String containing of the unique key for a project"/>
     <parameter name="roleId" description="role id for the given project"/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.jira.projectIdOrKey" expression="$func:projectIdOrKey"/>
         <property name="uri.var.jira.roleId" expression="$func:roleId"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
                 <call blocking="true">

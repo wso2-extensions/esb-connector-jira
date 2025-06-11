@@ -1,0 +1,87 @@
+{
+  "connectorName": "jira",
+  "operationName": "updateIssue",
+  "title": "Update Jira Issue",
+  "help": "Update one or more fields of a Jira issue using its ID or key. The update should be passed in JSON format.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Issue Update",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "issueIdOrKey",
+              "displayName": "Issue ID or Key",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The Jira issue ID or key to update (e.g., 'JRA-123')."
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "issueFields",
+              "displayName": "Issue Fields JSON",
+              "inputType": "stringOrExpression",
+              "required": "true",
+              "helpTip": "The JSON object specifying the fields to update. Example: '{\"fields\": {\"summary\": \"New summary\"}}'."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": "true",
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

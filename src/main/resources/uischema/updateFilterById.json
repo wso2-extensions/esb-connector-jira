@@ -1,0 +1,133 @@
+{
+  "connectorName": "jira",
+  "operationName": "updateFilterById",
+  "title": "Update Filter by ID",
+  "help": "Update an existing Jira filter using its ID. You can modify the name, description, JQL, and favorite status.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Jira Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": ["JIRA"],
+              "defaultType": "connection.JIRA",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection configuration used to access the Jira server."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Filter Details",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "filterId",
+                    "displayName": "Filter ID",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "ID of the Jira filter to be updated."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "filterName",
+                    "displayName": "Filter Name",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "New name of the filter."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "description",
+                    "displayName": "Filter Description",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "New description of the filter."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "jqlType",
+                    "displayName": "JQL Type",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "JQL query type used in the filter. The full query will be 'type = [jqlType]'."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "favourite",
+                    "displayName": "Favourite",
+                    "inputType": "booleanOrExpression",
+                    "defaultValue": "false",
+                    "required": "false",
+                    "helpTip": "Set this filter as a favorite."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "expand",
+                    "displayName": "Expand Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Comma-separated list of fields to expand (e.g., 'sharedUsers,subscriptions')."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "responseVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": "true",
+              "required": "true",
+              "helpTip": "Name of the variable to which the output of the operation should be assigned"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "overwriteBody",
+              "displayName": "Overwrite Message Body",
+              "inputType": "checkbox",
+              "defaultValue": "false",
+              "helpTip": "Replace the Message Body in Message Context with the output of the operation (This will remove the payload from the above variable).",
+              "required": "false"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

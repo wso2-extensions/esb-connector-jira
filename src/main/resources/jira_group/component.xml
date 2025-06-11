@@ -19,14 +19,17 @@
 <component name="jira_group" type="synapse/template">
     <subComponents>
         <component name="getGroup">
+            <displayName>Get Group</displayName>
             <file>getGroup.xml</file>
             <description>Returns REST representation for the requested group</description>
         </component>
         <component name="listGroupPicker">
+            <displayName>List Group Picker</displayName>
             <file>listGroupPicker.xml</file>
             <description>Returns groups with substrings matching a given query.</description>
         </component>
         <component name="listGroupUserPicker">
+            <displayName>List Group User Picker</displayName>
             <file>listGroupUserPicker.xml</file>
             <description>Returns a list of users and groups matching query with highlighting.</description>
         </component>
