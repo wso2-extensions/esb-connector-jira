@@ -34,6 +34,7 @@
         <property name="uri.var.jira.includeActive" expression="$func:includeActive"/>
         <property name="uri.var.jira.includeInactive" expression="$func:includeInactive"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var includeActive = mc.getProperty('uri.var.jira.includeActive');

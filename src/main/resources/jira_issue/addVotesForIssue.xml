@@ -23,6 +23,7 @@
     <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.issueId" expression="$func:issueId"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
                 <call blocking="true">

@@ -45,6 +45,7 @@
         <property name="uri.var.toGroups" expression="$func:toGroups"/>
         <property name="uri.var.restrictGroups" expression="$func:restrictGroups"/>
         <property name="uri.var.restrictPermissions" expression="$func:restrictPermissions"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var subject = mc.getProperty('uri.var.subject');

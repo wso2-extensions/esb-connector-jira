@@ -32,6 +32,7 @@
         <property name="uri.var.jira.fields" expression="$func:fields"/>
         <property name="uri.var.jira.validateQuery" expression="$func:validateQuery"/>
         <property name="uri.var.jira.expand" expression="$func:expand"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var maxResults = mc.getProperty('uri.var.jira.maxResults');

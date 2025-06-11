@@ -23,6 +23,7 @@
     <sequence>
         <property name="uri.var.jira.issueTypeId" expression="$func:issueTypeId"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
                 <call blocking="true">

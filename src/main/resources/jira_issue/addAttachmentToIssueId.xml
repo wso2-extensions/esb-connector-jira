@@ -26,6 +26,7 @@
         <property name="POST_TO_URI" scope="axis2" value="true"/>
         <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
         <property action="remove" name="Accept-Encoding" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
                 <call blocking="true">

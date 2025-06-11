@@ -24,6 +24,7 @@
     <sequence>
         <property name="uri.var.jira.projectIdOrKey" expression="$func:projectIdOrKey"/>
         <property name="uri.var.jira.expand" expression="$func:expand"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
                 var expand = mc.getProperty('uri.var.jira.expand');

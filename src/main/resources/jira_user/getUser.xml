@@ -25,6 +25,7 @@
         <property name="uri.var.jira.usernameFilter" expression="$func:usernameFilter"/>
         <property name="uri.var.jira.key" expression="$func:key"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var usernameFilter = mc.getProperty('uri.var.jira.usernameFilter');

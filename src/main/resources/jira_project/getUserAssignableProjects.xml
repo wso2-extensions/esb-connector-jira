@@ -29,6 +29,7 @@
         <property name="uri.var.jira.maxResults" expression="$func:maxResults"/>
         <property name="uri.var.jira.startAt" expression="$func:startAt"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var maxResults = mc.getProperty('uri.var.jira.maxResults');

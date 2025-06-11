@@ -32,6 +32,7 @@
         <property name="uri.var.jira.projectKey" expression="$func:projectKey"/>
         <property name="uri.var.jira.startAt" expression="$func:startAt"/>
         <property name="uri.var.jira.maxResults" expression="$func:maxResults"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <script language="js">
             <![CDATA[
             var projectKey = mc.getProperty('uri.var.jira.projectKey');

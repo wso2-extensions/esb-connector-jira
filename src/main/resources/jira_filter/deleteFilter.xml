@@ -18,11 +18,12 @@
 -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="deleteFilter">
     <parameter name="filterId" description="a String containing the filter id."/>
+    <parameter name="responseVariable" description="Name of the variable to store operation output"/>
+    <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
     <sequence>
         <property name="uri.var.filterId" expression="$func:filterId"/>
         <property name="Accept-Encoding" action="remove" scope="transport"/>
-        <parameter name="responseVariable" description="Name of the variable to store operation output"/>
-        <parameter name="overwriteBody" description="Replace Message Body with operation output"/>
+        <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <filter source="$ctx:jiraBlocking" regex="true">
             <then>
                 <call blocking="true">
