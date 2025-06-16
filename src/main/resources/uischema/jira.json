@@ -47,7 +47,15 @@
                     "required": "true",
                     "helpTip": "Password used to log in to Jira."
                   }
-                },
+                }
+              ]
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Advanced",
+              "elements": [
                 {
                   "type": "attribute",
                   "value": {
